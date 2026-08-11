@@ -2,10 +2,6 @@ site_name: "FAIR + CARE for Agentic Science"
 site_description: "Designing FAIR and CARE into agentic workflows for responsible, reproducible science"
 site_url: "https://cu-esiil.github.io/FAIR-and-CARE-for-AGENTS/"
 
-repo_name: "CU-ESIIL/FAIR-and-CARE-for-AGENTS"
-repo_url: "https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS"
-edit_uri: "edit/main/docs/"
-
 nav:
   - Project:
       - Home: index.md
@@ -24,6 +20,7 @@ nav:
 
 theme:
   name: material
+  font: false
   logo: assets/brand/oasis-wordmark.png
   favicon: assets/esiil_content/favicon.ico
   custom_dir: docs/overrides

@@ -1,5 +1,13 @@
 # Decision log
 
+## 2026-08-11 — Keep the website runtime self-contained
+
+**Decision.** Disable Material for MkDocs' Google Fonts injection and dynamic repository-header integration. Use the existing local CSS system-font stack and the homepage's explicit static GitHub links.
+
+**Reason.** The public site already specifies Arial, Helvetica, and generic sans-serif fonts. Material's repository header also requests GitHub's repository and `releases/latest` APIs at runtime; the latter can correctly return 404 while this draft has no published release. These external requests were unnecessary because the homepage already links directly to the repository. Removing them eliminates the observed failure class, improves CI reliability, and reduces third-party network dependence without hiding a broken local resource.
+
+**Test.** The homepage test continues to reject browser console errors and broken images, rejects all externally loaded page resources, and records every response with an HTTP status of 400 or greater, including its exact URL.
+
 ## 2026-08-11 — Separate portable CI rendering from the final journal font
 
 **Decision.** Prefer the complete Times New Roman, Verdana, and Andale Mono font set when available, but fall back to ReportLab's standard Times, Helvetica, and Courier PDF fonts on clean systems. Exercise the fallback explicitly in tests.

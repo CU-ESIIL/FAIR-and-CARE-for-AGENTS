@@ -11,12 +11,25 @@ const expectedLinks = {
   'Visit the U.S. National Science Foundation': 'https://www.nsf.gov/',
 };
 
-test('homepage renders its core content and assets without browser errors', async ({ page }) => {
+test('homepage renders its core content and assets without browser errors', async ({ page, baseURL }) => {
   const browserErrors: string[] = [];
+  const failedResponses: string[] = [];
+  const externalResources: string[] = [];
+  const siteOrigin = new URL(baseURL!).origin;
   page.on('console', (message) => {
     if (message.type() === 'error') browserErrors.push(message.text());
   });
   page.on('pageerror', (error) => browserErrors.push(error.message));
+  page.on('response', (response) => {
+    if (response.status() >= 400) {
+      failedResponses.push(`${response.status()} ${response.url()}`);
+    }
+  });
+  page.on('request', (request) => {
+    if (new URL(request.url()).origin !== siteOrigin) {
+      externalResources.push(`${request.resourceType()} ${request.url()}`);
+    }
+  });
 
   const response = await page.goto('./');
 
@@ -35,6 +48,8 @@ test('homepage renders its core content and assets without browser errors', asyn
       .map((image) => image.getAttribute('alt')),
   );
   expect(brokenImages).toEqual([]);
+  expect(externalResources).toEqual([]);
+  expect(failedResponses).toEqual([]);
   expect(browserErrors).toEqual([]);
 });
 

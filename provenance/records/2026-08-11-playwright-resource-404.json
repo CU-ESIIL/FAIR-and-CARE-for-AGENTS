@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "run_id": "2026-08-11-playwright-resource-404",
+  "date": "2026-08-11",
+  "goal": "Eliminate the intermittent homepage resource 404 reported by Playwright in GitHub Actions without weakening browser-error coverage.",
+  "responsible_human": "Ty Tuff",
+  "actor": {
+    "kind": "agent",
+    "service": "OpenAI Codex",
+    "model": "GPT-5-based Codex",
+    "version": "exact deployment version not exposed to the repository"
+  },
+  "compute": {
+    "environment": "owner-authorized local Codex workspace with repository-scoped write access",
+    "data_boundary": "public repository content and user-supplied CI failure output only; no research, governed, or sensitive data",
+    "network": "local loopback website tests only; GitHub CLI was unavailable"
+  },
+  "instructions": [
+    "PROMPT_LOG.md entry: Fix the Playwright homepage 404",
+    "AGENTS.md operating contract",
+    "user-supplied GitHub Actions Playwright failure output"
+  ],
+  "inputs": [
+    "mkdocs.yml",
+    "docs/stylesheets/extra.css",
+    "site/index.html",
+    "tests/site.spec.ts"
+  ],
+  "outputs": [
+    "self-contained website runtime with local fonts and static repository links",
+    "URL-aware failed-resource assertion in the homepage test",
+    "decision, changelog, prompt, and provenance records"
+  ],
+  "evaluations": [
+    "strict MkDocs build",
+    "generated-HTML external-resource inspection",
+    "Playwright under the GitHub Actions CI configuration",
+    "repeated Playwright execution"
+  ],
+  "human_review": {
+    "reviewer": "Ty Tuff",
+    "status": "pending",
+    "publication_authorized": false,
+    "notes": "Local request instrumentation identified Material's runtime GitHub API calls, including the releases/latest endpoint that can return 404 before a release exists. A new hosted Actions run is still required for final confirmation."
+  }
+}

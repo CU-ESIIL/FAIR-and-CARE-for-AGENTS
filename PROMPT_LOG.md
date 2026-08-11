@@ -970,3 +970,21 @@ Error: Process completed with exit code 1.
 - Regenerated and visually inspected every page of the normal and portable versions of both PDFs. Both paths produce a 10-page reading copy and 17-page Ecology proof with no empty pages, null glyphs, clipping, overlap, or broken tables; the normal canonical proofs retain embedded Times New Roman.
 - Checks passed: all 16 unit and negative tests, including the two attached failures; normal and forced-portable one-command reproduction; all eight repository controls; strict MkDocs build; five Playwright website tests; Python compilation; provenance JSON parsing; PDF page, size, text-extraction, and font checks; and `git diff --check`.
 - GitHub CLI was unavailable in the local environment, so the hosted Actions check itself was not re-run or queried; a new GitHub Actions run remains the final remote confirmation.
+
+## 2026-08-11 — Fix the Playwright homepage 404
+
+### User prompt
+
+```text
+The attached pasted text file(s) contain the user's request. Read and act on that content.
+```
+
+The attached GitHub Actions log reported that four Playwright tests passed, but `homepage renders its core content and assets without browser errors` failed on all three attempts because Chromium logged one unidentified `404` resource response.
+
+### Agent response summary
+
+- Traced the generic homepage console 404 to Material for MkDocs runtime requests to GitHub's repository and `releases/latest` APIs. The release endpoint can correctly return 404 because this draft has no published release. The page also made an unnecessary Google Fonts request despite already using a local system-font stack.
+- Disabled Material's Google Fonts and dynamic repository-header integration in `mkdocs.yml`. Preserved the homepage's explicit static links to the repository and manuscript, so navigation remains available without runtime third-party requests.
+- Strengthened `tests/site.spec.ts`: the homepage test still rejects console errors and broken images, now rejects every externally loaded page resource, and reports the status and exact URL for any HTTP response of 400 or greater.
+- Added a decision record, changelog entry, and structured provenance record. GitHub CLI remained unavailable, so the hosted Actions run could not be queried or restarted locally.
+- Checks passed after the final change: strict MkDocs build; generated-HTML verification showing no Google Fonts, GitHub API, or dynamic source-component requests; the full GitHub Actions Playwright configuration repeated three times for 15 passing tests; all 16 Python unit and negative tests; all eight operational repository controls; provenance JSON parsing; and `git diff --check`.
