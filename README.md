@@ -175,6 +175,8 @@ python3 scripts/render_manuscript_pdf.py \
 
 Edit the Markdown source, not the PDF, and regenerate after manuscript changes. Omitting the arguments still renders Draft 1 to `output/pdf/fair_care_agentic_science.pdf`.
 
+The renderer uses the specified local manuscript fonts when the complete set is available. On clean Linux systems such as GitHub Actions, it falls back to ReportLab's portable Times, Helvetica, and Courier PDF base fonts so structural tests and reproducible builds do not depend on macOS. Set `MANUSCRIPT_FORCE_PORTABLE_FONTS=1` to exercise that path locally. Final journal proofs must still be rendered and visually checked with the journal-required font.
+
 Reproduce the named current output—the Draft 2 PDF and its citation-integrity/word-count report—with one command:
 
 ```bash

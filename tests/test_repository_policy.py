@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -99,6 +100,7 @@ class RepositoryPolicyTests(unittest.TestCase):
                 cwd=ROOT,
                 capture_output=True,
                 text=True,
+                env={**os.environ, "MANUSCRIPT_FORCE_PORTABLE_FONTS": "1"},
             )
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             output = Path(directory)
@@ -109,6 +111,14 @@ class RepositoryPolicyTests(unittest.TestCase):
             )
             self.assertTrue((output / "manuscript-audit-v2.md").is_file())
             self.assertTrue((output / "reproduction-manifest.json").is_file())
+            manifest = json.loads(
+                (output / "reproduction-manifest.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(
+                manifest["environment"]["manuscript_font_mode"],
+                "portable PDF base-font fallback",
+            )
+            self.assertTrue(manifest["environment"]["portable_font_mode_forced"])
 
 
 if __name__ == "__main__":

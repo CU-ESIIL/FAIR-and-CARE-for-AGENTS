@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
@@ -59,6 +60,7 @@ class EcologySubmissionTests(unittest.TestCase):
                 cwd=ROOT,
                 capture_output=True,
                 text=True,
+                env={**os.environ, "MANUSCRIPT_FORCE_PORTABLE_FONTS": "1"},
             )
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             reader = PdfReader(str(pdf))

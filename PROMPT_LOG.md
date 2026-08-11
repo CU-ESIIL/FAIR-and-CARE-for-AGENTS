@@ -850,3 +850,123 @@ I don't love the main these is using AI as a stress test. I think a better argue
 - Updated `README.md`, `project.json`, `CITATION.cff`, `docs/index.md`, the MkDocs site description, website styling and tests, the PDF cover thesis, Ecology guide metrics, changelog, decision log, and provenance so the human- and machine-readable project descriptions match the new framing.
 - Regenerated the 10-page reading PDF and 17-page Ecology formatting proof. Rendered and visually inspected every page; structural checks found Letter pages, complete text extraction, no empty pages, and no null glyphs.
 - Checks passed: 16 unit and negative tests; all eight operational repository controls; the Draft 2 citation-integrity and word-count audit; one-command reproduction and manifest generation; strict MkDocs build; five Playwright tests covering all local pages, links, primary content, mobile layout, and controls; JSON/CFF parsing; Python compilation; and `git diff --check`.
+
+## 2026-08-11 — Fix cross-platform PDF rendering in CI
+
+### User prompt
+
+```text
+Run python -m unittest discover -s tests -p "test_*.py"
+F........F......
+======================================================================
+FAIL: test_ecology_pdf_structure_and_page_limit (test_ecology_submission.EcologySubmissionTests.test_ecology_pdf_structure_and_page_limit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/FAIR-and-CARE-for-AGENTS/FAIR-and-CARE-for-AGENTS/tests/test_ecology_submission.py", line 63, in test_ecology_pdf_structure_and_page_limit
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/home/runner/work/FAIR-and-CARE-for-AGENTS/FAIR-and-CARE-for-AGENTS/scripts/render_ecology_manuscript_pdf.py", line 495, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/runner/work/FAIR-and-CARE-for-AGENTS/FAIR-and-CARE-for-AGENTS/scripts/render_ecology_manuscript_pdf.py", line 489, in main
+    render(args.source.resolve(), args.metadata.resolve(), args.output.resolve())
+  File "/home/runner/work/FAIR-and-CARE-for-AGENTS/FAIR-and-CARE-for-AGENTS/scripts/render_ecology_manuscript_pdf.py", line 402, in render
+    register_fonts()
+  File "/home/runner/work/FAIR-and-CARE-for-AGENTS/FAIR-and-CARE-for-AGENTS/scripts/render_manuscript_pdf.py", line 73, in register_fonts
+    raise FileNotFoundError("Required manuscript fonts are unavailable: " + ", ".join(missing))
+FileNotFoundError: Required manuscript fonts are unavailable: /System/Library/Fonts/Supplemental/Times New Roman.ttf, /System/Library/Fonts/Supplemental/Times New Roman Bold.ttf, /System/Library/Fonts/Supplemental/Times New Roman Italic.ttf, /System/Library/Fonts/Supplemental/Times New Roman Bold Italic.ttf, /System/Library/Fonts/Supplemental/Verdana.ttf, /System/Library/Fonts/Supplemental/Verdana Bold.ttf, /System/Library/Fonts/Supplemental/Andale Mono.ttf
+
+
+======================================================================
+FAIL: test_primary_output_reproduces_in_clean_directory (test_repository_policy.RepositoryPolicyTests.test_primary_output_reproduces_in_clean_directory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/FAIR-and-CARE-for-AGENTS/FAIR-and-CARE-for-AGENTS/tests/test_repository_policy.py", line 103, in test_primary_output_reproduces_in_clean_directory
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : # Manuscript audit
+
+**Status:** PASS
+
+## Word count by section
+
+| Section | Words |
+|---|---:|
+| Alternate titles | 47 |
+| Abstract | 206 |
+| 1. Better science requires designed-in FAIR and CARE | 480 |
+| 2. Design the workflow before delegating the work | 400 |
+| 3. FAIR repository design for agents | 691 |
+| 4. CARE governance for agents | 970 |
+| 5. An agent-ready environmental science repository | 350 |
+| 6. Conclusion | 181 |
+| Citation integrity | 52 |
+| References | 254 |
+
+## Citation metrics
+
+| Metric | Count |
+|---|---:|
+| In-text citation mentions | 8 |
+| Unique cited sources | 8 |
+| Bibliography entries | 8 |
+| Claim-level reviews | 8 |
+| `[CITATION NEEDED]` placeholders | 2 |
+
+## Source verification
+
+Online verification was not run. Claim fingerprints and registry consistency are always checked.
+
+| Source | Status | Detail |
+|---|---|---|
+| barker2022 | not run | Use --online to verify the authoritative record |
+| boettiger2015 | not run | Use --online to verify the authoritative record |
+| carroll2020 | not run | Use --online to verify the authoritative record |
+| gentleman2007 | not run | Use --online to verify the authoritative record |
+| peng2011 | not run | Use --online to verify the authoritative record |
+| sandve2013 | not run | Use --online to verify the authoritative record |
+| wilkinson2016 | not run | Use --online to verify the authoritative record |
+| w3c2013 | not run | Use --online to verify the authoritative record |
+
+## Findings
+
+- No blocking findings.
+Traceback (most recent call last):
+  File "/home/runner/work/FAIR-and-CARE-for-AGENTS/FAIR-and-CARE-for-AGENTS/scripts/render_manuscript_pdf.py", line 644, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/runner/work/FAIR-and-CARE-for-AGENTS/FAIR-and-CARE-for-AGENTS/scripts/render_manuscript_pdf.py", line 638, in main
+    render(args.source.resolve(), args.output.resolve())
+  File "/home/runner/work/FAIR-and-CARE-for-AGENTS/FAIR-and-CARE-for-AGENTS/scripts/render_manuscript_pdf.py", line 561, in render
+    register_fonts()
+  File "/home/runner/work/FAIR-and-CARE-for-AGENTS/FAIR-and-CARE-for-AGENTS/scripts/render_manuscript_pdf.py", line 73, in register_fonts
+    raise FileNotFoundError("Required manuscript fonts are unavailable: " + ", ".join(missing))
+FileNotFoundError: Required manuscript fonts are unavailable: /System/Library/Fonts/Supplemental/Times New Roman.ttf, /System/Library/Fonts/Supplemental/Times New Roman Bold.ttf, /System/Library/Fonts/Supplemental/Times New Roman Italic.ttf, /System/Library/Fonts/Supplemental/Times New Roman Bold Italic.ttf, /System/Library/Fonts/Supplemental/Verdana.ttf, /System/Library/Fonts/Supplemental/Verdana Bold.ttf, /System/Library/Fonts/Supplemental/Andale Mono.ttf
+Traceback (most recent call last):
+  File "/home/runner/work/FAIR-and-CARE-for-AGENTS/FAIR-and-CARE-for-AGENTS/scripts/reproduce.py", line 137, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/runner/work/FAIR-and-CARE-for-AGENTS/FAIR-and-CARE-for-AGENTS/scripts/reproduce.py", line 79, in main
+    run(render_command)
+  File "/home/runner/work/FAIR-and-CARE-for-AGENTS/FAIR-and-CARE-for-AGENTS/scripts/reproduce.py", line 31, in run
+    subprocess.run(command, cwd=ROOT, check=True)
+  File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/opt/hostedtoolcache/Python/3.12.13/x64/bin/python', 'scripts/render_manuscript_pdf.py', '--source', 'manuscript/fair_care_agentic_science_v2.md', '--output', '/tmp/tmpnx69w946/fair_care_agentic_science_v2.pdf']' returned non-zero exit status 1.
+
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.690s
+
+FAILED (failures=2)
+Error: Process completed with exit code 1.
+```
+
+### Agent response summary
+
+- Diagnosed both failures as the same portability bug: `scripts/render_manuscript_pdf.py` required seven fonts at absolute macOS paths, and the Ecology renderer reused that registration function on Linux GitHub Actions.
+- Changed the shared font registration to prefer the complete Times New Roman, Verdana, and Andale Mono set when available and otherwise register dependency-free ReportLab Times, Helvetica, and Courier PDF base fonts. Added `MANUSCRIPT_FORCE_PORTABLE_FONTS=1` so the Linux path is reproducible on any development machine.
+- Updated the two previously failing tests to force the portable path. The reproduction test now also verifies that its manifest records the selected font mode and whether the fallback was forced.
+- Preserved the journal distinction: the portable fallback supports CI structure and reproduction checks but does not claim to satisfy Ecology's Times New Roman requirement. Updated `README.md`, `AGENTS.md`, the Ecology guide, changelog, decision log, and a new provenance record accordingly.
+- Regenerated and visually inspected every page of the normal and portable versions of both PDFs. Both paths produce a 10-page reading copy and 17-page Ecology proof with no empty pages, null glyphs, clipping, overlap, or broken tables; the normal canonical proofs retain embedded Times New Roman.
+- Checks passed: all 16 unit and negative tests, including the two attached failures; normal and forced-portable one-command reproduction; all eight repository controls; strict MkDocs build; five Playwright website tests; Python compilation; provenance JSON parsing; PDF page, size, text-extraction, and font checks; and `git diff --check`.
+- GitHub CLI was unavailable in the local environment, so the hosted Actions check itself was not re-run or queried; a new GitHub Actions run remains the final remote confirmation.

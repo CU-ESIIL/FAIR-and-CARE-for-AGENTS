@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import html
+import os
 import re
 from datetime import date
 from pathlib import Path
@@ -54,6 +55,7 @@ FONT_FILES = {
     "ManuscriptSans-Bold": SERIF_DIR / "Verdana Bold.ttf",
     "ManuscriptMono": SERIF_DIR / "Andale Mono.ttf",
 }
+PORTABLE_FONT_ENV = "MANUSCRIPT_FORCE_PORTABLE_FONTS"
 
 DASH_TRANSLATION = str.maketrans(
     {
@@ -67,13 +69,41 @@ DASH_TRANSLATION = str.maketrans(
 )
 
 
-def register_fonts() -> None:
-    missing = [str(path) for path in FONT_FILES.values() if not path.exists()]
-    if missing:
-        raise FileNotFoundError("Required manuscript fonts are unavailable: " + ", ".join(missing))
+def selected_font_mode() -> str:
+    """Describe the font set that this environment will use."""
+    use_portable = os.environ.get(PORTABLE_FONT_ENV) == "1" or not all(
+        path.is_file() for path in FONT_FILES.values()
+    )
+    if use_portable:
+        return "portable PDF base-font fallback"
+    return "Times New Roman, Verdana, and Andale Mono"
 
-    for name, path in FONT_FILES.items():
-        pdfmetrics.registerFont(TTFont(name, str(path)))
+
+def register_fonts() -> str:
+    """Register manuscript fonts, with a dependency-free CI fallback.
+
+    Local journal proofs use Times New Roman, Verdana, and Andale Mono when the
+    complete macOS font set is present. Linux runners and other clean systems
+    use ReportLab's portable PDF base fonts under the same internal names.
+    """
+    font_mode = selected_font_mode()
+    use_portable = font_mode == "portable PDF base-font fallback"
+    if use_portable:
+        portable_faces = {
+            "ManuscriptSerif": "Times-Roman",
+            "ManuscriptSerif-Bold": "Times-Bold",
+            "ManuscriptSerif-Italic": "Times-Italic",
+            "ManuscriptSerif-BoldItalic": "Times-BoldItalic",
+            "ManuscriptSans": "Helvetica",
+            "ManuscriptSans-Bold": "Helvetica-Bold",
+            "ManuscriptMono": "Courier",
+        }
+        for name, face in portable_faces.items():
+            pdfmetrics.registerFont(pdfmetrics.Font(name, face, "WinAnsiEncoding"))
+    else:
+        for name, path in FONT_FILES.items():
+            pdfmetrics.registerFont(TTFont(name, str(path)))
+
     pdfmetrics.registerFontFamily(
         "ManuscriptSerif",
         normal="ManuscriptSerif",
@@ -85,7 +115,17 @@ def register_fonts() -> None:
         "ManuscriptSans",
         normal="ManuscriptSans",
         bold="ManuscriptSans-Bold",
+        italic="ManuscriptSans",
+        boldItalic="ManuscriptSans-Bold",
     )
+    pdfmetrics.registerFontFamily(
+        "ManuscriptMono",
+        normal="ManuscriptMono",
+        bold="ManuscriptMono",
+        italic="ManuscriptMono",
+        boldItalic="ManuscriptMono",
+    )
+    return font_mode
 
 
 def normalize_dashes(text: str) -> str:

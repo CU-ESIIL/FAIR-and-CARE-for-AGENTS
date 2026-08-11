@@ -10,6 +10,7 @@ This file records material changes to the repository and its public outputs. Dra
 - Made public website deployment a manually confirmed action.
 - Added a current, cited Ecology author-guidelines summary, editable submission metadata, an Ecology-style formatting proof, and automated submission-format checks.
 - Recentered the manuscript and website on designing FAIR and CARE into agentic workflows so agents strengthen the practices that support better human science; retained agent failure as a secondary diagnostic rather than the main thesis.
+- Made both PDF renderers portable to Linux CI by adding a tested PDF base-font fallback while preserving Times New Roman for the canonical Ecology proof.
 
 ## 0.1.0-draft
 

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "run_id": "2026-08-11-portable-pdf-fonts",
+  "date": "2026-08-11",
+  "goal": "Restore Linux GitHub Actions PDF and reproduction tests by removing the renderers' hard dependency on macOS-only font paths.",
+  "responsible_human": "Ty Tuff",
+  "actor": {
+    "kind": "agent",
+    "service": "OpenAI Codex",
+    "model": "GPT-5-based Codex",
+    "version": "exact deployment version not exposed to the repository"
+  },
+  "compute": {
+    "environment": "owner-authorized local Codex workspace with repository-scoped write access",
+    "data_boundary": "public repository content and user-supplied CI failure output only; no research, governed, or sensitive data",
+    "network": "none; GitHub CLI was unavailable, so the supplied Actions log was used as the failure record"
+  },
+  "instructions": [
+    "PROMPT_LOG.md entry: Fix cross-platform PDF rendering in CI",
+    "AGENTS.md operating contract",
+    "user-supplied GitHub Actions failure output"
+  ],
+  "inputs": [
+    "scripts/render_manuscript_pdf.py",
+    "scripts/render_ecology_manuscript_pdf.py",
+    "tests/test_ecology_submission.py",
+    "tests/test_repository_policy.py"
+  ],
+  "outputs": [
+    "portable PDF base-font fallback",
+    "Linux-like forced-fallback test coverage",
+    "updated rendering and journal-proof documentation"
+  ],
+  "evaluations": [
+    "forced portable-font unit and reproduction tests",
+    "normal Times New Roman render path",
+    "PDF structural checks and visual inspection",
+    "repository audit and strict documentation build"
+  ],
+  "human_review": {
+    "reviewer": "Ty Tuff",
+    "status": "pending",
+    "publication_authorized": false,
+    "notes": "Local tests reproduce the previously failing Linux code path; a new hosted Actions run is still required to confirm the remote check."
+  }
+}

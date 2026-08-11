@@ -36,7 +36,7 @@ Ecology specifies the following order:
 | --- | --- | --- |
 | Page size | US Letter, portrait | Implemented in the Ecology-formatted PDF. |
 | Margins | 1 inch on every side | Implemented. |
-| Main font | 12-point Times New Roman | Implemented with embedded Times New Roman fonts. |
+| Main font | 12-point Times New Roman | Implemented in the canonical proof with embedded Times New Roman. Clean CI systems use a portable Times fallback for structural testing only. |
 | Spacing | Double-space abstract, body, references, captions, and table notes | Implemented. Table cells may remain single-spaced at 10 points. |
 | Alignment | Left aligned; not justified | Implemented. |
 | Line numbers | Continuous from the first post-title-page manuscript line through References | Implemented as continuous margin line numbers on the text and reference pages. |
@@ -78,6 +78,7 @@ The author must personally verify the author list, affiliations, Author Contribu
 Ecology prefers a Word `.doc` or `.docx` main document. It permits a PDF main document only for a manuscript prepared in LaTeX, accompanied by the complete LaTeX source bundle and fonts without T3 fonts. The project currently creates the PDF from version-controlled Markdown with ReportLab, not LaTeX. Accordingly:
 
 - `output/pdf/fair_care_agentic_science_ecology.pdf` demonstrates the required page design and review layout;
+- clean-infrastructure test renders may substitute ReportLab's portable Times base font when Times New Roman is unavailable, but that fallback is not the final journal proof;
 - it should not be uploaded as the Main Document under the PDF/LaTeX exception; and
 - the actual submission should be exported to a carefully checked Word document or rebuilt as a genuine LaTeX source bundle.
 

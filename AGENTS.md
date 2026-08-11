@@ -59,6 +59,7 @@
 - Run `python3 scripts/manuscript_audit.py --check` after manuscript or citation changes.
 - For Draft 2, pass `--manuscript manuscript/fair_care_agentic_science_v2.md --registry manuscript/citation_audit_v2.json` to the manuscript audit.
 - After changing the Ecology guide, submission metadata, manuscript structure, or renderer, run `python3 scripts/render_ecology_manuscript_pdf.py` and `python3 -m unittest tests.test_ecology_submission` and visually inspect every rendered page.
+- PDF renderers must work on clean Linux infrastructure without macOS fonts. Keep the `MANUSCRIPT_FORCE_PORTABLE_FONTS=1` test path working; use and visually inspect the required Times New Roman fonts for the canonical Ecology proof.
 - Add `--online` to the manuscript audit when network access is available so authoritative source records are rechecked.
 - Register every in-text citation and bibliography entry in the citation-audit registry associated with that manuscript draft.
 - Treat claim review as scholarly judgment: read the source, document how it supports the cited paragraph, and update the paragraph fingerprint only after review. Never refresh fingerprints mechanically to silence CI.

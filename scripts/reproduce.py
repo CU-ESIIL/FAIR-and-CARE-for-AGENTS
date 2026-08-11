@@ -7,11 +7,14 @@ import argparse
 import hashlib
 import importlib.metadata
 import json
+import os
 import platform
 import subprocess
 import sys
 from datetime import date
 from pathlib import Path
+
+from render_manuscript_pdf import PORTABLE_FONT_ENV, selected_font_mode
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -105,6 +108,8 @@ def main() -> int:
             "implementation": platform.python_implementation(),
             "platform": platform.platform(),
             "reportlab": importlib.metadata.version("reportlab"),
+            "manuscript_font_mode": selected_font_mode(),
+            "portable_font_mode_forced": os.environ.get(PORTABLE_FONT_ENV) == "1",
         },
         "inputs": {
             str(SOURCE.relative_to(ROOT)): sha256(SOURCE),

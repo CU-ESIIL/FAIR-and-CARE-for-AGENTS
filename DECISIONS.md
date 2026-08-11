@@ -1,5 +1,13 @@
 # Decision log
 
+## 2026-08-11 — Separate portable CI rendering from the final journal font
+
+**Decision.** Prefer the complete Times New Roman, Verdana, and Andale Mono font set when available, but fall back to ReportLab's standard Times, Helvetica, and Courier PDF fonts on clean systems. Exercise the fallback explicitly in tests.
+
+**Reason.** The renderers previously depended on macOS-only absolute font paths, causing both PDF structure and reproduction tests to fail on Linux GitHub Actions. ReportLab's PDF base fonts require no operating-system font installation and make the computational checks portable.
+
+**Limit.** The portable fallback verifies rendering and document structure; it is not evidence that the journal's Times New Roman requirement is met. The canonical Ecology proof must still be rendered and visually checked on a system with Times New Roman.
+
 ## 2026-08-11 — Put better human science before agent diagnostics
 
 **Decision.** Center the current manuscript on the claim that FAIR and CARE improve human scientific practice, while agents cannot be assumed to inherit those practices, obligations, or authorities. Agentic workflows must therefore encode them explicitly.
