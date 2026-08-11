@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "scope": "public manuscript, documentation, website source, tests, and citation metadata in this repository",
+  "default_decision": "prohibited",
+  "responsible_human": "Ty Tuff",
+  "public_contact": "https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/issues",
+  "current_data_class": "public_repository_content",
+  "data_classes": {
+    "public_repository_content": {
+      "description": "Version-controlled material already approved for this public repository.",
+      "research_data": false,
+      "governed": false
+    },
+    "third_party_content": {
+      "description": "Sources, logos, and other material whose rights remain with their owners.",
+      "research_data": false,
+      "governed": false
+    },
+    "governed_or_sensitive_data": {
+      "description": "Indigenous, community-governed, personal, confidential, export-controlled, embargoed, credential, precise sensitive-location, or otherwise restricted material.",
+      "research_data": true,
+      "governed": true,
+      "approved_for_repository": false
+    }
+  },
+  "actions": {
+    "read_public_repository": "allowed",
+    "copy_public_repository_to_authorized_workspace": "allowed",
+    "analyze_public_repository_locally": "allowed",
+    "edit_version_controlled_source_locally": "allowed",
+    "run_documented_local_tests": "allowed",
+    "propose_scientific_claim_change": "allowed",
+    "change_scientific_claim": "human_approval",
+    "refresh_citation_review_fingerprint": "human_approval",
+    "change_evaluation_criteria": "human_approval",
+    "ingest_external_data": "human_and_rights_holder_approval",
+    "combine_with_external_data": "human_and_rights_holder_approval",
+    "perform_inference_on_governed_data": "human_and_rights_holder_approval",
+    "publish_website": "human_approval",
+    "publish_or_release_manuscript": "human_approval",
+    "redistribute_third_party_content": "rights_holder_approval",
+    "send_governed_data_to_external_model": "prohibited",
+    "train_or_fine_tune_on_repository_content": "prohibited",
+    "publish_without_review": "prohibited",
+    "fabricate_or_misrepresent_citation": "prohibited",
+    "refresh_citation_fingerprint_without_source_review": "prohibited",
+    "record_secret_or_sensitive_content_in_public_log": "prohibited",
+    "push_undocumented_external_artifact": "prohibited",
+    "perform_unknown_action": "prohibited"
+  },
+  "approved_compute": [
+    {
+      "name": "owner-authorized local workspace",
+      "purpose": "editing, local builds, and tests using public repository content",
+      "governed_data_allowed": false,
+      "network": "deny unless the task or approved service list requires it"
+    },
+    {
+      "name": "GitHub Actions",
+      "purpose": "public-repository CI checks and manually confirmed website deployment",
+      "governed_data_allowed": false,
+      "secrets_allowed": false
+    }
+  ],
+  "approved_external_services": [
+    {
+      "service": "GitHub and GitHub Pages",
+      "purpose": "version control, issues, CI, and manually approved public website deployment",
+      "data": "public repository content only"
+    },
+    {
+      "service": "Crossref, DOI resolvers, publishers, and W3C source pages listed in citation_audit_v2.json",
+      "purpose": "read-only bibliographic identity verification",
+      "data": "public citation identifiers and metadata only"
+    }
+  ],
+  "model_policy": {
+    "approved_for_public_repository_assistance": "owner-authorized interactive coding or writing agent; record service and exposed model/version for consequential runs",
+    "approved_for_governed_or_sensitive_data": [],
+    "provider_training_opt_in": false,
+    "rule": "No model or service is pre-approved for governed or sensitive data. Stop and obtain legitimate authority plus an approved compute plan before use."
+  },
+  "logging": {
+    "prompt_log": "append-only in Git for public, non-sensitive project prompts",
+    "consequential_run_record": "required",
+    "retention": "retained with repository history while scientifically or administratively relevant; review at each release",
+    "minimization": "record what is needed to reconstruct consequential work, not private reasoning or unrelated content",
+    "redaction": "never commit secrets, personal data, governed knowledge, sensitive locations, or security details; use a typed redaction marker and private authorized record where required"
+  },
+  "publication_gate": {
+    "manual_confirmation_required": true,
+    "required_evidence": [
+      "passing repository, manuscript, citation, and website checks",
+      "completed consequential run record",
+      "human review of scientific claims and disclosure",
+      "licenses and permissions appropriate to the release",
+      "rights-holder approval for any governed material"
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "owner": "Ty Tuff",
+  "review_cycle": "at every manuscript release and after any incident or scope change",
+  "cases": [
+    {
+      "id": "E-CITATION-FABRICATION",
+      "unacceptable_outcome": "A nonexistent source or a source that does not support the text is presented as evidence.",
+      "affected_parties": ["readers", "cited authors", "reviewers", "downstream researchers"],
+      "prevention": "Claim-level source review and fingerprints; agents may not refresh fingerprints without rereading the source.",
+      "detection": "Manuscript audit, authoritative metadata verification, adversarial mutation tests, and human source review.",
+      "escalation": "Stop release and notify the manuscript owner.",
+      "recovery": "Correct or remove the claim, invalidate and redo its review, rerun audits, and issue a correction if published.",
+      "owner": "Ty Tuff",
+      "automated_test": "tests.test_manuscript_audit"
+    },
+    {
+      "id": "E-UNREVIEWED-PUBLICATION",
+      "unacceptable_outcome": "An agent publishes manuscript or website changes without substantive human review.",
+      "affected_parties": ["authors", "readers", "supporting institutions", "communities discussed in the manuscript"],
+      "prevention": "Deployment is manual, publication actions require human approval, and agents may only build and test locally.",
+      "detection": "Governance policy audit and review of deployment records.",
+      "escalation": "Stop or disable the publication workflow and notify the repository owner.",
+      "recovery": "Withdraw or amend the public artifact and document the incident.",
+      "owner": "Ty Tuff",
+      "automated_test": "tests.test_repository_policy.RepositoryPolicyTests.test_publication_requires_human_approval"
+    },
+    {
+      "id": "E-SENSITIVE-DISCLOSURE",
+      "unacceptable_outcome": "A prompt, provenance record, issue, artifact, or service call discloses governed information, personal data, credentials, or a sensitive ecological location.",
+      "affected_parties": ["rights-holders", "data subjects", "communities", "species and ecosystems", "repository maintainers"],
+      "prevention": "No governed data are approved; public logs apply minimization and typed redaction; unknown endpoints and actions default to prohibited.",
+      "detection": "Pre-commit human review, policy tests, and incident reports; automated scanning may supplement but cannot establish authority.",
+      "escalation": "Stop processing, preserve a non-sensitive record, and contact the owner and legitimate authority privately.",
+      "recovery": "Contain access, revoke credentials if relevant, follow rights-holder decisions, correct public records, and add a regression control.",
+      "owner": "Ty Tuff",
+      "automated_test": "tests.test_repository_policy.RepositoryPolicyTests.test_sensitive_external_transfer_is_prohibited"
+    },
+    {
+      "id": "E-MISLEADING-COMPLIANCE",
+      "unacceptable_outcome": "The repository claims complete FAIR or CARE compliance despite an undeclared license, missing archival release, absent rights-holder decision, or unresolved review.",
+      "affected_parties": ["readers", "contributors", "Indigenous and community data governance practitioners", "downstream reusers"],
+      "prevention": "Evidence maps distinguish implemented controls from release blockers and legitimate authority; the repository audit has a separate release-readiness mode.",
+      "detection": "Repository audit and human review of evidence-map claims.",
+      "escalation": "Block release and correct the status language.",
+      "recovery": "Publish corrected evidence maps and complete or clearly retain the blocker.",
+      "owner": "Ty Tuff",
+      "automated_test": "tests.test_repository_policy.RepositoryPolicyTests.test_release_readiness_reports_blockers"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Please cite the manuscript and version of this repository that you used."
+title: "FAIR and CARE in the Age of Agents: Design Criteria for Agent-Ready Environmental Science"
+type: article
+authors:
+  - family-names: "Tuff"
+    given-names: "Ty"
+repository-code: "https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS"
+url: "https://cu-esiil.github.io/FAIR-and-CARE-for-AGENTS/"
+version: "0.2.0-draft"
+abstract: >-
+  A scientific Perspective on designing FAIR and CARE into agentic workflows
+  so agents strengthen responsible, reproducible environmental science.
+keywords:
+  - agentic AI
+  - FAIR
+  - CARE
+  - reproducibility
+  - environmental science
+license: "NOASSERTION"

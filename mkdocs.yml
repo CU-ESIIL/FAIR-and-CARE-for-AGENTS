@@ -1,5 +1,5 @@
 site_name: "FAIR + CARE for Agentic Science"
-site_description: "Using agentic AI as a stress test for explicit, reproducible, and governable science"
+site_description: "Designing FAIR and CARE into agentic workflows for responsible, reproducible science"
 site_url: "https://cu-esiil.github.io/FAIR-and-CARE-for-AGENTS/"
 
 repo_name: "CU-ESIIL/FAIR-and-CARE-for-AGENTS"
@@ -9,6 +9,8 @@ edit_uri: "edit/main/docs/"
 nav:
   - Project:
       - Home: index.md
+      - Repository implementation: implementation.md
+      - Ecology author guidelines: ecology-author-guidelines.md
   - Evidence maps:
       - Overview: principles/index.md
       - "FAIR — Findable": principles/fair-findable.md

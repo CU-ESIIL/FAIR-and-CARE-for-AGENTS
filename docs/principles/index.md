@@ -25,17 +25,17 @@ The maps are an implementation snapshot, not a FAIR certification or a claim tha
 
 | Family | Principle | Current summary | Evidence map |
 | --- | --- | --- | --- |
-| FAIR | F — Findable | Strong discovery structure; people, citation, and persistent identifiers remain incomplete. | [Findable](fair-findable.md) |
-| FAIR | A — Accessible | Core artifacts and operating context are public; scientific reproduction and support paths remain incomplete. | [Accessible](fair-accessible.md) |
-| FAIR | I — Interoperable | Durable formats and clean separation are present; formal schemas and domain semantics remain limited. | [Interoperable](fair-interoperable.md) |
-| FAIR | R — Reusable | Versioning, tests, and a lockfile are present; licenses, releases, scientific results, and full provenance are gaps. | [Reusable](fair-reusable.md) |
-| CARE | C — Collective Benefit | The manuscript argues for benefit and the option not to automate; no co-defined project benefit process is recorded. | [Collective Benefit](care-collective-benefit.md) |
-| CARE | A — Authority to Control | General rights-aware operating rules exist; no project-specific permission model or governance authority is recorded. | [Authority to Control](care-authority-to-control.md) |
-| CARE | R — Responsibility | Work and prompts are traceable; named owners, incident response, and consequential-workflow accountability remain gaps. | [Responsibility](care-responsibility.md) |
-| CARE | E — Ethics | Human review and rights cautions exist; a harm register, red-team cases, and affected-party review remain gaps. | [Ethics](care-ethics.md) |
+| FAIR | F — Findable | Working-draft discovery is implemented; an archival release and DOI remain human release decisions. | [Findable](fair-findable.md) |
+| FAIR | A — Accessible | Human and agent onboarding, support, reproduction, boundaries, and approval routes are explicit for the current public scope. | [Accessible](fair-accessible.md) |
+| FAIR | I — Interoperable | Canonical artifacts use durable formats and schemas and reproduce without a particular model; environmental data semantics remain out of scope. | [Interoperable](fair-interoperable.md) |
+| FAIR | R — Reusable | Exact environments, named outputs, manifests, and run provenance are implemented; licenses and an archival release block public reuse claims. | [Reusable](fair-reusable.md) |
+| CARE | C — Collective Benefit | Intended users, observable outcomes, burdens, contestation, and the option not to automate are explicit for this project. | [Collective Benefit](care-collective-benefit.md) |
+| CARE | A — Authority to Control | A deny-by-default policy defines action, data, compute, model, logging, transfer, and publication boundaries. | [Authority to Control](care-authority-to-control.md) |
+| CARE | R — Responsibility | A named human owns consequential workflows; run records, disclosure, correction, rollback, and incident procedures are present. | [Responsibility](care-responsibility.md) |
+| CARE | E — Ethics | A project harm register and negative tests cover current citation, publication, disclosure, and compliance risks. | [Ethics](care-ethics.md) |
 
 ## Assessment source and maintenance
 
-The design criteria and tests come from the manuscript's [FAIR + CARE implementation and test matrix](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/manuscript/fair_care_agentic_science.md#6-from-principles-to-executable-claims). Each page links to the evidence it assesses and states a target test.
+The design criteria and tests come from the second draft's [FAIR + CARE design and test matrix](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/manuscript/fair_care_agentic_science_v2.md#table-1-fair--care-design-and-test-matrix). Each page links to the evidence it assesses and states a target test.
 
 Update the relevant evidence map whenever a change materially alters its status. Do not upgrade a CARE status based only on a new file or automated check when legitimate authority, participation, or expert judgment is still missing.

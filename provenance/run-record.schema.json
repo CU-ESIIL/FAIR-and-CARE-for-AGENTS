@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/provenance/run-record.schema.json",
+  "title": "Consequential agent or human run record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "date",
+    "goal",
+    "responsible_human",
+    "actor",
+    "compute",
+    "instructions",
+    "inputs",
+    "outputs",
+    "evaluations",
+    "human_review"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "run_id": {"type": "string", "minLength": 1},
+    "date": {"type": "string", "format": "date"},
+    "goal": {"type": "string", "minLength": 1},
+    "responsible_human": {"type": "string", "minLength": 1},
+    "actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "service", "model", "version"],
+      "properties": {
+        "kind": {"enum": ["human", "agent", "mixed"]},
+        "service": {"type": "string"},
+        "model": {"type": "string"},
+        "version": {"type": "string"}
+      }
+    },
+    "compute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["environment", "data_boundary", "network"],
+      "properties": {
+        "environment": {"type": "string"},
+        "data_boundary": {"type": "string"},
+        "network": {"type": "string"}
+      }
+    },
+    "instructions": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "inputs": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "outputs": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "evaluations": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "human_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewer", "status", "publication_authorized"],
+      "properties": {
+        "reviewer": {"type": "string", "minLength": 1},
+        "status": {"enum": ["pending", "approved", "changes_requested", "rejected"]},
+        "publication_authorized": {"type": "boolean"},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}

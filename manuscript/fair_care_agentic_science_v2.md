@@ -10,33 +10,37 @@
 1. **The Agent-Ready Repository: FAIR and CARE Design for Environmental Science**
 2. **Give the Agent the Repository: Eight Rules for Reproducible and Responsible Science**
 3. **From Tacit Knowledge to Tested Infrastructure: FAIR and CARE for Scientific Agents**
-4. **Can a New Agent Reproduce This Result? A Repository Design Test for Environmental Science**
+4. **Designing FAIR and CARE into Agentic Environmental Science Workflows**
 
 ## Abstract
 
-Coding and AI agents are entering environmental science repositories built for collaborators who already know the project. Repositories often depend on tacit context: which workflow is canonical, which data version was used, what a valid result should look like, and which actions require permission. New agents lack this context, making them useful stress tests for repository design.
+FAIR and CARE are not accommodations for AI. They are foundations for better science: research objects should be findable, accessible, interoperable, and reusable, while their use should advance collective benefit, respect authority, assign responsibility, and avoid harm. Human collaborators often approximate these commitments through a mixture of formal infrastructure and tacit knowledge. Coding and AI agents cannot be assumed to recover either. Their ability to generate plausible code or prose does not ensure that they will select authoritative inputs, preserve provenance, respect data governance, or stop when judgment and permission are required.
 
-We use FAIR and CARE to define eight practical criteria for agent-ready environmental science. FAIR asks whether an independent actor can find, access, interpret, and reuse the scientific object. CARE asks whether a proposed use produces benefit, respects authority, remains accountable, and avoids unacceptable outcomes. We make these criteria evaluable through test-first scientific design: **Goal → Instructions → Test → Record**. Each principle becomes a memorable design rule, a repository implementation, and a simple test. These practices improve repositories for people as well as agents. The objective is not autonomous science. It is science whose intent, methods, evidence, provenance, and governance are explicit enough to inspect and challenge.
+We argue that agentic workflows must therefore be designed to enact FAIR and CARE rather than merely instructed to “follow” them. We translate the principles into eight practical repository criteria and make them evaluable through **Goal → Instructions → Test → Record**. Each criterion pairs a design rule with repository evidence, a test, and an accountable human or community decision where automation is illegitimate. The objective is not to make repositories convenient for agents or to automate scientific judgment. It is to build workflows in which agents strengthen, rather than erode, the practices that make environmental science understandable, reproducible, accountable, and worthy of trust.
 
 **Keywords:** agentic AI; FAIR; CARE; reproducibility; environmental science; research software; provenance; data governance
 
 ---
 
-## 1. Environmental science repositories are becoming agent workspaces
+## 1. Better science requires designed-in FAIR and CARE
+
+Environmental science is stronger when a project's purpose, evidence, methods, provenance, reuse conditions, responsibilities, and limits are explicit. Those qualities help collaborators assess claims, help reviewers trace evidence, help future researchers reproduce results, and help affected people understand or contest how data and scientific products are used. FAIR and CARE matter because they make these qualities part of scientific practice rather than optional documentation.
 
 Environmental scientists increasingly ask coding agents to inspect repositories, edit analyses, debug workflows, prepare figures, or draft documentation. These systems can read files, execute code, call services, and change version-controlled artifacts. Yet most scientific repositories were built for people who already possess substantial project knowledge.
 
 A familiar collaborator knows that `analysis_final_v2.R` is obsolete despite its name. They remember that a sensor threshold changed after an instrument failure, that one spreadsheet was edited manually, that the current figure comes from a different branch, or that culturally governed observations cannot be sent to an external model. This information may live in memory, messages, laboratory convention, or a conversation with the original analyst. It lets experienced people compensate for an underspecified repository.
 
-An agent behaves more like a context-free collaborator. Give it a project URL with no previous conversation and ask: **Can it determine what the project is, how it works, what it should do, whether it succeeded, and what it is allowed to do?** Every undocumented human intervention identifies either information that should become explicit or a decision that should intentionally remain under human authority.
+An agent does not inherit this working knowledge, scientific judgment, or authority merely by gaining access to the repository. Give it a project URL with no previous conversation and ask: **Can it determine what the project is, how it works, what it should do, whether it succeeded, and what it is allowed to do?** Without a designed workflow, plausible action can mask the use of an obsolete file, an invalid method, an incomplete record, or an illegitimate data use.
 
-This is the practical opportunity. Designing repositories for agents makes them better scientific repositories because it forces scientific intent, methods, evaluation, provenance, and governance to become explicit rather than tacit. The same improvements help a new graduate student, a reviewer, a future maintainer, or a collaborator outside the original laboratory.
+The central design problem is therefore not how to make science easier for agents. It is how to prevent agentic work from bypassing the practices that make science reliable and legitimate. The workflow must carry scientific intent, authoritative inputs, methods, evaluation, provenance, permissions, and review gates forward into the agent's work. Building that infrastructure first improves science for people; it then gives agents an explicit scaffold within which they can contribute.
 
 FAIR already makes machine actionability central to scientific data stewardship (Wilkinson et al., 2016). CARE complements object-centered stewardship with Collective Benefit, Authority to Control, Responsibility, and Ethics in the context of Indigenous Data Governance (Carroll et al., 2020). Agents do not replace these principles. They change how directly repositories can implement and test them. FAIR asks whether an independent actor can use the science correctly. CARE asks whether that actor should use it in that way. Test-first design asks how either claim will be evaluated.
 
-Agent success does not prove that a scientific result is valid, and agent readiness does not imply that every task should be automated. The narrower proposition is useful enough: a bounded agent task can expose where a repository depends on missing context, fragile infrastructure, absent evaluation, or unstated authority.
+Agent success does not prove that a scientific result is valid, and agent readiness does not imply that every task should be automated. Failed or refused tasks can still diagnose missing context, fragile infrastructure, absent evaluation, or functioning governance, but that diagnostic is a secondary benefit. The primary purpose is to design FAIR and CARE into the workflow before an agent acts.
 
-## 2. Test first
+## 2. Design the workflow before delegating the work
+
+Telling an agent to be reproducible, responsible, or FAIR and CARE compliant is not an adequate control. The workflow itself must identify authoritative inputs, constrain permissible actions, define acceptable evidence, preserve provenance, and route consequential judgments to the people or communities with legitimate authority.
 
 The operating rule is simple:
 
@@ -191,15 +195,15 @@ The first target should be bounded: “From a clean clone, reproduce Figure 1 us
 
 Show the repository at the center as a versioned scientific object. Associate its website, metadata, `README.md`, `AGENTS.md`, editable formats, environment, input identifiers, tests, and reproduction command with FAIR. Associate its benefit statement, action-level permissions, approved compute and model boundaries, human owners, governance tests, and review gates with CARE. Connect both groups to the central sequence **Goal → Instructions → Test → Record**. The image should make clear that the same infrastructure supports human and agent collaborators.
 
-**Figure 1 caption.** An agent-ready repository makes scientific purpose, workflows, evaluation, provenance, and authority inspectable. FAIR components help an independent actor find and correctly use the scientific object. CARE components constrain whether a proposed use is legitimate and accountable. Test-first design connects both sets of principles to observable evidence and explicit human or community decisions. The layout is illustrative rather than a required directory standard.
+**Figure 1 caption.** A FAIR + CARE workflow makes scientific purpose, inputs, methods, evaluation, provenance, and authority inspectable. FAIR components make scientific objects usable and reusable; CARE components constrain whether a proposed use is beneficial, legitimate, and accountable. Test-first design connects both sets of principles to observable evidence and explicit human or community decisions. The same infrastructure first improves science for people and then gives agents an explicit scaffold for participating in it. The layout is illustrative rather than a required directory standard.
 
 ## 6. Conclusion
 
-Environmental scientists do not need to redesign every project for autonomous research. They need repositories that make bounded delegation understandable, testable, reproducible, and legitimate. A context-free agent provides a direct diagnostic: give it the project or repository URL, a defined task, and no prior conversation. The assistance it requests reveals missing context; the actions it refuses can reveal functioning governance.
+FAIR and CARE are standards for better human science, not special accommodations for AI. They help make research understandable and reusable while keeping benefit, authority, responsibility, and ethics visible. Agentic systems create urgency because none of those commitments follows automatically from an agent's ability to read a repository, write code, or produce a convincing result.
 
-The practical program is compact. Define **Goal → Instructions → Test → Record** before consequential work. Give the repository a front door and the agent an orientation. Require portable products and an executable project. State who benefits, make authority explicit, name the responsible human, and test what must not happen. Implement these practices first for one important result and one important boundary.
+The practical program is compact. Design **Goal → Instructions → Test → Record** into consequential work. Give the repository a front door and every participant an orientation. Require portable products and an executable project. State who benefits, make authority explicit, name the responsible human, and test what must not happen. Implement these practices first for one important result and one important boundary.
 
-FAIR asks whether an independent actor can correctly use the science. CARE asks whether that use is legitimate and accountable. Test-first design makes both questions operational without pretending that code can replace scientific judgment or community authority. The aim is not to make science easier for AI. It is to use agents to reveal whether a scientific repository is explicit enough for people and machines to understand, reproduce, evaluate, and govern.
+FAIR asks whether an independent actor can correctly use the science. CARE asks whether that use is beneficial, legitimate, and accountable. Test-first design makes both questions operational without pretending that code can replace scientific judgment or community authority. The aim is to build scientific workflows that help people do better science and ensure that agents participate within—rather than outside—the practices that make that science trustworthy.
 
 ## Citation integrity
 

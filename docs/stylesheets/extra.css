@@ -171,7 +171,7 @@ input {
   color: var(--esiil-body);
 }
 
-.stress-path {
+.principle-path {
   align-items: center;
   display: grid;
   gap: 0.45rem;
@@ -179,7 +179,7 @@ input {
   margin: 2rem 0 0;
 }
 
-.stress-path span {
+.principle-path span {
   background: var(--esiil-primary-blue);
   color: var(--esiil-white);
   font-size: 0.72rem;
@@ -191,7 +191,7 @@ input {
   text-transform: uppercase;
 }
 
-.stress-path span:not(:last-child)::after {
+.principle-path span:not(:last-child)::after {
   color: var(--esiil-accent-blue);
   content: "›";
   font-size: 1.25rem;
@@ -387,11 +387,11 @@ input {
     flex-direction: column;
   }
 
-  .stress-path {
+  .principle-path {
     grid-template-columns: 1fr;
   }
 
-  .stress-path span:not(:last-child)::after {
+  .principle-path span:not(:last-child)::after {
     bottom: -0.73rem;
     content: "↓";
     left: 50%;

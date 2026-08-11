@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "name": "FAIR + CARE for Agentic Science",
+  "version": "0.2.0-draft",
+  "status": "working manuscript; not peer reviewed",
+  "scientific_question": "How can FAIR and CARE be designed into agentic environmental science workflows so that agents strengthen the practices that make human science understandable, reproducible, accountable, and legitimate?",
+  "scope": "A scientific Perspective, its evidence base, its public website, and the executable checks used to evaluate both.",
+  "repository": "https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS",
+  "website": "https://cu-esiil.github.io/FAIR-and-CARE-for-AGENTS/",
+  "responsible_human": {
+    "name": "Ty Tuff",
+    "role": "repository and manuscript owner",
+    "contact": "https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/issues",
+    "basis": "named maintainer in the public repository history"
+  },
+  "beneficiaries": [
+    "environmental scientists and ecologists maintaining computational projects",
+    "research software engineers supporting environmental science",
+    "students, reviewers, collaborators, and future maintainers who need explicit project context"
+  ],
+  "canonical_artifacts": {
+    "manuscript_source": "manuscript/fair_care_agentic_science_v2.md",
+    "manuscript_pdf": "manuscript/fair_care_agentic_science_v2.pdf",
+    "citation_review": "manuscript/citation_audit_v2.json",
+    "ecology_submission_metadata": "manuscript/ecology_submission.json",
+    "ecology_author_guidelines": "docs/ecology-author-guidelines.md",
+    "ecology_formatting_pdf": "output/pdf/fair_care_agentic_science_ecology.pdf",
+    "website_source": "docs/",
+    "agent_instructions": "AGENTS.md",
+    "governance_policy": "governance/policy.json",
+    "provenance_schema": "provenance/run-record.schema.json"
+  },
+  "data_profile": {
+    "research_data_included": false,
+    "governed_or_sensitive_data_approved": false,
+    "instructions": "data/README.md"
+  },
+  "license_status": {
+    "code": "not yet declared",
+    "manuscript_and_documentation": "not yet declared",
+    "third_party_logos": "excluded from any future project license; rights remain with their owners"
+  },
+  "persistent_identifier": {
+    "doi": "not assigned",
+    "release": "not published"
+  },
+  "release_blockers": [
+    "The owner must select code and content licenses.",
+    "The owner must approve a versioned release and archival identifier.",
+    "Required scholarly and Indigenous data sovereignty review must be completed before journal submission.",
+    "An Ecology Perspective requires an invitation or an accepted proposal to the Editor-in-Chief.",
+    "The author must approve authorship, funding, contributions, open-research, and conflict-of-interest declarations.",
+    "A finished Figure 1 and an allowed Word or genuine LaTeX Main Document package are still required."
+  ]
+}

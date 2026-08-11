@@ -506,9 +506,8 @@ def title_story(
     source: Path,
 ) -> list:
     thesis = (
-        "The goal is not to make science easier for AI. It is to use AI as a test of whether "
-        "we have made science explicit enough to be independently understood, reproduced, "
-        "evaluated, and governed."
+        "FAIR and CARE help people do better science. Agents do not automatically inherit "
+        "those practices or obligations, so agentic workflows must encode them explicitly."
     )
     display_metadata = [
         (

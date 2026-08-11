@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "run_id": "2026-08-11-ecology-formatting",
+  "date": "2026-08-11",
+  "goal": "Document the current Ecology author guidelines and produce a reviewable Ecology-formatted proof of the FAIR + CARE manuscript without representing it as submission-ready.",
+  "responsible_human": "Ty Tuff",
+  "actor": {
+    "kind": "agent",
+    "service": "OpenAI Codex",
+    "model": "GPT-5-based Codex",
+    "version": "exact deployment version not exposed to the repository"
+  },
+  "compute": {
+    "environment": "owner-authorized local Codex workspace with repository-scoped write access",
+    "data_boundary": "public repository content, public institutional author information, and public journal guidance only; no research, governed, or sensitive data",
+    "network": "read-only retrieval of official Ecology, Ecological Society of America, and public institutional web pages; local loopback server used for website tests"
+  },
+  "instructions": [
+    "PROMPT_LOG.md entry: Apply Ecology author guidelines",
+    "AGENTS.md operating contract",
+    "official Ecology Author Guidelines, revised April 2026"
+  ],
+  "inputs": [
+    "manuscript/fair_care_agentic_science_v2.md",
+    "manuscript/citation_audit_v2.json",
+    "official Ecology Author Guidelines",
+    "Ecological Society of America Open Research Policy"
+  ],
+  "outputs": [
+    "docs/ecology-author-guidelines.md",
+    "manuscript/ecology_submission.json",
+    "scripts/render_ecology_manuscript_pdf.py",
+    "output/pdf/fair_care_agentic_science_ecology.pdf",
+    "tests/test_ecology_submission.py",
+    "synchronized repository, website, CI, and release-gate documentation"
+  ],
+  "evaluations": [
+    "official-source comparison and manual guideline transcription review",
+    "PDF structural checks for page size, ordering, metadata, empty pages, and glyph extraction",
+    "visual inspection of all 16 rendered pages",
+    "Ecology submission-format unit tests",
+    "repository audit and one-command reproduction",
+    "strict website build and Playwright link and interaction tests"
+  ],
+  "human_review": {
+    "reviewer": "Ty Tuff",
+    "status": "pending",
+    "publication_authorized": false,
+    "notes": "The proof awaits author confirmation, journal invitation or proposal acceptance, conflict/funding/contribution declarations, finished figure artwork, permanent archival identifier, external scholarly and Indigenous data sovereignty review, and conversion to a Word or genuine LaTeX Main Document."
+  }
+}

@@ -29,7 +29,7 @@ class ManuscriptAuditTests(unittest.TestCase):
         self.assertEqual(result.references, 8)
         self.assertEqual(result.claim_reviews, 8)
         self.assertEqual(result.citation_needed, 2)
-        self.assertEqual(dict(result.section_words)["Abstract"], 175)
+        self.assertEqual(dict(result.section_words)["Abstract"], 206)
 
     def test_editing_a_cited_paragraph_expires_claim_review(self):
         manuscript = DEFAULT_MANUSCRIPT.read_text(encoding="utf-8")

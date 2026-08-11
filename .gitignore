@@ -55,8 +55,12 @@ __pycache__/
 *.pyc
 site/
 manuscript-audit.md
+manuscript-audit-v2.md
 
 # Node and Playwright
 node_modules/
 playwright-report/
 test-results/
+
+# Locally reproduced, non-authoritative outputs
+results/reproduction/

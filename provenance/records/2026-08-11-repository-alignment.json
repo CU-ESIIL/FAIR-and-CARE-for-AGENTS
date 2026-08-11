@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "run_id": "2026-08-11-repository-alignment",
+  "date": "2026-08-11",
+  "goal": "Align the repository implementation with the eight FAIR + CARE design rules and Goal to Instructions to Test to Record workflow stated in the second-draft manuscript.",
+  "responsible_human": "Ty Tuff",
+  "actor": {
+    "kind": "agent",
+    "service": "OpenAI Codex",
+    "model": "GPT-5-based Codex",
+    "version": "exact deployment version not exposed to the repository"
+  },
+  "compute": {
+    "environment": "owner-authorized local Codex workspace with repository-scoped write access",
+    "data_boundary": "public repository content and public Git history only; no research, governed, or sensitive data",
+    "network": "none required for policy implementation; local website tests may use a loopback server"
+  },
+  "instructions": [
+    "PROMPT_LOG.md entry: Align the repository with the manuscript",
+    "AGENTS.md operating contract",
+    "manuscript/fair_care_agentic_science_v2.md"
+  ],
+  "inputs": [
+    "repository state at the beginning of the task",
+    "manuscript/fair_care_agentic_science_v2.md",
+    "docs/principles/*.md",
+    "README.md and AGENTS.md"
+  ],
+  "outputs": [
+    "project metadata and citation record",
+    "governance policies and harm register",
+    "task and provenance templates",
+    "reproduction and repository-audit commands",
+    "repository-policy tests and synchronized documentation"
+  ],
+  "evaluations": [
+    "repository audit",
+    "governance negative tests",
+    "manuscript audits and unit tests",
+    "strict website build and Playwright tests",
+    "manual evidence-map review"
+  ],
+  "human_review": {
+    "reviewer": "Ty Tuff",
+    "status": "pending",
+    "publication_authorized": false,
+    "notes": "Repository changes await maintainer review; this record does not authorize deployment or release."
+  }
+}

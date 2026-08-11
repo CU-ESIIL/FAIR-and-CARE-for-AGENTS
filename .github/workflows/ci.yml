@@ -61,7 +61,7 @@ jobs:
           retention-days: 14
 
   manuscript:
-    name: Manuscript metrics and citation integrity
+    name: Repository, manuscript, and provenance integrity
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -73,8 +73,17 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run manuscript audit tests
+      - name: Install reproducible PDF environment
+        run: python -m pip install -r requirements-pdf.txt
+
+      - name: Audit FAIR + CARE repository controls
+        run: python scripts/repository_audit.py
+
+      - name: Run repository and manuscript tests
         run: python -m unittest discover -s tests -p "test_*.py"
+
+      - name: Reproduce the current primary output
+        run: python scripts/reproduce.py --output-dir results/reproduction
 
       - name: Audit Draft 1 and verify sources
         run: python scripts/manuscript_audit.py --check --online --markdown-report manuscript-audit.md
@@ -106,4 +115,7 @@ jobs:
           path: |
             manuscript-audit.md
             manuscript-audit-v2.md
+            results/reproduction/reproduction-manifest.json
+            results/reproduction/fair_care_agentic_science_v2.pdf
+            results/reproduction/fair_care_agentic_science_ecology.pdf
           retention-days: 30

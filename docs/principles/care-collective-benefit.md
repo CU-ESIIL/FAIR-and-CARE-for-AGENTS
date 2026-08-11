@@ -7,22 +7,22 @@ description: Evidence that automation has a stated beneficiary and that benefits
 
 **Agentic interpretation:** Automation has a stated beneficiary and purpose, and success includes the distribution of benefits and burdens.
 
-**Current assessment:** **Early / partial.** The project states a public scientific purpose and explicitly preserves the option not to automate. It does not yet record co-defined beneficiaries, participation, benefit measures, burden assessment, or post-deployment evaluation for this project.
+**Current assessment:** **Implemented for this repository's limited public purpose.** `governance/BENEFIT.md` names intended beneficiaries, observable repository-level outcomes, burdens, an evaluator, contestation, and the option not to automate. It explicitly refuses to claim benefit for communities that have not defined it.
 
 ## Evidence map
 
 | Design criterion | Repository evidence | Status | Remaining work |
 | --- | --- | --- | --- |
-| Benefit statement | The [README thesis and contribution](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/README.md#what-the-project-contributes) state that agent-readiness should improve explicitness, reproducibility, evaluation, and governance for people as well as machines. | **Partial** | Identify intended beneficiaries beyond a general scientific audience and define observable benefits with them. |
-| Co-defined outcomes | The [manuscript's Collective Benefit section](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/manuscript/fair_care_agentic_science.md#51-collective-benefit-optimize-for-a-stated-public-or-community-purpose) argues that outcomes should respond to community priorities. | **Gap** | Record who participated, how outcomes were chosen, and whose definition of benefit governs the project. |
-| Contributor return plan | No contributor or community return plan is present. | **Gap** | Define products, access, credit, resources, or other returns with contributors before collecting or using community-provided material. |
-| Burden and access assessment | The manuscript recognizes that automation can shift costs to data-contributing communities and concentrate capability. | **Partial** | Assess actual project burdens, resource requirements, barriers, and distributional effects with affected parties. |
+| Benefit statement | `governance/BENEFIT.md` and `project.json` name environmental scientists, ecologists, RSEs, students, reviewers, collaborators, and maintainers and define observable outcomes. | **Implemented** | Revisit with actual users before publication. |
+| Co-defined outcomes | The owner evaluates repository-level outcomes, and contributors may contest them through issues. No community-governed outcome is asserted. | **Implemented for current scope** | Any future affected community must define its own benefit before automation. |
+| Contributor return plan | The public outputs, editable sources, citation and contribution routes are named; no community-provided data or labor is currently in scope. | **Not applicable yet** | Co-design return, credit, and remedy before such contributions begin. |
+| Burden and access assessment | The benefit statement records CI, review, maintenance, storage, and disclosure burdens and limits logging to consequential work. | **Implemented for current scope** | Measure actual burdens as users contribute. |
 | Post-deployment evaluation | No agentic scientific system is deployed from this repository. | **Not applicable yet** | Before deployment, name evaluators, measures, review dates, remedies, and a stopping rule. |
-| Option not to automate | The [manuscript boundaries](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/manuscript/fair_care_agentic_science.md#10-boundaries-and-risks-of-the-proposal) explicitly reserve some work for accountable humans and communities. | **Implemented** | Make this an explicit decision gate for any future workflow. |
+| Option not to automate | The benefit and authority policies require work to stop when benefit, permission, or legitimate authority is absent. | **Implemented** | Preserve this gate as scope expands. |
 
 ## Verification
 
-- **Current checks:** No automated check can establish collective benefit; the repository makes the absence of a co-defined evaluation visible.
+- **Current checks:** The repository audit confirms that a benefit statement and explicit limitations exist; human and affected-party judgment determine whether benefit is real.
 - **Target test:** Before deployment, identify a beneficiary, observable benefit, measurement process, time horizon, evaluator, expected burdens, and remedy.
 - **Passing condition:** Affected parties recognize the outcome as beneficial, burdens are accounted for, and the workflow can be changed or stopped.
 

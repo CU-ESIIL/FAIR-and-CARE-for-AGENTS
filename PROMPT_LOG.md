@@ -807,4 +807,46 @@ I want the repo to follow the rules outlined in the paper. can you make sure it 
 
 ### Agent response summary
 
-- Work in progress.
+- Audited the repository against **Goal → Instructions → Test → Record** and all eight FAIR + CARE design rules in the second-draft manuscript.
+- Added a machine-readable project record, draft version, citation file, changelog, contribution/security routes, decision log, and explicit canonical-artifact map. Public Git history identified Ty Tuff as the responsible repository and manuscript owner; the assignment is recorded and designed to be reassignable.
+- Added `analysis/`, `data/`, `environment/`, `results/`, `prompts/`, `templates/`, `governance/`, and `provenance/` documentation appropriate to this manuscript-only project. These define a named reproducible output, exact data status, Goal → Instructions → Test → Record task template, run-record schema/template, and a consequential-run record for this change.
+- Added a collective-benefit statement, deny-by-default machine-readable action policy, approved compute/services and model boundaries, logging/retention/redaction rules, human and rights-holder gates, named workflow responsibilities, AI disclosure, a four-case harm register, and incident-response/correction procedures.
+- Added `scripts/repository_audit.py`, `scripts/policy_check.py`, and `scripts/reproduce.py`. The reproduction command generates the current Draft 2 PDF, manuscript-audit report, and SHA-256 manifest from canonical sources without an external model or governed data.
+- Added nine repository-policy and reproduction tests. Negative cases cover unreviewed publication, governed-data transfer, sensitive public logging, fabricated citations, citation-fingerprint shortcuts, and unknown actions. Updated CI to audit the repository and reproduce the named output on clean infrastructure.
+- Changed website deployment from automatic-on-push to an explicitly confirmed manual publication workflow. Removed inactive inherited workflows that could push an undocumented Docker image or merge and push an external template; their history remains recoverable in Git.
+- Updated `README.md`, `AGENTS.md`, the website, and all eight principle evidence maps to link the new evidence, tests, boundaries, and remaining decisions. Exact Python versions are now pinned and the Node environment remains locked.
+- Checks passed: all eight operational design-rule checks; 13 unit, negative, and reproduction tests; both manuscript audits; one-command PDF/audit reproduction with hash manifest; strict MkDocs build; five Playwright tests covering all local pages and links; Python syntax compilation; YAML/CFF parsing; README machine-metadata/path validation; and `git diff --check`.
+- The separate `--release` audit correctly remains blocked on three decisions an agent cannot make: selecting code/content licenses, approving an archival release/DOI, and completing the required external scholarly and Indigenous data sovereignty review. No research, governed, or sensitive data are approved by the current policy.
+
+## 2026-08-11 — Apply Ecology author guidelines
+
+### User prompt
+
+```text
+can you search for the author guidelines for the journal Ecology and create an ecology author guidelines doc in the repo and then try to formate the pdf according to those rules.
+```
+
+### Agent response summary
+
+- Searched and checked the official *Ecology* Author Guidelines, revised April 2026, the ESA Open Research Policy, and the official manuscript-preparation guide. Created `docs/ecology-author-guidelines.md` as a cited, project-specific guide covering Perspective fit, manuscript order, page and text formatting, declarations, open research, AI disclosure, references, tables, figures, file formats, and submission gates.
+- Added `manuscript/ecology_submission.json` to keep the target-journal metadata and unresolved author/editor decisions machine readable. Public institutional records were used only to draft the author and affiliation fields; the record explicitly requires author confirmation and does not infer funding or conflict declarations.
+- Added `scripts/render_ecology_manuscript_pdf.py` and generated `output/pdf/fair_care_agentic_science_ecology.pdf` as a 16-page formatting proof with US Letter pages, 1-inch margins, embedded 12-point Times New Roman, double spacing, left alignment, page numbers, continuous line numbers from Abstract through References, Ecology title-page fields, required back matter, a separate table page, and grouped figure captions.
+- Kept the proof explicitly non-submission-ready because *Ecology* permits a PDF Main Document only for genuine LaTeX submissions, the Perspective invitation is unconfirmed, author declarations require approval, Figure 1 artwork is absent, and repository release and external-review gates remain open.
+- Synchronized `README.md`, `AGENTS.md`, the website navigation and implementation documentation, CI, the reproduction command, repository audit, changelog, decision log, dependency pins, and provenance. Added three Ecology-specific format and structure tests.
+- Checks passed: 16 unit and negative tests; all eight operational repository controls; offline manuscript and citation-integrity audits for both drafts; one-command reproduction and manifest generation; a strict MkDocs build; five Playwright tests across all local pages and links; PDF metadata, Letter-size, ordering, text extraction, empty-page, and null-glyph checks; visual inspection of all 16 PDF pages; Python compilation; JSON parsing; and `git diff --check`.
+
+## 2026-08-11 — Recenter the manuscript thesis
+
+### User prompt
+
+```text
+I don't love the main these is using AI as a stress test. I think a better arguement is that humans willl do better science is they follow FAIR and CARE but agents don't naturally do that and so we need to design it into our workflow.
+```
+
+### Agent response summary
+
+- Recentered the current manuscript on the argument that FAIR and CARE are foundations for better human science, while agents cannot be assumed to inherit their practices, obligations, judgment, or authority. The abstract, opening, workflow section, Figure 1 caption, and conclusion now argue that FAIR and CARE must be designed into agentic workflows; agent failure and refusal remain only as secondary diagnostics.
+- Preserved the manuscript title and the eight reviewed citation-bearing paragraphs. The revised abstract is 206 words, and the existing claim-level fingerprints continue to pass without mechanical refresh or reinterpretation of their sources.
+- Updated `README.md`, `project.json`, `CITATION.cff`, `docs/index.md`, the MkDocs site description, website styling and tests, the PDF cover thesis, Ecology guide metrics, changelog, decision log, and provenance so the human- and machine-readable project descriptions match the new framing.
+- Regenerated the 10-page reading PDF and 17-page Ecology formatting proof. Rendered and visually inspected every page; structural checks found Letter pages, complete text extraction, no empty pages, and no null glyphs.
+- Checks passed: 16 unit and negative tests; all eight operational repository controls; the Draft 2 citation-integrity and word-count audit; one-command reproduction and manifest generation; strict MkDocs build; five Playwright tests covering all local pages, links, primary content, mobile layout, and controls; JSON/CFF parsing; Python compilation; and `git diff --check`.

@@ -7,20 +7,20 @@ description: Evidence that authorized actors can obtain the project and the cont
 
 **Agentic interpretation:** An authorized actor can obtain both research objects and the operational context needed to use them correctly; restricted access is explained rather than bypassed.
 
-**Current assessment:** **Partial.** The manuscript, instructions, history, checks, and website are public and documented. This repository does not yet contain a reproducible scientific result, data-access procedure, named support contact, or project-specific approval workflow.
+**Current assessment:** **Implemented for the current public, manuscript-only scope.** Human and agent onboarding, a named reproducible output, data-status instructions, tests, records, support, constraints, and approval gates are version controlled.
 
 ## Evidence map
 
 | Design criterion | Repository evidence | Status | Remaining work |
 | --- | --- | --- | --- |
-| Human onboarding | The [README](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/README.md) states purpose, authority, structure, setup, checks, and boundaries. | **Implemented** | Add author/contact and contribution routes. |
-| Agent onboarding | [AGENTS.md](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/AGENTS.md) defines repository workflow, documentation, testing, data-use, sovereignty, and design rules. | **Implemented** | Add project-specific action and approval boundaries as consequential workflows develop. |
-| Setup and reproduction commands | The README documents website and audit commands; [requirements.txt](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/requirements.txt) and [package-lock.json](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/package-lock.json) describe dependencies. | **Partial** | Document one command that reproduces a named scientific result, not only repository checks. |
-| Data-access procedures | The README explicitly states that no research data are included; AGENTS.md requires sources, access, format, license, and citation to be documented when data are introduced. | **Not applicable yet** | Add `data/README.md`, access conditions, contacts, and authorization steps before introducing data. |
+| Human onboarding | The README, `CONTRIBUTING.md`, `SECURITY.md`, and `project.json` state purpose, owner, contact, structure, setup, checks, and boundaries. | **Implemented** | Maintain as ownership changes. |
+| Agent onboarding | `AGENTS.md` defines canonical artifacts, Goal → Instructions → Test → Record, tests, action permissions, stop conditions, and human gates. | **Implemented** | Keep concise and synchronized. |
+| Setup and reproduction commands | Exact Python and Node dependencies plus `scripts/reproduce.py` recreate the named Draft 2 PDF and audit report. | **Implemented** | Recheck on clean infrastructure in CI. |
+| Data-access procedures | `data/README.md` states that no research or governed data are approved and enumerates required metadata and authority before that can change. | **Implemented for current scope** | Add dataset-specific records only after legitimate approval. |
 | Tests and expected behavior | [Website tests](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/tests/site.spec.ts), [manuscript tests](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/tests/test_manuscript_audit.py), and the [CI workflow](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/.github/workflows/ci.yml) make expected repository behavior executable. | **Implemented** | Add scientific and governance tests when those workflows exist. |
-| Prompt and decision records | [PROMPT_LOG.md](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/PROMPT_LOG.md) records user prompts verbatim and summarizes resulting work; AGENTS.md requires ongoing updates. | **Partial** | Add a retention/redaction policy and a separate decision log for structural or scientific decisions. |
-| Constraints and approval gates | AGENTS.md prohibits silent external-data ingestion and requires uncertainty about rights to be documented. | **Partial** | Define who can approve publication, external transfers, governed-data use, and consequential scientific changes. |
-| Support or governance contacts | No named support contact or governance authority is currently declared. | **Gap** | Add maintainers and, where applicable, rights-holder or governance contact routes. |
+| Prompt and decision records | `PROMPT_LOG.md`, `DECISIONS.md`, the logging policy, task template, and structured run records separate request, decision, and provenance evidence. | **Implemented** | Apply minimization and redaction rules. |
+| Constraints and approval gates | `governance/policy.json` classifies allowed, human-gated, rights-holder-gated, and prohibited actions; unknown actions are prohibited. | **Implemented** | Legitimate authority must approve any future governed-data policy. |
+| Support or governance contacts | `project.json` names Ty Tuff and the issue tracker; sensitive reports follow `SECURITY.md`. | **Implemented for current scope** | Add rights-holder contacts only with authorization. |
 
 ## Verification
 

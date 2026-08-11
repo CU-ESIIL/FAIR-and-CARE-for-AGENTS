@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "journal": "Ecology",
+  "guidelines_revision": "April 2026",
+  "guidelines_checked": "2026-08-11",
+  "manuscript_type": "Perspective",
+  "invitation_status": "unconfirmed; an invitation or accepted proposal to the Editor-in-Chief is required",
+  "status": "formatting proof; not submission-ready",
+  "title": "FAIR and CARE in the age of agents: Design criteria for agent-ready environmental science",
+  "authors": [
+    {
+      "name": "Ty Tuff",
+      "affiliations": [1],
+      "corresponding": true,
+      "email": "ty.tuff@colorado.edu"
+    }
+  ],
+  "affiliations": {
+    "1": "Environmental Data Science Innovation and Inclusion Lab, Cooperative Institute for Research in Environmental Sciences, University of Colorado Boulder, Boulder, Colorado, USA"
+  },
+  "open_research_statement": "Empirical data were not used for this research. Version-controlled manuscript source, citation-review metadata, and code used to render and audit the manuscript are available at https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS. A permanent archival identifier will be added before publication.",
+  "keywords": [
+    "agentic AI",
+    "CARE",
+    "data governance",
+    "environmental science",
+    "FAIR",
+    "provenance",
+    "reproducibility",
+    "research software"
+  ],
+  "acknowledgments": "OpenAI Codex was used to draft and revise manuscript text, develop repository documentation and tests, format the manuscript PDF, and assist with citation-integrity checks. Ty Tuff directed the work and remains responsible for verifying all content, citations, and interpretations. Funding acknowledgments have not yet been supplied and must be confirmed before submission.",
+  "author_contributions": "Ty Tuff: Conceptualization, project direction, and writing - review and editing. This statement requires author confirmation before submission.",
+  "conflict_of_interest": "The author must supply and approve a Conflict of Interest Statement before submission; no declaration has been inferred by the agent.",
+  "figure_status": "Figure 1 caption present; finished figure artwork not yet supplied",
+  "main_document_format_status": "PDF generated from Markdown with ReportLab; Ecology permits a PDF main document only for LaTeX submissions, so Word or a genuine LaTeX package is still required"
+}

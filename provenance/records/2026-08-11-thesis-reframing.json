@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "run_id": "2026-08-11-thesis-reframing",
+  "date": "2026-08-11",
+  "goal": "Recenter the current manuscript and public project framing on designing FAIR and CARE into agentic workflows for better human science, with agent diagnostics as a secondary argument.",
+  "responsible_human": "Ty Tuff",
+  "actor": {
+    "kind": "agent",
+    "service": "OpenAI Codex",
+    "model": "GPT-5-based Codex",
+    "version": "exact deployment version not exposed to the repository"
+  },
+  "compute": {
+    "environment": "owner-authorized local Codex workspace with repository-scoped write access",
+    "data_boundary": "public repository content only; no research, governed, or sensitive data",
+    "network": "none required; local loopback server used for website tests"
+  },
+  "instructions": [
+    "PROMPT_LOG.md entry: Recenter the manuscript thesis",
+    "AGENTS.md operating contract",
+    "manuscript/fair_care_agentic_science_v2.md"
+  ],
+  "inputs": [
+    "user-supplied thesis direction",
+    "manuscript/fair_care_agentic_science_v2.md",
+    "manuscript/citation_audit_v2.json",
+    "README.md and docs/index.md"
+  ],
+  "outputs": [
+    "reframed current manuscript source",
+    "regenerated current reading PDF and Ecology formatting proof",
+    "synchronized website and machine-readable project description",
+    "decision, changelog, prompt, and provenance records"
+  ],
+  "evaluations": [
+    "claim-fingerprint and citation-registry audit",
+    "manuscript structure and word-count tests",
+    "PDF structural and visual inspection",
+    "strict website build and Playwright tests",
+    "repository audit and one-command reproduction"
+  ],
+  "human_review": {
+    "reviewer": "Ty Tuff",
+    "status": "pending",
+    "publication_authorized": false,
+    "notes": "The reframed thesis and resulting manuscript remain a working draft requiring author and external scholarly review before publication."
+  }
+}

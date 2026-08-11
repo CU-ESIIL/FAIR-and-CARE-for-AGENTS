@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "run_id": "YYYY-MM-DD-short-name",
+  "date": "YYYY-MM-DD",
+  "goal": "State the bounded outcome and affected claim or decision.",
+  "responsible_human": "Name the accountable human.",
+  "actor": {
+    "kind": "agent",
+    "service": "Record the service or local runtime.",
+    "model": "Record the model family or identifier.",
+    "version": "Record the exposed version or say not exposed."
+  },
+  "compute": {
+    "environment": "Record the authorized compute environment.",
+    "data_boundary": "List data classes and where they were allowed to go.",
+    "network": "List approved network use or none."
+  },
+  "instructions": ["Link the task specification or prompt-log entry."],
+  "inputs": ["List canonical inputs and versions."],
+  "outputs": ["List created or changed artifacts."],
+  "evaluations": ["List scientific, computational, provenance, and governance checks."],
+  "human_review": {
+    "reviewer": "Name the human reviewer.",
+    "status": "pending",
+    "publication_authorized": false,
+    "notes": "Pending substantive review."
+  }
+}
