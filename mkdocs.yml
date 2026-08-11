@@ -1,19 +1,28 @@
-site_name: "basic_OASIS"
-site_description: "Minimal project website"
-site_url: "https://cu-esiil.github.io/basic_OASIS/"
+site_name: "FAIR + CARE for Agentic Science"
+site_description: "Using agentic AI as a stress test for explicit, reproducible, and governable science"
+site_url: "https://cu-esiil.github.io/FAIR-and-CARE-for-AGENTS/"
 
-repo_name: "CU-ESIIL/basic_OASIS"
-repo_url: "https://github.com/CU-ESIIL/basic_OASIS"
+repo_name: "CU-ESIIL/FAIR-and-CARE-for-AGENTS"
+repo_url: "https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS"
 edit_uri: "edit/main/docs/"
 
 nav:
-  - Site:
+  - Project:
       - Home: index.md
-      - Examples: examples.md
+  - Evidence maps:
+      - Overview: principles/index.md
+      - "FAIR — Findable": principles/fair-findable.md
+      - "FAIR — Accessible": principles/fair-accessible.md
+      - "FAIR — Interoperable": principles/fair-interoperable.md
+      - "FAIR — Reusable": principles/fair-reusable.md
+      - "CARE — Collective Benefit": principles/care-collective-benefit.md
+      - "CARE — Authority to Control": principles/care-authority-to-control.md
+      - "CARE — Responsibility": principles/care-responsibility.md
+      - "CARE — Ethics": principles/care-ethics.md
 
 theme:
   name: material
-  logo: assets/esiil_content/esiil_oasis_logo.png
+  logo: assets/brand/oasis-wordmark.png
   favicon: assets/esiil_content/favicon.ico
   custom_dir: docs/overrides
   features:

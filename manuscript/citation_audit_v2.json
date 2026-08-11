@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "citation_style": "Provisional APA-like author-year style pending journal selection",
+  "maximum_citation_needed": 2,
+  "sources": [
+    {
+      "key": "barker2022",
+      "citation": "Barker et al., 2022",
+      "title": "Introducing the FAIR Principles for research software",
+      "year": 2022,
+      "first_author": "Barker",
+      "doi": "10.1038/s41597-022-01710-x",
+      "reference": "- Barker, M., Chue Hong, N. P., Katz, D. S., Lamprecht, A.-L., Martinez-Ortiz, C., Psomopoulos, F., Harrow, J., Castro, L. J., Gruenpeter, M., Martinez, P. A., & Honeyman, T. (2022). Introducing the FAIR Principles for research software. *Scientific Data, 9*, 622. https://doi.org/10.1038/s41597-022-01710-x",
+      "claims": [
+        {
+          "paragraph_sha256": "38e5ef1cdd289f97e2e6d0645450830ca91b13a22b5a74f1f568452f63936168",
+          "alignment_status": "reviewed",
+          "support_summary": "The article adapts FAIR to research software and directly supports the paragraph's description of identification, access to software and metadata, qualified references, and documented reuse conditions.",
+          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
+          "reviewed_on": "2026-08-11"
+        }
+      ]
+    },
+    {
+      "key": "boettiger2015",
+      "citation": "Boettiger, 2015",
+      "title": "An introduction to Docker for reproducible research",
+      "year": 2015,
+      "first_author": "Boettiger",
+      "doi": "10.1145/2723872.2723882",
+      "reference": "- Boettiger, C. (2015). An introduction to Docker for reproducible research. *ACM SIGOPS Operating Systems Review, 49*(1), 71–79. https://doi.org/10.1145/2723872.2723882",
+      "claims": [
+        {
+          "paragraph_sha256": "85905db96538add468dd5fe4cbde30cffe2a80129ebb50b018a83b92d997aaa4",
+          "alignment_status": "reviewed",
+          "support_summary": "The article explains how containers capture computational environments for portability and reproducibility, supporting the paragraph's established reproducible-computing foundation.",
+          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
+          "reviewed_on": "2026-08-11"
+        }
+      ]
+    },
+    {
+      "key": "carroll2020",
+      "citation": "Carroll et al., 2020",
+      "title": "The CARE Principles for Indigenous Data Governance",
+      "year": 2020,
+      "first_author": "Carroll",
+      "doi": "10.5334/dsj-2020-043",
+      "reference": "- Carroll, S. R., Garba, I., Figueroa-Rodríguez, O. L., Holbrook, J., Lovett, R., Materechera, S., Parsons, M., Raseroka, K., Rodriguez-Lonebear, D., Rowe, R., Sara, R., Walker, J. D., Anderson, J., & Hudson, M. (2020). The CARE Principles for Indigenous Data Governance. *Data Science Journal, 19*, 43. https://doi.org/10.5334/dsj-2020-043",
+      "claims": [
+        {
+          "paragraph_sha256": "5752fca956a812eb0907756a12d6b665b5faef622615e17529dcb99d733c6792",
+          "alignment_status": "reviewed",
+          "support_summary": "The paper presents CARE as Collective Benefit, Authority to Control, Responsibility, and Ethics, locates CARE in Indigenous Data Governance, and describes it as complementary to FAIR.",
+          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
+          "reviewed_on": "2026-08-11"
+        }
+      ]
+    },
+    {
+      "key": "gentleman2007",
+      "citation": "Gentleman & Lang, 2007",
+      "title": "Statistical analyses and reproducible research",
+      "year": 2007,
+      "first_author": "Gentleman",
+      "doi": "10.1198/106186007X178663",
+      "reference": "- Gentleman, R., & Lang, D. T. (2007). Statistical analyses and reproducible research. *Journal of Computational and Graphical Statistics, 16*(1), 1–23. https://doi.org/10.1198/106186007X178663",
+      "claims": [
+        {
+          "paragraph_sha256": "85905db96538add468dd5fe4cbde30cffe2a80129ebb50b018a83b92d997aaa4",
+          "alignment_status": "reviewed",
+          "support_summary": "The article describes integrated dynamic documents that connect narrative, code, data, and auxiliary content to regenerate computational results.",
+          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
+          "reviewed_on": "2026-08-11"
+        }
+      ]
+    },
+    {
+      "key": "peng2011",
+      "citation": "Peng, 2011",
+      "title": "Reproducible research in computational science",
+      "year": 2011,
+      "first_author": "Peng",
+      "doi": "10.1126/science.1213847",
+      "reference": "- Peng, R. D. (2011). Reproducible research in computational science. *Science, 334*(6060), 1226–1227. https://doi.org/10.1126/science.1213847",
+      "claims": [
+        {
+          "paragraph_sha256": "85905db96538add468dd5fe4cbde30cffe2a80129ebb50b018a83b92d997aaa4",
+          "alignment_status": "reviewed",
+          "support_summary": "The article presents reproducibility as a minimum standard for evaluating computational scientific claims, supporting the paragraph's reproducible-research foundation.",
+          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
+          "reviewed_on": "2026-08-11"
+        }
+      ]
+    },
+    {
+      "key": "sandve2013",
+      "citation": "Sandve et al., 2013",
+      "title": "Ten simple rules for reproducible computational research",
+      "year": 2013,
+      "first_author": "Sandve",
+      "doi": "10.1371/journal.pcbi.1003285",
+      "reference": "- Sandve, G. K., Nekrutenko, A., Taylor, J., & Hovig, E. (2013). Ten simple rules for reproducible computational research. *PLOS Computational Biology, 9*(10), e1003285. https://doi.org/10.1371/journal.pcbi.1003285",
+      "claims": [
+        {
+          "paragraph_sha256": "85905db96538add468dd5fe4cbde30cffe2a80129ebb50b018a83b92d997aaa4",
+          "alignment_status": "reviewed",
+          "support_summary": "The article provides practical rules for recording, versioning, testing, and sharing computational work so that analyses and results can be reproduced.",
+          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
+          "reviewed_on": "2026-08-11"
+        }
+      ]
+    },
+    {
+      "key": "wilkinson2016",
+      "citation": "Wilkinson et al., 2016",
+      "title": "The FAIR Guiding Principles for scientific data management and stewardship",
+      "year": 2016,
+      "first_author": "Wilkinson",
+      "doi": "10.1038/sdata.2016.18",
+      "reference": "- Wilkinson, M. D., Dumontier, M., Aalbersberg, I. J., et al. (2016). The FAIR Guiding Principles for scientific data management and stewardship. *Scientific Data, 3*, 160018. https://doi.org/10.1038/sdata.2016.18",
+      "claims": [
+        {
+          "paragraph_sha256": "5752fca956a812eb0907756a12d6b665b5faef622615e17529dcb99d733c6792",
+          "alignment_status": "reviewed",
+          "support_summary": "The FAIR paper makes machine actionability central and defines Findable, Accessible, Interoperable, and Reusable stewardship principles.",
+          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
+          "reviewed_on": "2026-08-11"
+        }
+      ]
+    },
+    {
+      "key": "w3c2013",
+      "citation": "World Wide Web Consortium, 2013",
+      "title": "PROV-O: The PROV Ontology",
+      "year": 2013,
+      "first_author": "World Wide Web Consortium",
+      "url": "https://www.w3.org/TR/prov-o/",
+      "page_contains": "W3C Recommendation 30 April 2013",
+      "reference": "- World Wide Web Consortium. (2013). *PROV-O: The PROV Ontology. W3C Recommendation 30 April 2013.* https://www.w3.org/TR/prov-o/",
+      "claims": [
+        {
+          "paragraph_sha256": "85905db96538add468dd5fe4cbde30cffe2a80129ebb50b018a83b92d997aaa4",
+          "alignment_status": "reviewed",
+          "support_summary": "The W3C Recommendation defines interoperable provenance concepts for entities, activities, agents, and their relationships, directly supporting the paragraph's provenance statement.",
+          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
+          "reviewed_on": "2026-08-11"
+        }
+      ]
+    }
+  ]
+}

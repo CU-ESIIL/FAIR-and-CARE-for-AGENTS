@@ -12,8 +12,17 @@
 - Make the smallest diff that solves the request.
 - Update related docs when behavior, workflows, or outputs change.
 - Update changelog, dev log, or equivalent history files for meaningful changes.
+- Update `PROMPT_LOG.md` for every user prompt handled in this repository.
 - Preserve existing structure and historical context.
 - Do not perform destructive rewrites unless explicitly requested.
+
+## Prompt Logging
+- Append one entry to `PROMPT_LOG.md` for every user prompt, including follow-up prompts that arrive during ongoing work.
+- Reproduce the user's prompt verbatim, preserving its spelling, punctuation, and formatting as closely as Markdown allows.
+- Do not include system or developer instructions, private reasoning, or tool output in the prompt log.
+- Summarize what the agent did in response, including files changed and checks run. If no repository action was taken, state that explicitly.
+- Create the entry when work begins and complete its response summary before sending the final response to the user.
+- Keep prior entries append-only. Edit an earlier entry only to correct an inaccurate record of the current task.
 
 ## Documentation and Website Policy
 - Treat `docs/` as project-level documentation and website source.
@@ -27,6 +36,12 @@
 - Do not invent domain-specific tests when expected behavior is unclear.
 - Add the smallest meaningful tests when behavior is known.
 - Prefer early-stage checks such as smoke tests, import tests, CLI tests, schema checks, or example-based checks.
+- Run `mkdocs build --strict` and `npm run test:site` after website changes.
+- Run `python3 -m unittest discover -s tests -p "test_*.py"` and `python3 scripts/manuscript_audit.py --check` after manuscript or citation changes.
+- For Draft 2, pass `--manuscript manuscript/fair_care_agentic_science_v2.md --registry manuscript/citation_audit_v2.json` to the manuscript audit.
+- Add `--online` to the manuscript audit when network access is available so authoritative source records are rechecked.
+- Register every in-text citation and bibliography entry in the citation-audit registry associated with that manuscript draft.
+- Treat claim review as scholarly judgment: read the source, document how it supports the cited paragraph, and update the paragraph fingerprint only after review. Never refresh fingerprints mechanically to silence CI.
 - If tests are deferred, document the gap; do not imply coverage that does not exist.
 
 ## Package and Structure Separation Policy

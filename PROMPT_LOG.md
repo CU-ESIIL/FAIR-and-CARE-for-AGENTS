@@ -1,0 +1,810 @@
+# Prompt Log
+
+This append-only log records each user prompt handled in this repository and a concise summary of the agent's response.
+
+## 2026-08-11 — Add prompt logging
+
+### Prompt (verbatim)
+
+```text
+add a prompt log that tracks every prompt verbatim and a summary of what the agent did in response. update the agents.md file to direct any agent to update the prompt log each time they do something. 
+```
+
+### Agent response summary
+
+- Added this root-level prompt log with a documented append-only format.
+- Updated `AGENTS.md` to require an entry for every user prompt and a summary of repository actions and checks.
+- Reviewed the resulting diff and checked the Markdown files for formatting consistency.
+
+## 2026-08-11 — Draft the FAIR + CARE for Agentic Science manuscript
+
+### Prompt (verbatim)
+
+```text
+# Files mentioned by the user:
+
+## Task: Establish and draft a FAIR + CARE for Agentic Science manuscript We are d…: /Users/tuff/.codex/attachments/a9870357-d2ce-46e5-9128-af002f43cd6e/pasted-text.txt
+
+## My request for Codex:
+**Principle**
+
+**Agentic interpretation**
+
+**Repository/infrastructure implementation**
+
+**Test.**  
+7. A short section describing a minimal “FAIR + CARE agent-ready repository” that a normal environmental science lab could realistically implement.
+8. A TODO section identifying arguments needing evidence, citations, examples, or further development.
+
+Keep everything editable and version controlled.
+
+Do not optimize for length yet. The goal of this pass is to establish the strongest possible intellectual structure and capture the full argument. We can shorten and target a specific journal afterward.
+
+The manuscript should ultimately leave the reader with this idea:
+
+The goal is not to make science easier for AI. It is to use AI as a test of whether we have made science explicit enough to be independently understood, reproduced, evaluated, and governed.
+
+I’d use this as the first Codex pass. After it generates the manuscript, the next pass should probably be much more adversarial: have Codex inspect the draft and identify which claims are genuinely novel, which are already established by FAIR/CARE literature, and where reviewers are most likely to attack the argument.
+```
+
+The attached task brief at `pasted-text.txt` was treated as part of this request and read in full.
+
+### Agent response summary
+
+- Created `manuscript/fair_care_agentic_science.md` as the canonical editable source and drafted a 7,835-word Perspective with a short abstract, proposed and alternate titles, the complete FAIR + CARE argument, test-first workflow, implementation matrix, conceptual figure description, realistic minimum repository, limitations, references, and a detailed TODO agenda.
+- Updated `README.md`, `docs/index.md`, and `mkdocs.yml` so the repository and website describe and link to the manuscript project rather than the original generic template.
+- Verified required files, balanced Markdown code fences, key argument language, valid YAML, and clean whitespace with `git diff --check`.
+- Attempted a strict MkDocs build, but `mkdocs` and its Python YAML dependency were not installed in the environment; validated `mkdocs.yml` with Ruby's YAML parser instead.
+
+## 2026-08-11 — Apply ESIIL branding to the project website
+
+### Prompt (verbatim)
+
+```text
+# Files mentioned by the user:
+
+## ESIIL STYLE GUIDE.pdf: /Users/tuff/Downloads/ESIIL STYLE GUIDE.pdf
+
+## cu-standalone.png.avif: /Users/tuff/Downloads/cu-standalone.png.avif
+
+## background_removed.png: /Users/tuff/Downloads/background_removed.png
+
+## Final_ESIIL%20Wordmark%20Color_0.png: /Users/tuff/Downloads/Final_ESIIL%20Wordmark%20Color_0.png
+
+## CIRES logo black lettering transparent bkgrnd.png: /Users/tuff/Downloads/CIRES logo black lettering transparent bkgrnd.png
+
+## NSF_NSB_LogoLockup_RGB.png: /Users/tuff/Downloads/NSF_NSB_LogoLockup_RGB.png
+
+## My request for Codex:
+can you update the website to reflect what this repo is actually about. Keep it simple but follow these style guides and use the oasis logo to link back to https://cu-esiil.github.io/home/ and the esiil logo to link back to esiil.org. the cires, cu and nsf logos are for the footer
+```
+
+The four attached logo previews were treated as part of this request.
+
+### Agent response summary
+
+- Reviewed the rendered ESIIL style guide and applied its primary blue, accent blue, accent green, dark body text, light relief, heading scale, and blue-to-green action treatment as a coherent site-wide design system.
+- Rewrote `docs/index.md` as a concise project landing page centered on agentic AI as a scientific stress test, test-first design, FAIR, CARE, the working manuscript, and repository contents.
+- Imported and web-optimized the supplied OASIS, ESIIL, CU Boulder, CIRES, and NSF artwork under `docs/assets/brand/`; linked the OASIS logo to `https://cu-esiil.github.io/home/`, linked the ESIIL wordmark to `https://esiil.org/`, and created a responsive sponsor footer with the CU Boulder, CIRES, and NSF logos.
+- Updated the MkDocs logo override and site stylesheet, added the footer override, and removed the obsolete template examples page.
+- Completed a strict MkDocs build, checked desktop and mobile rendering, confirmed no horizontal overflow, broken images, or browser console errors, and verified the requested brand links and footer labels.
+
+## 2026-08-11 — Add website and manuscript CI tests
+
+### Prompt (verbatim)
+
+```text
+set up some ci/cd tests. one should be playwright to make sure the website is always functioning and all the buttons work. we should also have a formatting text for the manuscript to tell us how my words each part is and how many cititions we have and that those citations have be vetted that they're real, that they're writtine correctly, and that the text approriatly represents the citations and via versa. 
+```
+
+### Agent response summary
+
+- Added `.github/workflows/ci.yml` with push, pull-request, manual, and weekly jobs for a strict MkDocs build, Chromium Playwright checks, manuscript unit tests, and online citation verification. The workflow publishes Playwright and manuscript-audit reports as artifacts and adds the manuscript report to the GitHub Actions job summary.
+- Added pinned Playwright dependencies, configuration, and five browser tests covering page rendering, browser errors and broken images, primary calls to action and institutional-logo destinations, internal links, mobile overflow, and the back-to-top control.
+- Added a standard-library manuscript audit, citation registry, and unit tests. The audit reports words by section, citation counts, citation placeholders, bibliography/registry consistency, authoritative identifier and metadata checks, and claim-level review fingerprints so edited cited passages require renewed review.
+- Added and reviewed manuscript citations so all eight bibliography entries are cited and registered. The online source audit verified 8/8 source records; the manuscript currently has 10 citation mentions, 10 claim reviews, and 6 explicit `[CITATION NEEDED]` placeholders.
+- Updated `README.md`, `AGENTS.md`, and `.gitignore` with the quality-check workflow and citation-review rules.
+- Ran `mkdocs build --strict`, the five Playwright tests in CI mode, two Python unit tests, the offline manuscript audit, the online manuscript audit, workflow/JSON syntax checks, and `git diff --check`; all passed.
+
+## 2026-08-11 — Make the README human- and machine-readable
+
+### Prompt (verbatim)
+
+```text
+now update the readme file to be machine and human readable description of the repo and project. 
+```
+
+### Agent response summary
+
+- Reworked `README.md` into a human-readable project overview with the research question, central thesis, contribution, current status, repository map, manuscript workflow, quality checks, operating expectations, and explicit project boundaries.
+- Added a delimited, valid YAML metadata block describing the project, canonical artifacts, interfaces, automated checks, governance expectations, licenses, and identifiers without inventing missing metadata.
+- Documented how citation review works, including bidirectional claim/source review, fingerprint invalidation, and the limits of automated verification.
+- Validated the embedded YAML and its declared file paths, checked all local README links, and ran `git diff --check`. A fresh MkDocs build was not run because MkDocs is not installed in the current shell; this change does not modify website source or configuration.
+
+## 2026-08-11 — Map repository evidence to each FAIR and CARE principle
+
+### Prompt (verbatim)
+
+```text
+in the repo, can you make a document for each of the acronym parts that list and link to the parts of the repo that fufill each design criteria. 
+```
+
+### Agent response summary
+
+- Added `docs/principles/index.md` plus one evidence-map document for each FAIR and CARE principle: Findable, Accessible, Interoperable, Reusable, Collective Benefit, Authority to Control, Responsibility, and Ethics.
+- Mapped every repository/infrastructure design criterion from the manuscript to direct repository evidence, an honest implementation status, remaining work, the current check, a target test, and a passing condition. The CARE pages explicitly distinguish technical evidence from legitimate community authority or self-certification.
+- Added the evidence maps to `mkdocs.yml`, linked them from the project landing page, and registered their canonical directory in the README's machine-readable metadata and repository map.
+- Expanded the Playwright link test to crawl every local documentation page so newly added pages and links are continuously checked.
+- Validated nine principle pages and all local links, completed a strict MkDocs build, ran all five Playwright tests, visually inspected the rendered overview and Authority to Control page, confirmed no horizontal overflow, and ran `git diff --check`; all checks passed.
+
+## 2026-08-11 — Export the manuscript as a PDF
+
+### Prompt (verbatim)
+
+```text
+give me a pdf of the manuscript
+```
+
+### Agent response summary
+
+- Created `output/pdf/fair_care_agentic_science.pdf`, a 19-page typeset export of the canonical Markdown manuscript with a title page, generated table of contents, PDF outline, consistent section hierarchy, running headers, page numbers, styled quotations, lists, an implementation matrix, the repository tree, editorial citation notes, and readable references.
+- Added `scripts/render_manuscript_pdf.py` as a reusable source-to-PDF renderer and `requirements-pdf.txt` for its isolated dependency. The Markdown manuscript remains canonical and editable; the PDF is explicitly documented as a derived output.
+- Updated `README.md` machine-readable metadata, repository map, and manuscript instructions with the PDF artifact and regeneration command.
+- Reopened and inspected the PDF with `pypdf`, `pdfplumber`, `pdfinfo`, and Poppler. Verified 19 pages, complete extractable text, no blank pages, no null glyphs or raw citation placeholders, consistent headers and footers, and visually reviewed all pages plus detailed views of the title, contents, implementation matrix, repository structure, TODO checklists, and references.
+
+## 2026-08-11 — Create a concise second manuscript draft
+
+### Prompt (verbatim)
+
+```text
+TASK: Create a concise second draft of the FAIR + CARE for Agentic Science manuscript
+
+Read the existing manuscript in this repository and revise it into a substantially shorter, clearer, more practical second draft.
+
+DO NOT start over. Preserve the strongest ideas and language from Draft 1, but reorganize and compress the manuscript around the practical purpose described below.
+
+Do not overwrite Draft 1.
+
+Create:
+- manuscript/fair_care_agentic_science_v2.md
+- manuscript/fair_care_agentic_science_v2.pdf
+
+Follow existing repository conventions where appropriate.
+
+TARGET AUDIENCE
+
+The audience is practicing ecologists, environmental scientists, environmental data scientists, and research software engineers.
+
+Assume the reader has a GitHub repository containing data, code, analyses, figures, and perhaps a manuscript. They are beginning to use coding/AI agents such as Codex, Claude Code, or similar systems.
+
+The practical question this paper answers is:
+
+"How should I design my scientific repository so that humans and AI agents can work with it effectively, reproducibly, and responsibly?"
+
+This should NOT read as a general theory of AI and science.
+
+It should be a short scientific Perspective or Commentary giving environmental scientists concrete design criteria they can implement in their repositories today.
+
+Target approximately 2,500–3,000 words of main text, excluding references, table, and figure caption.
+
+Be aggressive about removing repetition.
+
+
+CENTRAL ARGUMENT
+
+FAIR and CARE remain useful principles for scientific practice in the age of agentic AI, but agents change how we can implement and test them.
+
+The central proposition is:
+
+"Designing repositories for agents makes them better scientific repositories because it forces scientific intent, methods, evaluation, provenance, and governance to become explicit rather than tacit."
+
+Agents behave like context-free collaborators.
+
+Humans familiar with a project routinely compensate for missing information. They know which script is current, which preprocessing step happened manually, where data came from, what a figure should look like, which data cannot leave institutional infrastructure, and whom to ask before publishing something.
+
+A newly arriving agent should not be assumed to know any of this.
+
+This makes an agent a useful stress test for a scientific repository.
+
+Keep this idea concise. It is motivation for the practical design criteria, not the subject of a long theoretical section.
+
+A simple test is:
+
+"Give a new agent the repository or project URL with no previous conversation. Can it determine what the project is, how it works, what it should do, whether it succeeded, and what it is allowed to do?"
+
+Every undocumented intervention required from a human identifies either information that should be made explicit or a decision that should intentionally remain under human authority.
+
+
+TEST-FIRST DESIGN
+
+The entire paper should revolve around one simple rule:
+
+"Define the task and the test before asking the agent to do the work."
+
+Call this test-first scientific design.
+
+Before delegating consequential scientific work to an agent, specify:
+
+1. GOAL — What exactly should be accomplished?
+2. INSTRUCTIONS — What data, methods, tools, and constraints apply?
+3. TEST — What observable evidence tells us whether it succeeded or failed?
+4. RECORD — What must be preserved so another human or agent can understand and reproduce what happened?
+
+Use the compact sequence:
+
+GOAL → INSTRUCTIONS → TEST → RECORD
+
+Explain that tests can have four dimensions:
+
+SCIENTIFIC — Is the scientific result acceptable?
+
+COMPUTATIONAL — Did the workflow execute correctly?
+
+PROVENANCE — Can we reconstruct what happened?
+
+GOVERNANCE — Was the workflow allowed to do what it did?
+
+Make the point that passing only three of four can still constitute failure.
+
+A scientifically correct result obtained through prohibited data use fails.
+
+A perfectly governed and reproducible hallucination fails.
+
+A correct result whose provenance cannot be reconstructed fails the proposed standard.
+
+Keep this section concise.
+
+
+FAIR: FOUR CONCRETE REPOSITORY DESIGN CRITERIA
+
+FAIR should be the first major practical section.
+
+Each principle should have:
+1. one memorable design rule
+2. a short explanation
+3. concrete repository implementation
+4. one simple test
+
+
+F — FINDABLE
+
+Design rule:
+
+"GIVE EVERY REPOSITORY A FRONT DOOR."
+
+Recommend:
+
+ONE REPOSITORY → ONE ASSOCIATED WEBSITE
+
+The repository is the versioned scientific object.
+
+The website is its discovery and communication layer.
+
+The website should be optimized for ordinary search and understandable by humans and machines.
+
+It should clearly expose:
+- scientific question
+- project description
+- people/responsible organization
+- data
+- methods
+- major outputs
+- repository
+- manuscript/publications
+- citation
+- persistent identifiers where appropriate
+
+Discuss search optimization and machine-readable metadata briefly.
+
+TEST:
+
+Give a clean agent only the project URL.
+
+Can it correctly identify the question, data, methods, outputs, repository, people, and citation?
+
+
+A — ACCESSIBLE
+
+Design rule:
+
+"GIVE EVERY AGENT AN ORIENTATION."
+
+Use AGENTS.md as the primary concrete recommendation.
+
+The repository should contain an AGENTS.md that tells a newly arriving agent:
+- what the project is
+- how the repository is organized
+- which workflows are canonical
+- how to run them
+- how to test them
+- which outputs matter
+- what constraints apply
+- what actions are prohibited
+- when human approval is required
+
+Preserve consequential agent instructions and prompt/decision records when they materially affect the science.
+
+Retain this sentence from Draft 1 if possible:
+
+"No scientifically necessary instruction should exist only in the memory of a person or an AI conversation."
+
+Do not argue that every chat should be logged.
+
+TEST:
+
+Start a fresh agent with no previous conversation and ask it to perform a defined repository task.
+
+What additional undocumented information must a human provide?
+
+
+I — INTEROPERABLE
+
+Design rule:
+
+"MAKE SCIENTIFIC PRODUCTS PORTABLE."
+
+Agents should create durable, editable scientific artifacts rather than leaving scientific products trapped inside a chat or proprietary interface.
+
+Prefer appropriate formats such as:
+- .md
+- .py
+- .R
+- YAML
+- JSON
+- CSV
+- Parquet
+- NetCDF
+- Zarr
+- GeoTIFF
+- editable figure source
+
+Use a predictable directory structure.
+
+Scientific meaning should not depend on one model, provider, agent framework, or interface.
+
+Retain this line:
+
+"The model should be disposable; the science should persist."
+
+TEST:
+
+Take an artifact created using one agent/model and give it to another agent or conventional computational environment.
+
+Can it understand, modify, execute, and reproduce it without proprietary conversion?
+
+
+R — REUSABLE
+
+Design rule:
+
+"MAKE THE PROJECT EXECUTABLE ELSEWHERE."
+
+Use:
+- version control
+- tagged versions/releases
+- containers or reproducible environment specifications
+- pinned important dependencies
+- versioned or immutable data references
+- identified/versioned AI models where consequential
+- tests
+- licenses
+- provenance
+- a documented reproduction command
+
+Do not imply that all data or models belong inside Git.
+
+The repository should point unambiguously to the versions used.
+
+TEST:
+
+Clone the repository onto clean infrastructure and reproduce one specified figure, table, statistic, or result.
+
+
+CARE: FOUR CONCRETE AGENT GOVERNANCE CRITERIA
+
+CARE should be equally practical.
+
+Include a SHORT paragraph explaining that CARE originated in Indigenous Data Governance and cannot be reduced to a generic technical checklist.
+
+The recommendations below are ways repository and infrastructure design can make established governance decisions operational. They do not create legitimate authority by themselves.
+
+
+C — COLLECTIVE BENEFIT
+
+Design rule:
+
+"STATE WHO BENEFITS."
+
+Before deploying an agentic workflow, identify:
+- intended beneficiary
+- intended scientific/community benefit
+- expected useful output
+- important burdens or risks
+
+Avoid a long philosophical treatment.
+
+TEST:
+
+Can the project state who should benefit and what observable outcome would constitute benefit?
+
+
+A — AUTHORITY TO CONTROL
+
+Design rule:
+
+"MAKE AUTHORITY EXPLICIT."
+
+This should be the strongest CARE subsection.
+
+Do not treat data access as blanket permission.
+
+Where relevant, distinguish authority to:
+- read
+- copy
+- analyze
+- perform inference
+- train
+- fine-tune
+- combine
+- publish
+- redistribute
+
+Make this important computational point:
+
+"Governance requires knowing where computation occurs and which models and services receive the data."
+
+Develop this memorable question:
+
+"We routinely record where our data came from. Agentic science also requires knowing: WHERE DID THE DATA GO?"
+
+For governed or sensitive data, recommend as appropriate:
+- known compute infrastructure
+- institutionally/community-approved compute
+- identified and versioned models
+- known inference endpoints
+- documented retention behavior
+- explicit network/data-export boundaries
+- local, institutional, or self-hosted inference when external transfer is not authorized
+
+Be clear that self-hosting does not itself establish legitimate use.
+
+It creates a computational boundary within which legitimate governance decisions can be enforced.
+
+TEST:
+
+Attempt a prohibited data movement or model use.
+
+Does the workflow stop or escalate appropriately?
+
+
+R — RESPONSIBILITY
+
+Design rule:
+
+"NAME THE RESPONSIBLE HUMAN."
+
+Every consequential agent workflow should have an identifiable human owner.
+
+For important scientific outputs, preserve enough information to reconstruct:
+- model/service
+- model/version if available
+- instructions
+- data
+- code
+- tools
+- environment
+- evaluation
+- human review/authorization
+
+Retain this line:
+
+"Agents may receive autonomy, but responsibility cannot be delegated to them."
+
+TEST:
+
+Pick an important result.
+
+Can we determine who authorized the workflow and reconstruct how the result was produced and evaluated?
+
+
+E — ETHICS
+
+Design rule:
+
+"TEST WHAT MUST NOT HAPPEN."
+
+Do not make this a generic AI ethics discussion.
+
+Before deployment ask:
+
+"What is the worst scientifically plausible thing this agent could do?"
+
+Examples might include:
+- disclose sensitive species locations
+- fabricate literature support
+- publish an unreviewed result
+- move governed data to an unauthorized model
+- make a high-consequence environmental recommendation outside its authority
+
+Turn important unacceptable outcomes into explicit tests.
+
+TEST:
+
+Deliberately attempt representative prohibited or harmful actions.
+
+Does the system refuse, detect, stop, or escalate appropriately?
+
+
+THE AGENT-READY REPOSITORY
+
+Make the repository itself the primary concrete example and likely Figure 1.
+
+Use or improve a structure similar to:
+
+my-environmental-project/
+|
+|-- README.md
+|-- AGENTS.md
+|-- environment/
+|-- data/
+|   `-- README.md
+|-- src/
+|-- analysis/
+|-- tests/
+|   |-- scientific/
+|   |-- computational/
+|   `-- governance/
+|-- prompts/
+|-- provenance/
+|-- results/
+|-- manuscript/
+`-- docs/
+
+Do NOT present this exact folder structure as mandatory.
+
+Use it to demonstrate that an agent-ready repository should expose:
+- scientific purpose
+- agent instructions
+- editable source
+- reproducible environment
+- scientific tests
+- governance tests
+- consequential prompts/instructions
+- provenance
+- outputs
+- searchable website
+
+Create a concise Figure 1 concept:
+
+"Anatomy of a FAIR + CARE agent-ready environmental science repository."
+
+Visually associate repository components with FAIR and CARE.
+
+The figure should communicate the design in seconds.
+
+Do not use the elaborate three-panel stress-test figure from Draft 1 as the primary figure.
+
+
+MAIN FAIR + CARE TABLE
+
+Retain and simplify the existing implementation matrix.
+
+Use four columns:
+
+Principle | Design rule | What to implement | Test
+
+Use exactly these eight memorable design rules:
+
+FAIR
+
+F — Give every repository a front door.
+A — Give every agent an orientation.
+I — Make scientific products portable.
+R — Make the project executable elsewhere.
+
+CARE
+
+C — State who benefits.
+A — Make authority explicit.
+R — Name the responsible human.
+E — Test what must not happen.
+
+Keep the table concise enough to serve as a practical reference.
+
+
+MANUSCRIPT STRUCTURE
+
+Use approximately this structure:
+
+TITLE
+
+Preferred working title:
+
+FAIR and CARE in the Age of Agents: Design Criteria for Agent-Ready Environmental Science
+
+Generate several alternatives but choose one primary title.
+
+
+ABSTRACT
+
+150–200 words.
+
+State:
+- agents are entering scientific repositories
+- repositories contain substantial tacit context
+- FAIR + CARE provide useful design principles
+- we translate them into eight concrete repository/infrastructure criteria
+- test-first design makes the criteria evaluable
+- these practices improve science for humans as well as agents
+
+
+1. ENVIRONMENTAL SCIENCE REPOSITORIES ARE BECOMING AGENT WORKSPACES
+
+Approximately 400 words.
+
+Introduce the problem and context-free collaborator idea.
+
+No long theoretical treatment.
+
+
+2. TEST FIRST
+
+Approximately 250–350 words.
+
+Introduce:
+
+GOAL → INSTRUCTIONS → TEST → RECORD
+
+and the four kinds of tests:
+
+scientific, computational, provenance, governance.
+
+
+3. FAIR REPOSITORY DESIGN FOR AGENTS
+
+Approximately 700–800 words total.
+
+F, A, I, R.
+
+
+4. CARE GOVERNANCE FOR AGENTS
+
+Approximately 700–800 words total.
+
+C, A, R, E.
+
+
+5. AN AGENT-READY ENVIRONMENTAL SCIENCE REPOSITORY
+
+Approximately 300–400 words.
+
+Show the repository architecture.
+
+Explain that laboratories can implement this incrementally.
+
+
+6. CONCLUSION
+
+Approximately 150–250 words.
+
+End practically.
+
+
+REMOVE OR SUBSTANTIALLY COMPRESS FROM DRAFT 1
+
+Do not preserve material merely because it already exists.
+
+Substantially reduce:
+- long discussion of agentic AI as a general scientific paradigm
+- repeated explanations of the context-free collaborator
+- long taxonomy of agent failure modes
+- extended philosophical discussion of reproducibility
+- repeated explanations that agent success does not prove scientific validity
+- long limitations section
+- lengthy hypothetical examples
+- detailed discussion of continuous reproduction
+- redundant descriptions of FAIR and CARE
+- repeated statements of the central thesis
+
+Preserve important caveats, but make them concise.
+
+The reader should never lose sight of the practical question:
+
+"What should I change in my environmental science repository?"
+
+
+TONE
+
+Write as scientists advising other scientists.
+
+The prose should be:
+- concise
+- confident
+- practical
+- technically literate
+- accessible to ecologists who are not AI specialists
+
+Avoid AI hype.
+
+Avoid implying autonomous science is the goal.
+
+Avoid turning the manuscript into an AI safety paper.
+
+Avoid unnecessary jargon.
+
+Prefer concrete verbs and examples.
+
+Do not overqualify every recommendation.
+
+
+LITERATURE
+
+Preserve verified citations from Draft 1 where they directly support the shorter manuscript.
+
+Do not invent references.
+
+Keep citation-needed markers where necessary.
+
+Do NOT perform a major literature expansion in this pass.
+
+This pass is about argument, structure, concision, and usability.
+
+Preserve the citation-audit infrastructure already established in the repository.
+
+
+SECOND DRAFT PDF
+
+After completing the Markdown revision:
+
+1. Generate manuscript/fair_care_agentic_science_v2.pdf.
+2. Verify that it renders correctly.
+3. Check page breaks, table overflow, headings, repository-tree formatting, and references.
+4. Keep the design appropriate for a scientific working manuscript.
+5. Clearly label it "Second Draft" and include the generation date.
+6. Do not overwrite Draft 1.
+
+
+FINAL QUALITY CHECK
+
+Before finishing, read the entire second draft as an environmental scientist encountering these ideas for the first time.
+
+Ask:
+
+1. Within the first page, is it obvious why agents change repository design?
+2. Is test-first design understandable without software-engineering expertise?
+3. Can the reader remember the eight FAIR + CARE rules?
+4. Does each rule tell the reader something concrete to implement?
+5. Is the relationship between FAIR, CARE, and test-first design obvious?
+6. Is the importance of known compute/model infrastructure clear under Authority to Control?
+7. Does the repository architecture make the recommendations tangible?
+8. Have we removed theoretical material that does not help the reader build a better repository?
+9. Is the main text approximately 2,500–3,000 words?
+10. Does the PDF render cleanly?
+
+If not, revise again before producing the final v2 files.
+
+The desired outcome is a short paper that leaves an environmental scientist thinking:
+
+"I understand what an agent-ready scientific repository is, why FAIR and CARE provide the design criteria, and what I can change in my own repository today."
+```
+
+### Agent response summary
+
+- Created `manuscript/fair_care_agentic_science_v2.md` as a separate, concise second draft and preserved the first-draft files.
+- Reframed the manuscript around **Goal → Instructions → Test → Record**, four FAIR design rules, four CARE governance rules, a simplified implementation/test matrix, a minimal repository architecture, and a Figure 1 concept. The abstract is 175 words and the brief-aligned main-text count is 2,512 words (excluding the table, repository tree, figure concept/caption, citation-integrity note, and references).
+- Created `manuscript/citation_audit_v2.json` with eight claim-level reviews for eight cited sources. The online identity check verified all eight authoritative records; the manuscript intentionally retains two visible `[CITATION NEEDED]` markers for claims requiring additional evidence or governance-specific sources.
+- Generated `manuscript/fair_care_agentic_science_v2.pdf`, labeled **Second Draft** and dated 11 August 2026. Rendered and visually inspected all 10 pages, including the matrix, repository tree, Figure 1 concept, page breaks, and references; structural inspection found no empty pages or null glyphs.
+- Updated the PDF renderer, CI workflow, manuscript tests, `README.md`, `AGENTS.md`, the project website, and Playwright expectations so Draft 2 is the current manuscript while Draft 1 remains available.
+- Checks run: four manuscript-audit unit tests; offline audits for both drafts; online verification of all eight Draft 2 sources; strict MkDocs build; five Playwright website tests; PDF metadata/text/outline checks; JSON and YAML parsing; README artifact-path validation; and `git diff --check`. All passed. A final ten-question reader review found the requested rationale, implementation guidance, FAIR/CARE/test-first relationship, authority-to-control detail, tangible repository architecture, target length, and clean PDF rendering present.
+
+## 2026-08-11 — Align the repository with the manuscript
+
+### User prompt
+
+```text
+I want the repo to follow the rules outlined in the paper. can you make sure it does all that we say it should do
+```
+
+### Agent response summary
+
+- Work in progress.

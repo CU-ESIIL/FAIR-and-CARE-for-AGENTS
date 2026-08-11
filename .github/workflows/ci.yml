@@ -1,0 +1,109 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "17 10 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  website:
+    name: Website build and Playwright
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Install website dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install test dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Build website
+        run: mkdocs build --strict
+
+      - name: Test website
+        run: npm run test:site
+
+      - name: Upload Playwright report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v5
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14
+
+  manuscript:
+    name: Manuscript metrics and citation integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Run manuscript audit tests
+        run: python -m unittest discover -s tests -p "test_*.py"
+
+      - name: Audit Draft 1 and verify sources
+        run: python scripts/manuscript_audit.py --check --online --markdown-report manuscript-audit.md
+
+      - name: Audit Draft 2 and verify sources
+        run: >-
+          python scripts/manuscript_audit.py
+          --manuscript manuscript/fair_care_agentic_science_v2.md
+          --registry manuscript/citation_audit_v2.json
+          --check --online --markdown-report manuscript-audit-v2.md
+
+      - name: Add manuscript metrics to the job summary
+        if: ${{ always() }}
+        run: |
+          if [ -f manuscript-audit.md ] && [ -f manuscript-audit-v2.md ]; then
+            echo "# Draft 1" >> "$GITHUB_STEP_SUMMARY"
+            cat manuscript-audit.md >> "$GITHUB_STEP_SUMMARY"
+            echo "# Draft 2" >> "$GITHUB_STEP_SUMMARY"
+            cat manuscript-audit-v2.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "# Manuscript audit did not run" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload manuscript audit
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v5
+        with:
+          name: manuscript-audit
+          path: |
+            manuscript-audit.md
+            manuscript-audit-v2.md
+          retention-days: 30

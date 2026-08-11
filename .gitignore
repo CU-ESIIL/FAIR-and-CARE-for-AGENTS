@@ -49,3 +49,14 @@ rsconnect/
 
 # macOS
 .DS_Store
+
+# Python and MkDocs
+__pycache__/
+*.pyc
+site/
+manuscript-audit.md
+
+# Node and Playwright
+node_modules/
+playwright-report/
+test-results/

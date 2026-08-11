@@ -1,0 +1,10 @@
+{
+  "name": "fair-care-agentic-science-site-tests",
+  "private": true,
+  "scripts": {
+    "test:site": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.0"
+  }
+}
