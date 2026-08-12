@@ -5,7 +5,7 @@ description: Evidence that autonomous action remains attributable to accountable
 
 # R — Responsibility
 
-**Agentic interpretation:** Autonomous action remains traceable to named human and institutional accountability.
+**Workflow interpretation:** Operational ownership, scientific review, institutional responsibility, governing authority, and release approval are identifiable without allowing an individual or agent to substitute for collective authority.
 
 **Current assessment:** **Implemented for current consequential workflows.** A named human owns manuscript, citation, test, publication, release, and governance decisions; action gates, run provenance, disclosure, correction, rollback, and incident response are explicit.
 

@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 RULE_PATHS = {
-    "F — Give every repository a front door": [
+    "F — Give every project an authoritative front door": [
         "README.md",
         "project.json",
         "CITATION.cff",
@@ -40,7 +40,7 @@ RULE_PATHS = {
         "scripts/render_ecology_manuscript_pdf.py",
         "scripts/reproduce.py",
     ],
-    "C — State who benefits": [
+    "C — State who benefits and who bears burdens": [
         "governance/BENEFIT.md",
         "project.json",
     ],
@@ -49,12 +49,12 @@ RULE_PATHS = {
         "data/README.md",
         "SECURITY.md",
     ],
-    "R — Name the responsible human": [
+    "R — Assign accountable people and institutions": [
         "governance/RESPONSIBILITY.md",
         "provenance/README.md",
         "provenance/records/2026-08-11-repository-alignment.json",
     ],
-    "E — Test what must not happen": [
+    "E — Identify harms and test boundaries safely": [
         "governance/harm-register.json",
         "governance/INCIDENT_RESPONSE.md",
         "tests/test_repository_policy.py",

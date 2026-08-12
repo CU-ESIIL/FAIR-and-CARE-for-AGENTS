@@ -54,7 +54,7 @@ The page limit applies to the formatted manuscript, not only the main-text word 
 - Perspective abstract: required and no more than 350 words. It must contain no citations or URLs.
 - Keywords: six to 12, alphabetized and separated by semicolons.
 
-The Ecology-formatted title is 89 characters and the current abstract is 206 words. The eight keywords are alphabetized. FAIR and CARE remain in the title because they are the paper's subject; the journal generally discourages acronyms, so this choice should be confirmed in an editorial proposal.
+The Ecology-formatted title is 89 characters and the current abstract is 239 words. The eight keywords are alphabetized. FAIR and CARE remain in the title because they are the paper's subject; the journal generally discourages acronyms, so this choice should be confirmed in an editorial proposal.
 
 ## Open research, AI, and declarations
 

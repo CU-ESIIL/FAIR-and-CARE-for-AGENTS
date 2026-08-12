@@ -5,7 +5,7 @@ description: Evidence that unacceptable scientific and social outcomes are antic
 
 # E — Ethics
 
-**Agentic interpretation:** Unacceptable scientific and social outcomes are anticipated, tested, detected, and escalated before deployment.
+**Workflow interpretation:** Affected people, rights-holders, experts, and responsible institutions identify foreseeable harms; technical boundaries are tested safely, and remedy, withdrawal, and recovery remain possible.
 
 **Current assessment:** **Implemented for current risks.** The project harm register identifies affected parties, prevention, detection, escalation, recovery, owners, and tests for citation fabrication, unreviewed publication, sensitive disclosure, and misleading compliance. Domain-data bias tests remain out of scope because no scientific data or deployed model is present.
 

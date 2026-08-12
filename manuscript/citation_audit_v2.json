@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "citation_style": "Provisional APA-like author-year style pending journal selection",
-  "maximum_citation_needed": 2,
+  "maximum_citation_needed": 4,
   "sources": [
     {
       "key": "barker2022",
@@ -49,11 +49,11 @@
       "reference": "- Carroll, S. R., Garba, I., Figueroa-Rodríguez, O. L., Holbrook, J., Lovett, R., Materechera, S., Parsons, M., Raseroka, K., Rodriguez-Lonebear, D., Rowe, R., Sara, R., Walker, J. D., Anderson, J., & Hudson, M. (2020). The CARE Principles for Indigenous Data Governance. *Data Science Journal, 19*, 43. https://doi.org/10.5334/dsj-2020-043",
       "claims": [
         {
-          "paragraph_sha256": "5752fca956a812eb0907756a12d6b665b5faef622615e17529dcb99d733c6792",
+          "paragraph_sha256": "c2e21cf9440b85a7ad004419ac7ae1c6763a5303c2ec01959330bca7c0bb4a87",
           "alignment_status": "reviewed",
-          "support_summary": "The paper presents CARE as Collective Benefit, Authority to Control, Responsibility, and Ethics, locates CARE in Indigenous Data Governance, and describes it as complementary to FAIR.",
-          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
-          "reviewed_on": "2026-08-11"
+          "support_summary": "The paper documents that CARE was developed specifically through Indigenous Data Sovereignty networks, defines Collective Benefit, Authority to Control, Responsibility, and Ethics as people- and purpose-oriented complements to FAIR, and centers Indigenous rights and self-determination. It supports the original framework's description and purpose. The cited paragraph clearly labels the broader CARE-informed screen as the manuscript authors' normative and contestable proposal, not a claim supported or endorsed by this source.",
+          "reviewed_by": "Codex source review of the original Data Science Journal article and official GIDA materials",
+          "reviewed_on": "2026-08-12"
         }
       ]
     },
@@ -121,11 +121,11 @@
       "reference": "- Wilkinson, M. D., Dumontier, M., Aalbersberg, I. J., et al. (2016). The FAIR Guiding Principles for scientific data management and stewardship. *Scientific Data, 3*, 160018. https://doi.org/10.1038/sdata.2016.18",
       "claims": [
         {
-          "paragraph_sha256": "5752fca956a812eb0907756a12d6b665b5faef622615e17529dcb99d733c6792",
+          "paragraph_sha256": "c2e21cf9440b85a7ad004419ac7ae1c6763a5303c2ec01959330bca7c0bb4a87",
           "alignment_status": "reviewed",
-          "support_summary": "The FAIR paper makes machine actionability central and defines Findable, Accessible, Interoperable, and Reusable stewardship principles.",
-          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
-          "reviewed_on": "2026-08-11"
+          "support_summary": "The FAIR paper makes machine actionability central and defines Findable, Accessible, Interoperable, and Reusable stewardship principles. It supports the cited paragraph's description of FAIR properties and conditions of access and reuse, but it is not used as evidence for scientific correctness or the manuscript's proposed CARE-informed screen.",
+          "reviewed_by": "Codex source review of the verified authoritative record",
+          "reviewed_on": "2026-08-12"
         }
       ]
     },

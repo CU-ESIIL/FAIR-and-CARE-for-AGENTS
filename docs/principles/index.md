@@ -10,7 +10,7 @@ These pages map each design criterion in the working manuscript to concrete, ver
 1. What currently demonstrates the principle?
 2. What remains absent, partial, or in need of human or community review?
 
-The maps are an implementation snapshot, not a FAIR certification or a claim that CARE can be satisfied by a technical checklist. CARE judgments require legitimate rights-holders, affected communities, and accountable people; the repository can only expose evidence, decisions, controls, and gaps.
+The maps are an implementation snapshot, not FAIR certification, CARE compliance, or a claim that relational legitimacy can be satisfied by a technical checklist. CARE retains its Indigenous Data Governance purpose. The manuscript's four CARE-informed workflow questions are an operational entry point only; legitimate rights-holders, affected people, institutions, and accountable people determine the applicable obligations. The repository can expose evidence, decisions, controls, and gaps, but cannot certify those relationships itself.
 
 ## Status key
 

@@ -1,5 +1,15 @@
 # Decision log
 
+## 2026-08-12 — Use CARE-informed questions universally without redefining CARE
+
+**Decision.** Preserve CARE as the Indigenous Data Governance framework created to advance Indigenous rights, interests, and self-determination. Propose four CARE-informed questions—benefit and burdens, legitimate authority, accountability, and harm—as a lightweight entry screen for every scientific workflow, with a fuller specification for consequential work.
+
+**Reason.** These governance questions should not be optional in ordinary science, but calling CARE itself universal could appropriate or flatten its continuing Indigenous purpose. The entry screen is an author-proposed operational extension, not CARE compliance, certification, restatement, or Indigenous endorsement.
+
+**Implementation.** Distinguish the original principles from the proposed entry screen throughout the manuscript and public documentation. Map the questions directly into **Goal → Instructions → Test → Record**; separate operational ownership from governing, institutional, scientific-review, and release authority; and require safe governance tests. Context-specific authority may constitute, reshape, supersede, or prohibit a workflow.
+
+**Review boundary.** Three simulated agent panels informed this edit but do not substitute for human peer review, Indigenous Data Governance scholarship, or appropriate Indigenous governance authority. That external review remains a release blocker.
+
 ## 2026-08-11 — Keep the website runtime self-contained
 
 **Decision.** Disable Material for MkDocs' Google Fonts injection and dynamic repository-header integration. Use the existing local CSS system-font stack and the homepage's explicit static GitHub links.

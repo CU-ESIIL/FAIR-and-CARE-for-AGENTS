@@ -17,7 +17,7 @@ hide:
 
 # FAIR + CARE for Agentic Science
 
-**FAIR and CARE help people do better science. Agents need those practices designed into their workflows.**
+**FAIR and CARE help people do better science. CARE-informed questions make governance harder to bypass, and agents need those practices designed into their workflows.**
 
 An agent's ability to read a repository, write code, or generate plausible results does not ensure that it will find the authoritative inputs, preserve provenance, respect governance, or stop for human judgment. Agentic workflows must carry those requirements explicitly.
 
@@ -30,7 +30,7 @@ An agent's ability to read a repository, write code, or generate plausible resul
 
 ## Better science comes first
 
-FAIR makes scientific objects findable, accessible, interoperable, and reusable. CARE keeps collective benefit, authority to control, responsibility, and ethics in view. These are foundations for better science with or without AI.
+FAIR makes scientific objects findable, accessible, interoperable, and reusable. CARE was created for Indigenous Data Governance and retains that continuing purpose. The manuscript proposes that every workflow also begin with four CARE-informed questions: who benefits and bears burdens, who has legitimate authority, who is accountable, and what harms must be prevented. This entry screen is not CARE compliance and cannot replace legitimate governance.
 
 Human collaborators often bridge weak infrastructure with memory, conversation, and unwritten laboratory conventions. An agent cannot safely be assumed to recover that context or inherit the scientific judgment and legitimate authority behind it. The workflow must make the applicable context, evidence, boundaries, and review gates explicit before an agent acts.
 
@@ -73,9 +73,9 @@ Make projects findable, accessible, interoperable, and reusable through clear di
 
 ### CARE
 
-**Should this actor be allowed to use it in this way?**
+**Who benefits and bears burdens? Who has authority and accountability? What harms must be prevented?**
 
-Make collective benefit, authority to control, responsibility, and ethics part of the operational design—not an appendix added after deployment.
+Use these CARE-informed questions as an entry screen while preserving the full principles' Indigenous purpose and following context-specific governance that may reshape or prohibit a workflow.
 
 </div>
 
@@ -100,4 +100,4 @@ The current manuscript also has a version-controlled [Ecology author-guidelines 
 This repository is the editable working home for the Perspective. It includes the manuscript and citation record, project website, operating instructions for agents, machine-readable project and governance records, a reproducible primary-output workflow, provenance templates, negative tests, and a public prompt log.
 
 !!! note "Current status"
-    The current manuscript is a concise second draft organized around eight practical FAIR + CARE repository rules. Operational repository controls are implemented and tested for this public, manuscript-only scope. A license, archival release/DOI, and required external scholarly and Indigenous data sovereignty reviews remain explicit human release blockers.
+    The current manuscript is a concise second draft organized around eight operational FAIR and CARE-informed repository rules. Operational repository controls are implemented and tested for this public, manuscript-only scope. A license, archival release/DOI, and required external scholarly and Indigenous data sovereignty reviews remain explicit human release blockers.

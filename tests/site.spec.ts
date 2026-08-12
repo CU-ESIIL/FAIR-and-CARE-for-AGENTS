@@ -39,7 +39,9 @@ test('homepage renders its core content and assets without browser errors', asyn
     'FAIR + CARE for Agentic Science',
   );
   await expect(
-    page.getByText('FAIR and CARE help people do better science. Agents need those practices designed into their workflows.'),
+    page.getByText(
+      'FAIR and CARE help people do better science. CARE-informed questions make governance harder to bypass, and agents need those practices designed into their workflows.',
+    ),
   ).toBeVisible();
 
   const brokenImages = await page.locator('img').evaluateAll((images) =>

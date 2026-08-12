@@ -5,7 +5,7 @@ description: Evidence that permissions, purposes, infrastructure, and governance
 
 # A — Authority to Control
 
-**Agentic interpretation:** Access is decomposed into permissions for reading, copying, inference, training, combining, publishing, and redistribution; computation occurs only in authorized places.
+**Workflow interpretation:** Claimed authority is distinct from access or technical control; its holder, source, scope, duration, conflicts, actions, infrastructure, and revocation conditions are explicit.
 
 **Current assessment:** **Implemented for the current public, manuscript-only scope.** The policy classifies data and actions, denies unknown actions, lists approved compute and services, prohibits governed-data model use, defines logging/retention, and gates publication. It makes clear that a future rights-holder decision cannot be supplied by maintainers or code.
 

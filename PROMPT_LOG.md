@@ -988,3 +988,20 @@ The attached GitHub Actions log reported that four Playwright tests passed, but 
 - Strengthened `tests/site.spec.ts`: the homepage test still rejects console errors and broken images, now rejects every externally loaded page resource, and reports the status and exact URL for any HTTP response of 400 or greater.
 - Added a decision record, changelog entry, and structured provenance record. GitHub CLI remained unavailable, so the hosted Actions run could not be queried or restarted locally.
 - Checks passed after the final change: strict MkDocs build; generated-HTML verification showing no Google Fonts, GitHub API, or dynamic source-component requests; the full GitHub Actions Playwright configuration repeated three times for 15 passing tests; all 16 Python unit and negative tests; all eight operational repository controls; provenance JSON parsing; and `git diff --check`.
+
+## 2026-08-12 — Apply CARE as a baseline for every workflow
+
+### User prompt
+
+```text
+let's do another edit to the manuscript. The main change is that I want the CARE principles to be for everyone, not just indigenous as it was originally intended. We want to make the point that these are basic considerations that everything that should follow. after you make those edits, do a three panel review and then an edit based on that review.
+```
+
+### Agent response summary
+
+- Revised the current Draft 2 manuscript in two passes. The final language preserves CARE's original and continuing Indigenous Data Governance purpose and proposes four CARE-informed questions—not generic CARE compliance—as a lightweight entry screen for every workflow, with fuller requirements for consequential work.
+- Ran three independent simulated agent panels covering Indigenous Data Governance and ethics, Ecology and environmental science, and agentic systems and reproducibility. Saved their ranked findings, limitations, and editorial dispositions in `manuscript/reviews/2026-08-12-three-panel-review.md`, then revised the manuscript in response.
+- Mapped benefit and burdens into Goal, legitimate authority into Instructions, safe harm and boundary checks into Test, and distinct operational, scientific, institutional, governing, and release accountability into Record. Added consequence screening, safe synthetic governance tests, a habitat-assessment example, and visible citation TODOs for evidence not yet vetted.
+- Renewed the Carroll and Wilkinson paragraph fingerprints only after source review, increased the transparent Draft 2 citation-gap allowance from two to four, and synchronized the README, project metadata, citation metadata, website, principle maps, implementation guide, task template, Ecology guide, decision log, and changelog.
+- Regenerated both canonical PDFs and visually inspected all 12 reading-edition pages and all 20 Ecology-proof pages. Added a structured pending provenance record; no publication, release, CARE certification, Indigenous endorsement, or human peer-review approval was inferred.
+- Final checks passed: all eight citation records verified online against Crossref or W3C; Draft 2 manuscript audit; all 16 Python unit and governance tests; operational repository audit; named-output reproduction; Ecology submission tests; strict MkDocs build; five Playwright site and interaction tests; PDF text/structure checks; JSON/YAML parsing; and `git diff --check`. Release readiness remains blocked by the repository's declared human decisions and required external reviews.

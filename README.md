@@ -2,9 +2,11 @@
 
 This repository is the version-controlled working home for a scientific Perspective on designing environmental science projects for the age of agentic AI. It contains the manuscript, its citation-review record, the public project website, and automated checks for both.
 
-The project asks a practical question: **how can FAIR and CARE be designed into agentic workflows so that agents strengthen, rather than bypass, the practices that make human science understandable, reproducible, accountable, and legitimate?**
+The project asks a practical question: **how can FAIR and CARE be designed into scientific workflows so that people do better science and agents strengthen, rather than bypass, the practices that make it understandable, reproducible, accountable, and legitimate?**
 
 > FAIR and CARE help people do better science. Agents do not automatically inherit those practices or obligations, so we must design them into the workflow.
+
+CARE retains its original and continuing purpose in Indigenous Data Governance. The manuscript does not redefine it as generic or claim CARE compliance. It proposes four **CARE-informed questions**—about benefit and burdens, legitimate authority, accountability, and harm—as a lightweight entry screen for every workflow, with fuller and context-specific obligations for consequential work.
 
 ## Project at a glance
 
@@ -25,8 +27,9 @@ The manuscript develops four connected ideas:
 
 1. FAIR and CARE improve science for human collaborators by making research objects usable and governance obligations explicit.
 2. Agents cannot be assumed to infer tacit scientific context, preserve provenance, respect authority, or recognize when human or community judgment is required.
-3. Agentic workflows must therefore encode FAIR discovery and reuse practices alongside CARE benefit, authority, responsibility, and ethics controls.
-4. **Goal → Instructions → Test → Record** turns those principles into inspectable repository evidence, executable checks, and explicit decision gates.
+3. Every workflow should receive a CARE-informed screen without treating that screen as a replacement for the full CARE Principles or for legitimate Indigenous, community, or institutional governance.
+4. Agentic workflows must encode FAIR discovery and reuse practices alongside explicit benefit, authority, responsibility, and ethics controls.
+5. **Goal → Instructions → Test → Record** turns those principles into inspectable repository evidence, executable checks, and explicit decision gates.
 
 The repository also proposes a minimal “FAIR + CARE agent-ready repository” that an ordinary environmental science laboratory could realistically maintain.
 
@@ -44,8 +47,8 @@ project:
   website: "https://cu-esiil.github.io/FAIR-and-CARE-for-AGENTS/"
   description: >-
     A scientific Perspective and supporting repository about designing FAIR and
-    CARE into agentic workflows so agents strengthen responsible, reproducible
-    environmental science.
+    CARE-informed governance questions into scientific workflows so people do
+    better environmental science and agents operate within explicit boundaries.
   project_type: "scientific-perspective"
   status: "second-draft"
   version: "0.2.0-draft"
@@ -60,9 +63,10 @@ project:
     - research-infrastructure
     - data-governance
   thesis: >-
-    FAIR and CARE help people do better science. Agents do not automatically
-    inherit those practices or obligations, so agentic workflows must encode
-    them explicitly.
+    FAIR and CARE help people do better science. CARE retains its Indigenous Data
+    Governance purpose; four CARE-informed questions provide a universal entry
+    screen without replacing the full principles. Agents do not automatically
+    inherit these practices or authorities, so workflows must encode them.
 artifacts:
   project_record: "project.json"
   citation_file: "CITATION.cff"

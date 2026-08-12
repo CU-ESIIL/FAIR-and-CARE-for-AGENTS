@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "run_id": "2026-08-12-universal-care-revision",
+  "date": "2026-08-12",
+  "goal": "Revise Draft 2 to propose four CARE-informed questions as a universal workflow entry screen without redefining or displacing the CARE Principles and their continuing Indigenous Data Governance purpose; run three simulated review panels and edit in response.",
+  "responsible_human": "Ty Tuff",
+  "actor": {
+    "kind": "agent",
+    "service": "OpenAI Codex",
+    "model": "GPT-5-based Codex with three independent simulated agent review panels",
+    "version": "exact deployment versions not exposed to the repository"
+  },
+  "compute": {
+    "environment": "owner-authorized local Codex workspace with repository-scoped write access",
+    "data_boundary": "public repository content and public authoritative scholarly materials only; no research, governed, or sensitive data",
+    "network": "read-only access to the original Data Science Journal article and official Global Indigenous Data Alliance CARE materials for claim review; local loopback for website tests"
+  },
+  "instructions": [
+    "prompts/2026-08-12-universal-care-revision.md",
+    "PROMPT_LOG.md entry: Apply CARE as a baseline for every workflow",
+    "AGENTS.md operating contract",
+    "governance/policy.json authority boundaries"
+  ],
+  "inputs": [
+    "user-supplied manuscript direction",
+    "manuscript/fair_care_agentic_science_v2.md",
+    "manuscript/citation_audit_v2.json",
+    "Carroll et al. 2020 and official GIDA CARE materials",
+    "three simulated agent panel reviews covering Indigenous Data Governance and ethics, Ecology, and agentic systems"
+  ],
+  "outputs": [
+    "revised Draft 2 manuscript and renewed claim-review fingerprints",
+    "manuscript/reviews/2026-08-12-three-panel-review.md",
+    "regenerated reading PDF and Ecology formatting proof",
+    "synchronized README, project metadata, website, principle evidence maps, task template, decision, changelog, prompt, and provenance records"
+  ],
+  "evaluations": [
+    "three-panel simulated review with transparent limitations and editorial dispositions",
+    "Draft 2 citation-registry, fingerprint, placeholder, and section-word audit",
+    "offline and online authoritative-source verification",
+    "full Python unit and governance test suite",
+    "repository audit and named-output reproduction",
+    "Ecology structure test and visual inspection of all PDF pages",
+    "strict MkDocs build and Playwright website interaction tests",
+    "JSON, YAML, diff, and repository-state checks"
+  ],
+  "human_review": {
+    "reviewer": "Ty Tuff plus required external scholarly and Indigenous Data Governance reviewers",
+    "status": "pending",
+    "publication_authorized": false,
+    "notes": "The three panels were simulated agent reviews and provide no Indigenous endorsement or human peer-review approval. Four explicit citation gaps remain. No publication or release action was taken."
+  }
+}

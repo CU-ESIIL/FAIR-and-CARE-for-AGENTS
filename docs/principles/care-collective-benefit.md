@@ -5,9 +5,9 @@ description: Evidence that automation has a stated beneficiary and that benefits
 
 # C — Collective Benefit
 
-**Agentic interpretation:** Automation has a stated beneficiary and purpose, and success includes the distribution of benefits and burdens.
+**Workflow interpretation:** Every workflow identifies who should benefit, who may bear burdens, who defined the benefit, who may contest it, and when the work must change or stop.
 
-**Current assessment:** **Implemented for this repository's limited public purpose.** `governance/BENEFIT.md` names intended beneficiaries, observable repository-level outcomes, burdens, an evaluator, contestation, and the option not to automate. It explicitly refuses to claim benefit for communities that have not defined it.
+**Current assessment:** **Implemented for this repository's limited public purpose.** `governance/BENEFIT.md` names intended beneficiaries, repository-level outcomes, burdens, an evaluator, contestation, and the option not to proceed. It explicitly refuses to claim benefit for communities that have not defined it.
 
 ## Evidence map
 

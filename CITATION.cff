@@ -9,8 +9,9 @@ repository-code: "https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS"
 url: "https://cu-esiil.github.io/FAIR-and-CARE-for-AGENTS/"
 version: "0.2.0-draft"
 abstract: >-
-  A scientific Perspective on designing FAIR and CARE into agentic workflows
-  so agents strengthen responsible, reproducible environmental science.
+  A scientific Perspective on designing FAIR and CARE-informed governance
+  questions into environmental science workflows so people do better science
+  and agents operate within explicit evidence, authority, and review boundaries.
 keywords:
   - agentic AI
   - FAIR

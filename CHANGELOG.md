@@ -12,6 +12,7 @@ This file records material changes to the repository and its public outputs. Dra
 - Recentered the manuscript and website on designing FAIR and CARE into agentic workflows so agents strengthen the practices that support better human science; retained agent failure as a secondary diagnostic rather than the main thesis.
 - Made both PDF renderers portable to Linux CI by adding a tested PDF base-font fallback while preserving Times New Roman for the canonical Ecology proof.
 - Removed unnecessary runtime Google Fonts and GitHub API requests while preserving explicit static repository links; Playwright now reports the URL and status of failed homepage resources.
+- Revised Draft 2 after three simulated agent panels to distinguish CARE's continuing Indigenous Data Governance purpose from four author-proposed CARE-informed questions used as a universal workflow entry screen; mapped those questions into Goal → Instructions → Test → Record, broadened accountability and harm analysis, required safe governance testing, added an ecological worked example, and synchronized public documentation.
 
 ## 0.1.0-draft
 
