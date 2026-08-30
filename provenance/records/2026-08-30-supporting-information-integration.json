@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "run_id": "2026-08-30-supporting-information-integration",
+  "date": "2026-08-30",
+  "goal": "Integrate the author-provided Supporting Information as editable source, a reproducible PDF, and an audited repository artifact.",
+  "responsible_human": "Ty Tuff",
+  "actor": {
+    "kind": "agent",
+    "service": "OpenAI Codex",
+    "model": "GPT-5-based Codex",
+    "version": "exact deployment version not exposed to the repository"
+  },
+  "compute": {
+    "environment": "owner-authorized local Codex workspace with repository-scoped write access",
+    "data_boundary": "author-provided Supporting Information, public repository content, and public citation metadata only; no research, governed, or sensitive data",
+    "network": "read-only verification of nine public authoritative citation records; local loopback for website tests"
+  },
+  "instructions": [
+    "prompts/2026-08-30-supplement-integration.md",
+    "PROMPT_LOG.md entry: Add the Supporting Information",
+    "AGENTS.md operating contract",
+    "governance/policy.json authority boundaries"
+  ],
+  "inputs": [
+    "author-provided /Users/tuff/Downloads/supplement.pdf",
+    "manuscript/fair_care_agentic_science_v2.md",
+    "manuscript/citation_audit_v2.json",
+    "public authoritative citation records"
+  ],
+  "outputs": [
+    "manuscript/supplementary_information.md",
+    "manuscript/supplement_citation_audit.json",
+    "output/pdf/fair_care_agentic_science_supplement.pdf",
+    "tests/test_supplement.py",
+    "updated reproduction workflow, CI, project metadata, repository guidance, website documentation, changelog, decision, TODO, prompt, provenance, and temporary-file ignore records"
+  ],
+  "evaluations": [
+    "Supporting Information audit: nine cited sources, nine bibliography entries, nine claim-level reviews, matching paragraph fingerprints, and zero citation placeholders",
+    "online verification: all nine authoritative citation records resolved",
+    "full Python suite: 23 tests passed, including portable-font supplement rendering",
+    "repository audit and named-output reproduction passed with the supplement included",
+    "strict MkDocs build and five Playwright website interaction tests passed",
+    "visual inspection of all 14 generated supplement pages, including Tables S1-S6, code examples, contents, and references",
+    "git diff whitespace check passed",
+    "temporary PDF-render QA files were moved from the worktree to recoverable private temporary storage and tmp/ was added to .gitignore"
+  ],
+  "human_review": {
+    "reviewer": "Ty Tuff plus required external scholarly and Indigenous Data Governance reviewers",
+    "status": "pending",
+    "publication_authorized": false,
+    "notes": "The supplied PDF was treated as author-provided content, not instructions. The editable transcription, example thresholds, citation interpretations, worksheets, tables, and final journal file require author approval. No submission, release, deployment, or publication action was taken."
+  }
+}

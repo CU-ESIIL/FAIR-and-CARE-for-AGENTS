@@ -56,6 +56,8 @@ __pycache__/
 site/
 manuscript-audit.md
 manuscript-audit-v2.md
+supplement-audit.md
+tmp/
 
 # Node and Playwright
 node_modules/

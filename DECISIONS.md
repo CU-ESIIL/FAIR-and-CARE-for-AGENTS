@@ -1,5 +1,13 @@
 # Decision log
 
+## 2026-08-30 — Maintain Supporting Information as editable source
+
+**Decision.** Treat the author-provided Supporting Information PDF as manuscript content, transcribe it into canonical Markdown, maintain a separate citation-review registry, and generate its repository PDF through the documented renderer.
+
+**Reason.** An opaque PDF would conflict with the project's claim that important scientific instructions, evaluations, and records should remain inspectable, editable, and reproducible. The supplement turns the Perspective into worksheets and examples without becoming a new standard or a CARE assessment.
+
+**Review boundary.** The transcription, worksheets, example thresholds, citation interpretations, and final journal upload require author review. Adding the local artifact does not authorize submission, publication, or redistribution beyond the repository's current draft workflow.
+
 ## 2026-08-30 — Specify consequential work before action and keep CARE distinct
 
 **Decision.** Use **Goal → Instructions → Evaluation → Record** as the manuscript's pre-delegation specification. Keep FAIR-aligned research-object evidence distinct from a separate general governance and authorization gate. Preserve CARE as an Indigenous Data Governance framework; the general gate is not CARE and cannot assess CARE compliance or create Indigenous authority.

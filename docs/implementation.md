@@ -11,6 +11,8 @@ This manuscript project is its own first implementation case. The controls below
 
 Consequential work begins with [`templates/agent-task.md`](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/templates/agent-task.md) or the copyable [`agent-workflow-spec.yml`](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/templates/agent-workflow-spec.yml). [`AGENTS.md`](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/AGENTS.md) defines canonical sources and action boundaries. Automated and human evaluation covers scientific claims, computation, provenance, and governance. Structured run records in [`provenance/`](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/tree/main/provenance) preserve the resulting evidence and approval status.
 
+The editable [Supporting Information implementation guide](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/manuscript/supplementary_information.md) provides the minimum-start checklist, reusable worksheet, machine-readable examples, consequence guide, evaluation protocol, governance questions, and clean-start audit in a form laboratories can adapt.
+
 ## Three layers in practice
 
 | Layer | Current implementation | Quick check |
@@ -29,6 +31,7 @@ python3 scripts/build_figures.py --check
 python3 scripts/manuscript_quality_check.py
 python3 -m unittest discover -s tests -p "test_*.py"
 python3 scripts/reproduce.py --output-dir results/reproduction
+python3 scripts/manuscript_audit.py --manuscript manuscript/supplementary_information.md --registry manuscript/supplement_citation_audit.json --check
 python3 -m unittest tests.test_ecology_submission
 mkdocs build --strict
 npm run test:site

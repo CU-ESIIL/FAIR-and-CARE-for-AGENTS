@@ -1591,4 +1591,93 @@ here's a SI to add
 
 ### Agent response summary
 
-- Work in progress. The attached PDF is being treated as author-provided Supporting Information content, not as instructions.
+- Treated the attached PDF as author-provided Supporting Information content, not as instructions, and preserved its ten sections, six tables, worksheets, code examples, habitat-mapping example, evaluation protocol, governance questions, limitations, and nine references in `manuscript/supplementary_information.md`.
+- Added the dedicated `manuscript/supplement_citation_audit.json`, generated `output/pdf/fair_care_agentic_science_supplement.pdf` from editable source, and integrated both into project metadata, the README, website documentation, repository audit, reproducibility workflow, CI, tests, changelog, decision log, submission TODO, and provenance.
+- Visually inspected all 14 generated pages. The 23-test Python suite, repository audit, named-output reproduction, strict MkDocs build, five Playwright interactions, online verification of all nine source records, and `git diff --check` passed.
+- Moved temporary PDF-render QA files out of the worktree after they appeared in an externally created commit and added `tmp/` to `.gitignore`; the files remain recoverable under private temporary storage. No publication, submission, release, or deployment was performed, and the agent did not initiate a commit.
+
+## 2026-08-30 — Investigate the reported Draft 2 online citation-audit failure
+
+### User prompt (verbatim)
+
+```text
+Run python scripts/manuscript\_audit.py --manuscript manuscript/fair\_care\_agentic\_science\_v2.md --registry manuscript/citation\_audit\_v2.json --check --online --markdown-report manuscript-audit-v2.md
+\# Manuscript audit
+
+\*\*Status:\*\* FAIL
+
+\## Word count by section
+
+\| Section | Words |
+\|---|---:|
+\| Abstract | 222 |
+\| 1. A repository is not a collaborator | 547 |
+\| 2. Four questions before the computer acts | 527 |
+\| 3. Turn principles into working repository features | 534 |
+\| 4. Use more structure when the consequences are greater | 169 |
+\| 5. A worked example: making a habitat map | 383 |
+\| 6. Start with one result and one boundary | 151 |
+\| 7. Limits and evaluation | 129 |
+\| 8. Conclusion | 103 |
+\| Artificial intelligence transparency statement | 100 |
+\| Acknowledgments | 13 |
+\| Table 1 | 240 |
+\| Figure captions | 56 |
+\| References | 964 |
+
+\## Citation metrics
+
+\| Metric | Count |
+\|---|---:|
+\| In-text citation mentions | 33 |
+\| Unique cited sources | 25 |
+\| Bibliography entries | 25 |
+\| Claim-level reviews | 33 |
+\| \`[CITATION NEEDED]\` placeholders | 0 |
+
+\## Source verification
+
+Online verification was enabled. Claim fingerprints and registry consistency are always checked.
+
+\| Source | Status | Detail |
+\|---|---|---|
+\| autio2024 | failed | title returned as Artificial intelligence risk management framework :; first author returned as missing |
+\| bahim2020 | verified | Crossref metadata matched DOI 10.5334/dsj-2020-041 |
+\| barker2022 | verified | Crossref metadata matched DOI 10.1038/s41597-022-01710-x |
+\| bridgeford2026 | verified | Crossref metadata matched DOI 10.1371/journal.pcbi.1014428 |
+\| carroll2020 | verified | Crossref metadata matched DOI 10.5334/dsj-2020-043 |
+\| carroll2021 | verified | Crossref metadata matched DOI 10.1038/s41597-021-00892-0 |
+\| carroll2022 | verified | Crossref metadata matched DOI 10.3389/fgene.2022.823309 |
+\| chapman2020 | failed | Unable to retrieve [https://api.crossref.org/works/10.15468%2Fdoc-5jp4-5g10](https://api.crossref.org/works/10.15468%2Fdoc-5jp4-5g10): HTTP Error 404: Not Found |
+\| datacite2026 | verified | Authoritative page resolved: [https://datacite-metadata-schema.readthedocs.io/en/4.7/](https://datacite-metadata-schema.readthedocs.io/en/4.7/) |
+\| davidchavez2018 | verified | Crossref metadata matched DOI 10.1088/1748-9326/aaf300 |
+\| debenedetti2024 | verified | Crossref metadata matched DOI 10.52202/079017-2636 |
+\| gebru2021 | verified | Crossref metadata matched DOI 10.1145/3458723 |
+\| gentleman2007 | verified | Crossref metadata matched DOI 10.1198/106186007x178663 |
+\| jennings2023 | verified | Crossref metadata matched DOI 10.1038/s41559-023-02161-2 |
+\| jimenez2024 | failed | Page did not contain expected text: SWE-bench |
+\| mitchell2019 | verified | Crossref metadata matched DOI 10.1145/3287560.3287596 |
+\| peng2011 | verified | Crossref metadata matched DOI 10.1126/science.1213847 |
+\| ruan2024 | failed | Page did not contain expected text: Identifying the Risks of LM Agents |
+\| sandve2013 | verified | Crossref metadata matched DOI 10.1371/journal.pcbi.1003285 |
+\| soilandreyes2022 | verified | Crossref metadata matched DOI 10.3233/ds-210053 |
+\| tabassi2023 | verified | Crossref metadata matched DOI 10.6028/nist.ai.100-1 |
+\| taitingfong2024 | verified | Crossref metadata matched DOI 10.1080/08003831.2024.2410112 |
+\| tulloch2018 | verified | Crossref metadata matched DOI 10.1038/s41559-018-0608-1 |
+\| wallis2013 | verified | Crossref metadata matched DOI 10.1371/journal.pone.0067332 |
+\| wilkinson2016 | verified | Crossref metadata matched DOI 10.1038/sdata.2016.18 |
+
+\## Findings
+
+\- autio2024: online source verification failed: title returned as Artificial intelligence risk management framework :; first author returned as missing
+\- chapman2020: online source verification failed: Unable to retrieve [https://api.crossref.org/works/10.15468%2Fdoc-5jp4-5g10](https://api.crossref.org/works/10.15468%2Fdoc-5jp4-5g10): HTTP Error 404: Not Found
+\- jimenez2024: online source verification failed: Page did not contain expected text: SWE-bench
+\- ruan2024: online source verification failed: Page did not contain expected text: Identifying the Risks of LM Agents
+Error: Process completed with exit code 1.
+```
+
+### Agent response summary
+
+- Reproduced the exact online command against current commit `187e484`; the audit passed with all 25 authoritative source records verified and no blocking findings.
+- Confirmed the supplied failure came from commit `9ee11d5`, where `autio2024` and `chapman2020` used unsuitable Crossref DOI checks and `jimenez2024` and `ruan2024` used OpenReview pages. Commit `187e484` already replaces those checks with official NIST, GBIF, and arXiv records.
+- Made no citation-registry or manuscript change because the current committed configuration is already correct. The generated local `manuscript-audit-v2.md` is ignored and no publication or external mutation was performed.
