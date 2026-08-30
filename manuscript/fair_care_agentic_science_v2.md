@@ -1,229 +1,176 @@
-# FAIR and CARE in the Age of Agents: Design Criteria for Agent-Ready Environmental Science
+# Before Agents Act: Design Criteria for Reliable and Governable Environmental Science
 
-**Manuscript type:** Perspective / Commentary  
-**Status:** Second Draft  
+**Manuscript type:** Perspective  
+**Status:** Working draft  
 **Canonical source:** This Markdown file  
-**Intended audience:** Ecologists, environmental scientists, environmental data scientists, and research software engineers
-
-## Alternate titles
-
-1. **The Agent-Ready Repository: FAIR and CARE Design for Environmental Science**
-2. **Give the Agent the Repository: Eight Rules for Reproducible and Responsible Science**
-3. **From Tacit Knowledge to Tested Infrastructure: FAIR and CARE for Scientific Agents**
-4. **Designing FAIR and CARE into Agentic Environmental Science Workflows**
+**Intended journal:** *Ecology*  
+**Authors:** Ty Tuff and Naupaka Zimmerman
 
 ## Abstract
 
-FAIR and CARE are not accommodations for AI. They are foundations for better science: research objects should be findable, accessible, interoperable, and reusable, while their use should advance collective benefit, respect authority, assign responsibility, and avoid harm. CARE was developed by Indigenous Data Governance leaders to advance Indigenous rights, interests, and self-determination. We do not redefine that framework as generic. Instead, we propose four CARE-informed questions as a minimum entry point for every scientific workflow: Who benefits and bears burdens? Who has legitimate authority? Who is accountable? What harms must be prevented? These questions do not constitute CARE compliance or replace the full principles and their continuing Indigenous purpose.
+Environmental scientists increasingly ask coding agents to inspect repositories, change analyses, call services, and prepare research products. Yet a repository rarely contains everything an experienced collaborator knows. It may not say which script is current, why a calibration changed, which observations are sensitive, where data may be sent, or who must approve a release. An agent does not acquire that context, judgment, or authority simply by opening the files. We offer a practical rule for consequential computer-assisted science: specify the work before the computer acts. The specification has four parts—**Goal → Instructions → Evaluation → Record**—and can be implemented with familiar research-computing tools: a task brief, identified inputs, configuration and environment files, access controls, tests, provenance, and a review gate. FAIR-aligned infrastructure helps people and machines find and interpret the research objects involved. A separate governance decision establishes what may be done with them. CARE demonstrates why technically reusable data are not necessarily legitimately reusable; our general governance gate is not CARE and does not assess CARE compliance. The framework scales with consequence and can begin with one important result and one important boundary. Its purpose is simple: make enough scientific context and authority explicit that a person or agent can act correctly, stop safely, and leave a useful record.
 
-Coding and AI agents make this baseline urgent because they cannot be assumed to recover tacit scientific commitments. Their ability to generate plausible code or prose does not ensure that they will select authoritative inputs, preserve provenance, respect authority, or stop when judgment and permission are required. We translate FAIR and the four CARE-informed questions into eight operational repository criteria and make them evaluable through **Goal → Instructions → Test → Record**. Each criterion pairs a design rule with repository evidence, a test, and an accountable human, institutional, or community decision where automation is illegitimate. The objective is to make the practices that support understandable, reproducible, accountable, and trustworthy environmental science inspectable and enforceable before a person or agent acts.
+**Keywords:** agentic AI; CARE; data governance; environmental science; FAIR; provenance; reproducibility; research software
 
-**Keywords:** agentic AI; FAIR; CARE; reproducibility; environmental science; research software; provenance; data governance
+## 1. A repository is not a collaborator
 
----
+Imagine giving a new graduate student a project directory and saying, “update Figure 3.” The student can ask which of three similarly named scripts is current, why last year’s sensor threshold changed, and whether the underlying coordinates may appear in a public map. A coding agent can search the directory and run the first plausible workflow before anyone notices that these questions were unanswered.
 
-## 1. Better science requires designed-in FAIR and CARE
+Here, a **coding agent** is software that can pursue a task by reading and changing files, running code, and using external tools or services. Unlike a conventional script, it may choose its next action as it works. That flexibility is useful, but it also makes missing instructions consequential.
 
-Environmental science is stronger when a project's purpose, evidence, methods, provenance, reuse conditions, responsibilities, and limits are explicit. Those qualities help collaborators assess claims, help reviewers trace evidence, help future researchers reproduce results, and help affected people understand or contest how data and scientific products are used. FAIR and CARE matter because they make these qualities part of scientific practice rather than optional documentation.
+Most environmental science repositories were built for people who already know the project. A colleague may remember that `analysis_final_v2.R` is obsolete, a spreadsheet was edited by hand, or the published figure came from another branch. They may know that records from one site cannot leave institutional infrastructure, that an external service is prohibited, or that a product requires review before release. This knowledge often lives in memory, email, meetings, or relationships with data creators. Research on scientific data reuse shows that documentation and local knowledge strongly affect whether shared data can be understood and reused (Wallis et al., 2013).
 
-Environmental scientists increasingly ask coding agents to inspect repositories, edit analyses, debug workflows, prepare figures, or draft documentation. These systems can read files, execute code, call services, and change version-controlled artifacts. Yet most scientific repositories were built for people who already possess substantial project knowledge. Agents can move quickly across files, tools, services, and publication surfaces, so missing context or authority can become consequential before informal human safeguards intervene. [CITATION NEEDED: empirical evidence on coding-agent reliability, tool use, provenance, and boundary following]
+An agent does not inherit this working knowledge, scientific judgment, or legitimate authority merely by gaining access to the repository. Software benchmarks show that agents can fail real coding tasks or take unintended actions when instructions and environments are incomplete or adversarial (Jimenez et al., 2024; Ruan et al., 2024; Debenedetti et al., 2024). Environmental research separately documents risks from obsolete or heterogeneous data and from releasing sensitive species locations (Tulloch et al., 2018; Chapman, 2020). The intersection is our inference: when a fast-acting system meets a repository with missing context, an ordinary documentation gap can become a scientific error or an unauthorized disclosure.
 
-A familiar collaborator knows that `analysis_final_v2.R` is obsolete despite its name. They remember that a sensor threshold changed after an instrument failure, that one spreadsheet was edited manually, that the current figure comes from a different branch, or that culturally governed observations cannot be sent to an external model. This information may live in memory, messages, laboratory convention, or a conversation with the original analyst. It lets experienced people compensate for an underspecified repository.
+Finishing the task is therefore not enough. A polished figure may have been made from the wrong file. A model may run successfully with an invalid calibration. A useful-looking map may reveal locations that should remain restricted. Agent success does not establish scientific validity, and access to data does not establish permission to use or publish them.
 
-An agent does not inherit this working knowledge, scientific judgment, or authority merely by gaining access to the repository. Give it a project URL with no previous conversation and ask: **Can it determine what the project is, how it works, what it should do, whether it succeeded, and what it is allowed to do?** Without a designed workflow, plausible action can mask the use of an obsolete file, an invalid method, an incomplete record, or an illegitimate data use.
+Reproducibility asks whether someone can understand and reproduce what happened (Gentleman & Lang, 2007; Peng, 2011; Sandve et al., 2013). Agent-assisted work adds a question that must be answered earlier: **What was the computer allowed to do before it acted?**
 
-The central design problem is therefore not how to make science easier for agents. It is how to prevent agentic work from bypassing the practices that make science reliable and legitimate. The workflow must carry scientific intent, authoritative inputs, methods, evaluation, provenance, permissions, and review gates forward into the agent's work. Building that infrastructure first improves science for people; it then gives agents an explicit scaffold within which they can contribute.
+FAIR and CARE illuminate different parts of that question. FAIR concerns digital research objects and metadata: whether objects can be identified, accessed under stated conditions, interpreted, and reused (Wilkinson et al., 2016; Barker et al., 2022). CARE was developed by the Global Indigenous Data Alliance to advance Indigenous Peoples’ collective rights, interests, innovation, and self-determination in data (Carroll et al., 2020). CARE makes clear that technical access and technical reuse do not make a use legitimate. This Perspective proposes a separate, general governance gate for agent-assisted environmental work. Where Indigenous Peoples, Indigenous data, Indigenous Knowledges, lands, waters, resources, or rights are involved, that general gate does not replace CARE or the authorities, laws, protocols, and decisions of the relevant People (Carroll et al., 2021; Carroll et al., 2022; Jennings et al., 2023; Taitingfong et al., 2024).
 
-FAIR makes machine actionability central to scientific data stewardship (Wilkinson et al., 2016). CARE was developed specifically for Indigenous Data Governance to bring Collective Benefit, Authority to Control, Responsibility, and Ethics—and therefore people, purpose, power, and rights—into data stewardship (Carroll et al., 2020). That origin and continuing purpose must remain visible. Our extension is a normative and contestable proposal for scientific practice: every workflow should answer four CARE-informed questions, but those questions neither restate the full principles nor authorize a project to assess CARE on behalf of Indigenous Peoples. Where Indigenous Peoples, their lands, waters, knowledge, observations, samples, cultural expressions, or derived information may be involved, the relevant Indigenous authorities determine whether and how a workflow proceeds. FAIR asks whether research objects and their metadata can be found, accessed under stated conditions, combined, and reused. Scientific tests ask whether a particular use is correct; CARE and other governance processes determine whether it is legitimate. Test-first design makes the resulting expectations inspectable.
+## 2. Four questions before the computer acts
 
-Agent success does not prove that a scientific result is valid, and agent readiness does not imply that every task should be automated. Failed or refused tasks can still diagnose missing context, fragile infrastructure, absent evaluation, or functioning governance, but that diagnostic is a secondary benefit. The primary purpose is to design FAIR and CARE into the workflow before an agent acts.
+Our contribution is a **pre-delegation specification**: a short description of the science, boundaries, checks, and record required before a person gives an agent permission to act. Its parts are familiar. The useful change is to put them together before execution rather than reconstructing them after something goes wrong.
 
-## 2. Design the workflow before delegating the work
+> **GOAL → INSTRUCTIONS → EVALUATION → RECORD**
 
-Telling an agent to be reproducible, responsible, or FAIR and CARE compliant is not an adequate control. The workflow itself must identify authoritative inputs, constrain permissible actions, define acceptable evidence, preserve provenance, and route consequential judgments to the people or communities with legitimate authority.
+**Goal: What are we trying to accomplish?** Name the result, not merely the activity. “Run the model” is vague. “Reproduce the internal habitat-suitability map used in the June review” identifies an output and its use. A good goal also says which claim or decision the result may support, who requested it, and who is supposed to benefit. Put this in a short task file, an issue, or a clearly labeled section of the project documentation.
 
-Here, an **agent** is a computational system that can pursue a delegated goal through tools or external actions; a **workflow** is the linked set of people, data, software, services, and decisions through which work is performed; and **consequential work** can support a scientific claim, affect people or ecosystems, use governed data, cross an institutional or service boundary, change evaluation criteria, train a model, publish an artifact, or take an irreversible action. Technical access is not legitimate authority, and an operational owner is not necessarily the governing authority.
+**Instructions: What should the computer use, and where must it stop?** Identify the authoritative data, code, configuration, and computing environment. State which files may be changed, whether network access is allowed, which services may receive data, and whether the system may create only a draft or also prepare a release. Put stable instructions in version control. Use manifests and configuration files for inputs and parameters, environment or lock files for software versions, and technical controls—such as read-only directories, network restrictions, and limited credentials—for boundaries that should not depend on a prompt.
 
-The operating rule is simple:
+**Evaluation: How will we recognize success, failure, and a proper refusal?** A workflow needs more than “the command completed.” It might check that input columns and units are correct, a mass balance closes, a known result is reproduced within tolerance, and restricted coordinates never appear in an output. Three kinds of evidence matter. Automatic checks test requirements with predictable answers, such as schemas, hashes, expected values, or blocked network access. Repeatable agent trials ask a named model or service to perform fixed tasks with stated tools and scoring; because agent behavior varies, these trials should record dates and repeated runs. Authorized review covers decisions a test cannot make, including scientific interpretation, acceptable use, and release. Automated evidence can inform that review, but it cannot create legitimate authority (Bahim et al., 2020; Tabassi, 2023; Autio et al., 2024).
 
-> **Define the task and the test before asking the agent to do the work.**
+**Record: What must remain after the run?** Keep enough information to answer: What ran? Which versions and inputs did it use? What changed? Which checks passed or failed? Did the agent refuse or request help? Who reviewed the result, and what did they decide? Version control provides part of this history, but a useful run record may also include input identifiers or hashes, the environment, the model or service used, material tool actions, outputs, uncertainties, and the review decision. Do not turn provenance into indiscriminate surveillance: credentials, sensitive locations, and governed knowledge should not be copied into general logs.
 
-We call this test-first scientific design. Before delegating consequential work, specify four elements:
+These four answers do not require a new software platform. A small project might use a one-page task description, an input manifest, a locked environment, a test command, and a short run record. Larger projects may express the same information through workflow systems, access-control services, continuous integration, provenance standards, and formal approvals. The names of the files matter less than whether a new person or system can find and follow them.
 
-1. **Goal** — What exactly should be accomplished, what claim or decision may it support, who should benefit, who may bear burdens, and who defined those expectations?
-2. **Instructions** — Which data, methods, tools, degrees of freedom, and constraints apply? What is the basis and scope of authority? Which actions are prohibited, and where must work stop for review?
-3. **Test** — What evidence distinguishes success, scientific or computational failure, a declared governance refusal, and a need for authorized review? Which benefit indicators, harm cases, boundaries, and stop conditions apply?
-4. **Record** — What minimized and appropriately protected provenance is required? Who was operationally accountable, who held governing and release authority, what review occurred, and how can the output be corrected or withdrawn?
+## 3. Turn principles into working repository features
 
-The compact sequence is:
+Philosophical principles become useful to a computer only when they change what the computer can find, interpret, test, or do. For a research repository, that translation can be straightforward.
 
-> **GOAL → INSTRUCTIONS → TEST → RECORD**
+- **Make the important objects unmistakable.** Give datasets, software, workflows, and released outputs stable identifiers and versions. Mark the canonical input and current workflow instead of expecting a reader to infer them from filenames.
+- **Explain access, including limits.** Say how an authorized user retrieves an object, what authentication is required, and why access may be restricted. A useful record can remain findable even when the data themselves cannot be openly downloaded.
+- **Define what the values mean.** Record field names, units, coordinate systems, missing-value rules, vocabularies, and relationships among inputs, code, and outputs. A table called temperature is not interoperable if no one knows whether it contains air or water temperature, daily means or instantaneous readings, or degrees Celsius or Fahrenheit.
+- **Make reuse conditions explicit.** State rights, licenses or other terms, provenance, versions, domain standards, and instructions for reuse. If the project claims computational reproducibility, identify the inputs, code, environment, command, and expected result (Wilkinson et al., 2016; Bahim et al., 2020; DataCite Metadata Working Group, 2026; Soiland-Reyes et al., 2022).
 
-A useful test has four dimensions. A **scientific** test asks whether the result addresses the question and meets domain expectations: for example, whether a model preserves mass balance or a reported confidence interval is reproduced. A **computational** test asks whether the environment builds, inputs validate, and the workflow completes. A **provenance** test asks whether another person can reconstruct what happened. A **governance** test asks whether the workflow was authorized to use those data, models, services, and publication channels.
+These are FAIR-aligned repository practices, not additions to the FAIR principles. FAIR does not require a particular website, `AGENTS.md` file, container, test suite, or prompt log. Those are possible engineering choices for exposing and checking the relevant evidence.
 
-Passing only three dimensions can still be failure. A scientifically correct result obtained through prohibited data use fails. A perfectly governed and reproducible hallucination fails. A correct result whose provenance cannot be reconstructed also fails this standard. A refusal passes only when it matches a declared boundary; inability, misunderstanding, and unpredictable failure must be recorded differently.
+The repository also needs an orientation page for people and tools. It should answer the questions a careful newcomer would ask: What is this project? Where is the current workflow? Which outputs matter? How do I run the smallest safe example? What must I never change, transmit, or publish without asking? Who can answer a scientific question, and who can approve a release? Structured dataset and model documentation offer useful precedents for making intended uses, limits, and provenance visible (Mitchell et al., 2019; Gebru et al., 2021; Bridgeford et al., 2026).
 
-Consider an agent asked to flag suspect observations in a sensor network. The goal names the affected data product. The instructions identify the quality-control rules, authorized inputs, and operations the agent may propose but not publish. The test includes a labeled fixture, expected flag rates, and review of false positives. The record links the input version, code change, agent instructions, output, evaluation, and approving scientist. This specification is useful even if a person ultimately performs the analysis.
+Finally, use computer controls for rules that computers can enforce. If restricted data must not reach the internet, do not rely only on a sentence telling an agent to be careful. Run it in an environment without external network access. If it may edit code but not source data, make the data read-only. If release requires a person, have the workflow produce a draft and stop before publication. These controls can show that a stated rule was followed. They cannot show that the person who wrote the rule had the right to do so.
 
-Tests need not all be software assertions. Some run automatically; others produce a review packet or block work pending an identified expert, data steward, or governance authority. Every workflow receives a lightweight screen for benefit, authority, accountability, and foreseeable harm. Consequential work receives the full specification and record. What matters is that success, refusal, review, and prohibited action are specified before an agent's plausible-looking output is available to influence the standard.
+Before granting access or tools, ask:
 
-## 3. FAIR repository design for agents
+1. Who is meant to benefit, and who could carry the cost or risk?
+2. Who gave permission, and permission for exactly what? Can the data leave this computer, reach this model or service, be combined with other data, or appear in public?
+3. Who is responsible for running, reviewing, approving, and releasing the work? Who can stop it or withdraw an output?
+4. What relationships, harms, or obligations mean the work should change or not proceed?
 
-FAIR describes properties of research objects and their stewardship, not a synonym for unrestricted openness. The rules below are operational interpretations for agent-ready repositories, not a FAIR certification or complete restatement of the principles.
+That is the governance gate. It is a human and institutional decision supported by technical evidence, not a box a computer can check. Technical access is not legitimate authority.
 
-### F — Give every project an authoritative front door
+## 4. Use more structure when the consequences are greater
 
-**Design rule: Give every project an authoritative front door.** A searchable project page or repository landing page should identify the canonical repositories and artifacts and explain how they relate. The version-controlled repository remains the source of truth; the website or landing page is its discovery and communication layer.
+Not every computer action needs the same machinery. Asking an agent to reformat a bibliography is different from asking it to change the model behind a published result.
 
-The landing page should state the scientific question and project scope before presenting a directory tree. It should identify the responsible people or organization, summarize data and methods, name major outputs, and link to the repository, manuscript or publications, preferred citation, and persistent identifiers. Descriptive titles, stable URLs, meaningful headings, ordinary search optimization, and machine-readable metadata help humans and tools orient themselves. The website should not duplicate every artifact. It should explain how distributed artifacts relate and which source is authoritative for each purpose. [CITATION NEEDED: machine-actionable environmental repository metadata]
+- **Low-consequence work** includes reversible, local formatting, documentation, and exploratory code using unrestricted information. A short instruction, a build check, and version control may be enough.
+- **Scientifically consequential work** changes inputs, analysis code, models, figures, or results that support a claim. It needs identified versions, scientific checks, and expert review.
+- **Work with governance consequences** uses restricted or sensitive information, sends material to an external service, trains a model, changes what may be disclosed, publishes an artifact, or takes an action that is hard to reverse. It also needs clear authority, enforced boundaries, and a release gate.
 
-**Test:** Give a clean agent only the public project URL. Can it correctly identify the question, data, methods, outputs, repository, responsible people, version, and citation without unsupported guesses?
+These are practical distinctions, not a scoring system. When uncertain, ask what would happen if the computer used the wrong file, produced the wrong result, sent the data to the wrong place, or released the output too early. Controls, evidence, and review should match those consequences.
 
-### A — Give every agent an orientation
+## 5. A worked example: making a habitat map
 
-**Design rule: Give every agent an orientation.** Place an `AGENTS.md` at the repository root. It should explain what the project is, how the repository is organized, which workflows and outputs are canonical, how to run and test them, what constraints apply, what actions are prohibited, and when human approval is required.
+Consider a laboratory using public satellite imagery and access-restricted species observations to prepare a habitat map. The example is illustrative; it is not a report of an agent experiment.
 
-Keep the file concise and link to detailed methods or governance documents rather than duplicating them. Preserve consequential prompts, decisions, or agent instructions when they materially affect methods, selection, interpretation, or dissemination. This is not an argument to log every chat: records may contain sensitive information and need deliberate scope, access, retention, and redaction. The governing rule is broader: **No scientifically necessary instruction should exist only in the memory of a person or an AI conversation.**
+**Goal.** Create an internal habitat-suitability map for a named conservation planning meeting. The output is evidence for discussion, not an autonomous management recommendation.
 
-**Test:** Start a fresh agent with no previous conversation and ask it to perform a defined repository task. Record every additional fact a human must provide. Is that fact a documentation gap, a credential, a deliberate review gate, or a capability limitation?
+**Instructions.** Use the listed imagery, approved occurrence records, current calibration file, named model, and locked software environment. The occurrence records are read-only and the computing environment has no external network connection. The agent may make a draft map but may not reveal coordinates, replace inputs, change the release resolution, or publish anything.
 
-### I — Make scientific products portable
+**Evaluation.** Check the input fields, units, coordinate system, and calibration date automatically. Compare model performance with thresholds chosen before the run. Use synthetic locations to confirm that the output and logs do not reveal restricted coordinates. A qualified scientist reviews the interpretation; an authorized person reviews any proposed release.
 
-**Design rule: Make scientific products portable.** Agents should produce durable, editable artifacts rather than leave scientific products trapped in chat histories or proprietary interfaces. Appropriate formats may include Markdown, Python, R, YAML, JSON, CSV, Parquet, NetCDF, Zarr, GeoTIFF, and editable figure source. The choice should preserve scientific meaning through explicit schemas, units, coordinate systems, missing-value conventions, identifiers, and relationships.
+**Record.** Save the versions and hashes of the inputs and code, the environment, commands and material tool actions, draft output, test results, refusals, uncertainties, reviewer comments, and final decision.
 
-Use a predictable directory structure that separates data references, reusable source, analyses, tests, prompts, results, documentation, and environments. Keep figures connected to editable source and source data; keep numerical results in machine-readable form, not only prose. FAIR principles for research software similarly emphasize identification, access to software and metadata, qualified references, and reuse conditions (Barker et al., 2022).
+Now the meaning of success is clearer. If the agent cannot find the current calibration, it should stop and ask rather than choose one. If it tries to send coordinates to an external mapping service, the network control should block the action; that refusal is a successful boundary check. If the model passes its performance threshold but no authorized reviewer has approved release, the map is scientifically promising but not publishable.
 
-> **The model should be disposable; the science should persist.**
+FAIR-aligned evidence helps the agent find the correct imagery and observations, interpret their fields and coordinate systems, distinguish versions, and trace the draft map back to its inputs. FAIR alone does not authorize transmission, transformation, inference, or publication. Sensitive-species guidance establishes that location disclosure can create conservation risks (Tulloch et al., 2018; Chapman, 2020); we infer that tool-using agents can encounter those risks when repository boundaries are unclear.
 
-**Test:** Move an artifact created with one agent or model to another agent and to a conventional computational environment. Can each understand, modify, execute, and reproduce it without proprietary conversion?
+If Indigenous data or Knowledges might be involved, the laboratory does not decide on its own to add them to the workflow. Work begins with the authority and protocols designated by the relevant Indigenous People. The appropriate outcome may be a redesigned workflow, different stewardship, restricted products, or no use (Carroll et al., 2022; Jennings et al., 2023; Taitingfong et al., 2024).
 
-### R — Make the project executable elsewhere
+## 6. Start with one result and one boundary
 
-**Design rule: Make the project executable elsewhere.** A reusable project combines version control, tagged versions, licenses, tests, a documented reproduction command, and a container or reproducible environment specification with important dependencies pinned. Data and models do not all belong in Git. The repository should point unambiguously to the immutable or versioned inputs used, including identifiers, checksums, access procedures, licenses, and governance conditions.
+A laboratory does not need to redesign every project at once. Choose one important result and do the following:
 
-Research compendia, dynamic documents, containers, and established reproducible-computing practices already connect narrative, code, inputs, environments, and repeatable results (Gentleman & Lang, 2007; Peng, 2011; Sandve et al., 2013; Boettiger, 2015). Agent-assisted work adds a need to identify consequential models or services and to preserve sufficient instructions and evaluation evidence. Interoperable provenance concepts such as entities, activities, agents, and their relationships can support that record (World Wide Web Consortium, 2013).
+1. Point to the authoritative data, code, configuration, and expected output.
+2. Write a goal that says what the output is for.
+3. Record the versions and the command or workflow used to produce it.
+4. Add one scientific check that would catch a believable error.
+5. Add one boundary that the computer must not cross, and enforce it where possible.
+6. Run the task from a clean start, record what was missing, and revise the instructions.
+7. Save the run record and the name or role of the reviewer.
 
-**Test:** Clone a tagged repository onto clean infrastructure, obtain the authorized input versions, and run one documented command. Can it reproduce a specified figure, table, statistic, or result within declared scientific tolerances?
+This exercise often reveals ordinary problems before it reveals exotic AI problems: an undocumented manual edit, an unpinned package, an ambiguous filename, a missing unit, or no clear owner for the final decision. Fixing those problems improves the project for every collaborator.
 
-## 4. A CARE-informed governance floor for every workflow
+## 7. Limits and evaluation
 
-CARE was created in Indigenous Data Governance to advance Indigenous rights, interests, innovation, and self-determination amid histories and continuing conditions of data extraction and unequal power. The full principles are relational and substantive; the four questions used here are an operational entry point, not a restatement, replacement, certification, or endorsed expansion of CARE. Applying them beyond that original context carries obligations of attribution, reciprocity, non-displacement, and continued specificity. Publication of this proposal requires review by Indigenous Data Governance scholars or appropriate Indigenous governance authorities; simulated agent review cannot provide endorsement. [CITATION NEEDED: Indigenous-led scholarship and nation- or community-specific governance protocols]
+This is a design proposal, not a validated assurance system. Documentation becomes stale, services change, tests miss cases, and a green check can create false confidence. Records also take labor to create and maintain. Institutions should support laboratories with shared metadata tools, secure computing, evaluation infrastructure, and incident response rather than shifting all work to individual researchers, data stewards, field teams, or communities. Participation by affected communities must be authorized and adequately resourced (David-Chavez & Gavin, 2018; Jennings et al., 2023).
 
-At the same time, no scientific workflow is exempt from questions of benefit, authority, responsibility, and ethics. Every project distributes benefits and burdens. Every use of data, code, infrastructure, labor, and knowledge occurs under some claimed authority—or reveals that legitimate authority is missing. Every consequential output needs accountable people or institutions. Every workflow can create foreseeable harm. We therefore propose four **CARE-informed questions as a universal governance floor**: before work begins, screen who benefits and bears burdens, who has legitimate authority, who is accountable, and what harms must be prevented.
+The proposal should be tested on representative environmental tasks. Comparisons could measure scientific correctness, completion, provenance, unauthorized actions, appropriate and false refusals, correction time, and review burden across human-only and agent-assisted workflows. Such studies can test whether the design works. They cannot turn legitimate authority into a universal score.
 
-The entry screen is universal; the obligations it reveals are contextual and proportional to consequence. A license, institutional role, or publication policy may establish some permissions in a low-risk public-data workflow, but none is interchangeable with legitimate authority. Higher-risk contexts may require consent, formal governance, funded participation, or collective decision-making that a repository owner cannot grant. Context-specific authority can constitute, reshape, supersede, or prohibit the proposed workflow rather than merely add controls to it. If authority is absent, contested, expired, or conflicting, the workflow stops and escalates.
+## 8. Conclusion
 
-### C — State who benefits
+Modern research computers can do more than calculate: they can choose files, edit workflows, call services, and prepare material for release. That makes an old problem—missing context—more urgent. Giving an agent a repository does not give it the knowledge or authority of a collaborator. Before consequential work begins, tell the computer what result is wanted, what evidence and boundaries govern the work, how to recognize success or a reason to stop, and what record to leave. Make those directions real through identifiers, manifests, locked environments, tests, access controls, provenance, and human review. Start with one consequential result and one consequential boundary.
 
-**Design rule: State who benefits and who bears burdens.** Before any consequential workflow, identify its intended beneficiaries, expected scientific or community benefit, distribution of benefits and burdens, and important risks. “Scientific progress” is too general when a workflow affects specific communities, contributors, field teams, future generations, or ecosystems.
+## Artificial intelligence transparency statement
 
-A system that accelerates publication while increasing demands on data contributors may shift costs rather than create collective benefit. Benefit cannot be self-certified by a repository maintainer on behalf of a community. The record should identify who defined the benefit, what quantitative, qualitative, relational, or governance evidence will be considered, how affected parties or legitimate representatives can contest the assessment, and what remedy or stopping rule applies if benefits do not materialize.
+OpenAI Codex, a GPT-5-based coding and writing assistant, was used on 29–30 August 2026 to assist with prose revision, LaTeX structure, editable table and figure code, literature discovery, the citation audit and BibTeX database, and compilation checks. It was not used to generate empirical data or conduct statistical analyses. Ty Tuff directed its use and made the editorial and conceptual decisions. The authors retain responsibility for independently verifying the generated material and for the manuscript as a whole. Codex is not an author, and its output does not constitute scientific validation, ethical approval, Indigenous consultation, endorsement, or governing authority.
 
-**Test:** Can the project state who should benefit, who may bear costs or risks, what evidence or decision process will be used, who may judge and contest the result, and when the workflow must change or stop?
+## Acknowledgments
 
-### A — Make authority explicit
+The authors used OpenAI Codex as described in the Artificial Intelligence Transparency Statement.
 
-**Design rule: Make authority explicit.** Every workflow should record the claimed source, holder, scope, legitimacy, duration, conflicts, and revocation conditions of its authority; data access is not blanket permission. Where relevant, distinguish authority to **read, copy, analyze, perform inference, train, fine-tune, combine, publish, and redistribute**. Associate governed data classes with allowed purposes, prohibited actions, required reviewers, retention limits, disclosure rules, and approved computational infrastructure. Reassess authority when purpose, recipient, model, endpoint, or publication channel changes.
+## Table 1
 
-Agentic workflows add a consequential question to data provenance. We routinely record where our data came from. Agentic science also requires knowing: **Where did the data go?**
+**Table 1.** A practical guide for preparing one consequential computer-assisted result. File names and technologies are examples; the required function matters more than the implementation.
 
-Governance requires knowing where computation occurs and which models and services receive the data. For sensitive ecological or community-governed data, record the compute location, identified model or service, model version when available, inference endpoint, provider retention and training behavior, network access, logs, and jurisdictional or institutional control. External transfer may require an approved enclave, institutional endpoint, community-approved compute, or local or self-hosted inference. Self-hosting does not itself establish legitimate use. It creates a computational boundary within which legitimate governance decisions can be enforced.
-
-Technical policy should derive from legitimate governance and remain revisable by those with authority. Human approval should gate actions that cross data, institutional, publication, or community boundaries.
-
-**Test:** Using synthetic fixtures, mocks, or an isolated and pre-authorized environment, simulate a prohibited data movement or model use. Does the workflow prevent the action, explain the boundary, record the safe test, and escalate ambiguity to the correct authority? A governance test must never perform the harmful real-world action it is meant to prevent.
-
-### R — Assign accountable people and institutions
-
-**Design rule: Assign accountable people and institutions.** Every consequential workflow should have a named operational owner, whether or not an agent participates, while separately identifying scientific reviewers, responsible institutions, governing authorities, and release authority where applicable. The owner works within—not above—those authorities, ensures that tests remain relevant, validates important outputs, and routes decisions to the people or bodies entitled to make them. Review is not meaningful if reviewers cannot inspect the evidence or understand the evaluation.
-
-For important outputs, preserve enough information to reconstruct the model or service, version when available, instructions, data, code, tools, environment, output, evaluation, and human review or authorization. Version control supports correction, but projects also need a route for reporting problems and withdrawing or amending consequential outputs.
-
-> **Agents may receive autonomy, but human, institutional, and collective responsibilities cannot be delegated to them.**
-
-**Test:** Select an important result. Can we distinguish and identify operational ownership, scientific review, governing authority, and release approval, then reconstruct how the result was produced, tested, reviewed, corrected, and released?
-
-### E — Test what must not happen
-
-**Design rule: Test what must not happen.** Do not leave ethics as a retrospective discussion. Before deployment ask: **What reasonably foreseeable scientific, cultural, political, social, spiritual, economic, labor, ecological, and intergenerational harms do affected people, rights-holders, domain experts, and responsible institutions identify?**
-
-For an environmental workflow, unacceptable outcomes might include disclosing a sensitive species location, fabricating literature support, publishing an unreviewed result, sending governed data to an unauthorized model, displacing field or community expertise, or presenting a fragile forecast as a high-consequence recommendation. Turn the most important cases into safe prevention, detection, refusal, escalation, remedy, withdrawal, and recovery tests. Negative tests cannot establish ethical legitimacy; affected people, relevant scientific experts, rights-holders, and responsible institutions must help define and evaluate cases that concern them.
-
-**Test:** Safely simulate representative prohibited or harmful actions without exposing real people, data, species, or systems. Does the workflow refuse, detect, stop, or escalate appropriately—and can responsible people investigate, remedy, withdraw, and recover when a control fails?
-
-### Table 1. FAIR + CARE design and test matrix
-
-| Principle | Design rule | What to implement | Test |
+| Before the run | Human question | Put it into the computer system | Quick check |
 |---|---|---|---|
-| **F — Findable** | Give every project an authoritative front door. | Searchable landing page relating canonical repositories; question, people, data, methods, outputs, citation, and identifiers. | Give a clean agent only the project URL; score expected fields and require uncertainty rather than guesses. |
-| **A — Accessible** | Give every agent an orientation. | `README.md`, `AGENTS.md`, canonical workflows, commands, tests, constraints, prohibitions, and approval gates. | Start a fresh agent on a defined task; record every undocumented fact it needs. |
-| **I — Interoperable** | Make scientific products portable. | Durable editable formats; schemas, units, identifiers, relationships, predictable structure, and source for outputs. | Move an artifact across agents and a conventional environment; modify and reproduce it. |
-| **R — Reusable** | Make the project executable elsewhere. | Versioning, release, license, environment, pinned dependencies, input references, tests, provenance, and reproduction command. | Clone a tagged version on clean infrastructure and reproduce one named result. |
-| **C — Collective Benefit** | State who benefits and who bears burdens. | Beneficiaries, benefit definition, distribution, burdens, evidence, evaluator, contestation, remedy, and option not to proceed. | Determine with affected parties or legitimate representatives whether the defined benefit occurred and burdens were acceptable. |
-| **A — Authority to Control** | Establish and maintain legitimate authority. | Authority holder, scope, action-level permissions, approved compute and models, duration, conflicts, revocation, and review gates. | Safely simulate an action beyond declared authority; verify prevention and escalation. |
-| **R — Responsibility** | Assign accountable people and institutions. | Operational owner, governing and release authority, scientific review, provenance, disclosure, correction, and incident response. | Reconstruct a result and distinguish who operated, governed, reviewed, authorized, and released it. |
-| **E — Ethics** | Identify harms and test boundaries safely. | Participatory harm cases, affected parties, benefit and bias checks, refusal rules, safe red-team tests, remedy, escalation, and recovery. | Safely simulate representative harms; verify refusal, detection, remedy, response, and review. |
+| Purpose and permission | Who wants this work, who may approve it, and what is outside scope? | Named owner and reviewer; permission scope; data and service limits; stopping and release gate. | Can a reviewer identify who can say yes, no, or stop? |
+| FAIR-aligned evidence | Can the needed data, code, and outputs be found and understood? | Stable identifiers and versions; metadata; access conditions; schemas; units; rights; provenance. | Resolve one input and trace it to one output. |
+| Goal | What exact result is wanted, and what will it be used for? | A short task brief naming the expected output, purpose, requester, and intended use. | Can a newcomer restate the task without guessing? |
+| Instructions | Which inputs, method, tools, and limits apply? | Input manifest; configuration; environment lock; run command; read, write, network, and publication rules. | Start clean and count the oral hints still required. |
+| Evaluation | What would count as success, error, proper refusal, or need for review? | Schema and scientific checks; expected values or tolerances; safe boundary test; named reviewer. | Break one test fixture and confirm the workflow stops. |
+| Record | What must remain afterward? | Commit; input and code identifiers or hashes; environment; actions; outputs; test results; uncertainties; review decision. | Trace one output back to its inputs and reviewer. |
 
-## 5. An agent-ready environmental science repository
+## Figure captions
 
-An ordinary laboratory can implement these criteria incrementally. The following architecture is illustrative, not mandatory:
+![Figure 1. A practical workflow for consequential computer-assisted science.](figures/figure1_workflow.svg)
 
-```text
-my-environmental-project/
-|-- README.md              # question, scope, people, outputs, citation
-|-- AGENTS.md              # orientation, workflows, constraints, approvals
-|-- environment/           # reproducible environment and dependency records
-|-- data/
-|   `-- README.md          # sources, versions, access, licenses, governance
-|-- src/                   # reusable analysis code
-|-- analysis/              # declared workflows and editable analyses
-|-- tests/
-|   |-- scientific/        # domain expectations and result checks
-|   |-- computational/     # setup, schema, smoke, and regression checks
-|   `-- governance/        # prohibited actions and required escalation
-|-- prompts/               # consequential task specifications or references
-|-- provenance/            # run records: inputs, models, tools, reviews
-|-- results/               # machine-readable outputs and editable figures
-|-- manuscript/            # editable scientific narrative
-`-- docs/                  # searchable associated website
-```
-
-The directories matter less than the functions they expose: scientific purpose, agent orientation, editable source, a reproducible environment, scientific and computational tests, governance boundaries, consequential instructions, provenance, outputs, and a public front door. A smaller project can begin with four changes:
-
-1. Add a useful `README.md` and `AGENTS.md` that identify the project, canonical workflow, important result, and action boundaries.
-2. Pin the important environment and data versions, then document one command that reproduces one result.
-3. Add one scientific expectation and one governance boundary test.
-4. Publish a landing page that connects the question, people, repository, data, outputs, and citation.
-
-The first target should be bounded: “From a clean clone, reproduce Figure 1 using the declared environment and authorized test data; check the expected statistics; do not call unapproved network services; write a minimized provenance record; and stop for review before changing a public artifact.” A laboratory will learn more from making one workflow reliable and governable than from labeling an entire repository “AI ready.” Institutions can supply shared identity, secure compute, data stewardship, community-engagement, and incident-response services that a small laboratory cannot maintain alone; inability to establish the necessary authority or safeguards means the work does not proceed.
-
-Consider a habitat assessment that combines public remote sensing, sensitive biodiversity observations, and knowledge or observations associated with an Indigenous People or local community. The goal identifies the intended conservation decision, beneficiaries, burdens, and who defined them. Instructions separate public from governed inputs, encode permitted inference and disclosure, and route unresolved authority to the relevant governing body. Tests evaluate habitat-model performance with authorized fixtures and safely verify that sensitive locations cannot leave the approved environment. The record distinguishes operational ownership, scientific review, governing authority, and release approval. FAIR-oriented infrastructure makes the products traceable and reusable under stated conditions; the CARE-informed screen exposes questions that can change the method, restrict the output, or stop the assessment. [CITATION NEEDED: ecological data governance, environmental justice, and sensitive-biodiversity examples]
-
-### Figure 1 concept: Anatomy of a FAIR + CARE agent-ready environmental science repository
-
-Show the repository at the center as a versioned scientific object. Associate its website, metadata, `README.md`, `AGENTS.md`, editable formats, environment, input identifiers, tests, and reproduction command with FAIR. Associate its benefit statement, action-level permissions, approved compute and model boundaries, human owners, governance tests, and review gates with CARE. Connect both groups to the central sequence **Goal → Instructions → Test → Record**. The image should make clear that the same infrastructure supports human and agent collaborators.
-
-**Figure 1 caption.** A FAIR + CARE workflow makes scientific purpose, inputs, methods, evaluation, provenance, and authority inspectable. FAIR components make scientific objects usable and reusable under stated conditions. The manuscript's CARE-informed entry screen asks every workflow to address benefit, authority, responsibility, and ethics without replacing the full CARE Principles. Context-specific rights and protocols may constitute, reshape, supersede, or prohibit a workflow. Test-first design connects both sets of principles to observable evidence and explicit human, institutional, or community decisions. The same infrastructure improves science for people and constrains how agents participate. The layout is illustrative rather than a required directory standard.
-
-## 6. Conclusion
-
-FAIR and CARE are principles for better human science, not special accommodations for AI. CARE's continuing purpose is to advance Indigenous rights, interests, and self-determination in data governance. With attribution and without claiming equivalence or compliance, we propose that every scientific workflow begin with four CARE-informed questions about benefit, authority, accountability, and harm. The answers are not merely stronger controls layered onto a generic workflow: rights, relationships, risks, and legitimate authority may determine whether and how the workflow exists.
-
-The practical program is compact. Apply a lightweight CARE-informed screen to every workflow, then design **Goal → Instructions → Test → Record** into consequential work. Give the project an authoritative front door and every agent an orientation. Require portable products and an executable project. State who benefits and bears burdens, make legitimate authority explicit, assign accountable people and institutions, and identify harms before testing boundaries safely. Implement these practices first for one important result and one important boundary.
-
-FAIR makes research objects and metadata more findable, accessible under stated conditions, interoperable, and reusable. Scientific tests evaluate whether a proposed use is correct. CARE and other governance processes address whether that use is beneficial, authorized, responsible, and ethical; our entry screen makes those questions harder to bypass without pretending to answer them automatically. The aim is to build scientific workflows that help people do better science and ensure that agents operate within—rather than outside—the practices and authorities that make that science trustworthy.
-
-## Citation integrity
-
-Citation vetting for this second draft is recorded in `manuscript/citation_audit_v2.json`. The registry identifies each source, records the claim it supports, and fingerprints every cited paragraph after review. Automated checks confirm bibliographic identity and detect changes that require renewed claim-level review. They do not replace expert reading, Indigenous governance, or community authority.
+**Figure 1.** A practical workflow for consequential computer-assisted science. People establish the purpose and permission. The repository supplies understandable evidence. Goal–Instructions–Evaluation–Record tells the computer what to do, how to stop, and what to preserve. People review the result before release or correction.
 
 ## References
 
+- Autio, C., Schwartz, R., Dunietz, J., Jain, S., Stanley, M., Tabassi, E., Hall, P., & Roberts, K. (2024). *Artificial intelligence risk management framework: Generative artificial intelligence profile* (NIST AI 600-1). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.AI.600-1
+- Bahim, C., Casorrán-Amilburu, C., Dekkers, M., Herczog, E., Loozen, N., Repanas, K., Russell, K., & Stall, S. (2020). The FAIR data maturity model: An approach to harmonise FAIR assessments. *Data Science Journal, 19*, 41. https://doi.org/10.5334/dsj-2020-041
 - Barker, M., Chue Hong, N. P., Katz, D. S., Lamprecht, A.-L., Martinez-Ortiz, C., Psomopoulos, F., Harrow, J., Castro, L. J., Gruenpeter, M., Martinez, P. A., & Honeyman, T. (2022). Introducing the FAIR Principles for research software. *Scientific Data, 9*, 622. https://doi.org/10.1038/s41597-022-01710-x
-- Boettiger, C. (2015). An introduction to Docker for reproducible research. *ACM SIGOPS Operating Systems Review, 49*(1), 71–79. https://doi.org/10.1145/2723872.2723882
+- Bridgeford, E. W., Campbell, I. D., Chen, Z., Lin, Z., Ritz, H., Vandekerckhove, J., & Poldrack, R. A. (2026). Twelve quick tips for AI-assisted coding in science. *PLOS Computational Biology, 22*(7), e1014428. https://doi.org/10.1371/journal.pcbi.1014428
 - Carroll, S. R., Garba, I., Figueroa-Rodríguez, O. L., Holbrook, J., Lovett, R., Materechera, S., Parsons, M., Raseroka, K., Rodriguez-Lonebear, D., Rowe, R., Sara, R., Walker, J. D., Anderson, J., & Hudson, M. (2020). The CARE Principles for Indigenous Data Governance. *Data Science Journal, 19*, 43. https://doi.org/10.5334/dsj-2020-043
+- Carroll, S. R., Herczog, E., Hudson, M., Russell, K., & Stall, S. (2021). Operationalizing the CARE and FAIR Principles for Indigenous data futures. *Scientific Data, 8*, 108. https://doi.org/10.1038/s41597-021-00892-0
+- Carroll, S. R., Garba, I., Plevel, R., Small-Rodriguez, D., Hiratsuka, V. Y., Hudson, M., & Garrison, N. A. (2022). Using Indigenous standards to implement the CARE Principles: Setting expectations through tribal research codes. *Frontiers in Genetics, 13*, 823309. https://doi.org/10.3389/fgene.2022.823309
+- Chapman, A. D. (2020). *Current best practices for generalizing sensitive species occurrence data* (Version 4.7). Global Biodiversity Information Facility Secretariat. https://doi.org/10.15468/doc-5jp4-5g10
+- DataCite Metadata Working Group. (2026). *DataCite metadata schema documentation for the publication and citation of research data and other research outputs* (Version 4.7). DataCite e.V. https://doi.org/10.14454/qdd3-ps68
+- David-Chavez, D. M., & Gavin, M. C. (2018). A global assessment of Indigenous community engagement in climate research. *Environmental Research Letters, 13*(12), 123005. https://doi.org/10.1088/1748-9326/aaf300
+- Debenedetti, E., Zhang, J., Balunović, M., Beurer-Kellner, L., Fischer, M., & Tramèr, F. (2024). AgentDojo: A dynamic environment to evaluate prompt injection attacks and defenses for LLM agents. In *Advances in Neural Information Processing Systems* (Vol. 37). https://doi.org/10.52202/079017-2636
+- Gebru, T., Morgenstern, J., Vecchione, B., Vaughan, J. W., Wallach, H., Daumé III, H., & Crawford, K. (2021). Datasheets for datasets. *Communications of the ACM, 64*(12), 86–92. https://doi.org/10.1145/3458723
 - Gentleman, R., & Lang, D. T. (2007). Statistical analyses and reproducible research. *Journal of Computational and Graphical Statistics, 16*(1), 1–23. https://doi.org/10.1198/106186007X178663
+- Jennings, L., Anderson, T., Martinez, A., Sterling, R., Chavez, D. D., Garba, I., Hudson, M., Garrison, N. A., & Carroll, S. R. (2023). Applying the CARE Principles for Indigenous Data Governance to ecology and biodiversity research. *Nature Ecology & Evolution, 7*, 1547–1551. https://doi.org/10.1038/s41559-023-02161-2
+- Jimenez, C. E., Yang, J., Wettig, A., Yao, S., Pei, K., Press, O., & Narasimhan, K. R. (2024). SWE-bench: Can language models resolve real-world GitHub issues? In *Proceedings of the Twelfth International Conference on Learning Representations*. https://openreview.net/forum?id=VTF8yNQM66
+- Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., Spitzer, E., Raji, I. D., & Gebru, T. (2019). Model cards for model reporting. In *Proceedings of the Conference on Fairness, Accountability, and Transparency* (pp. 220–229). Association for Computing Machinery. https://doi.org/10.1145/3287560.3287596
 - Peng, R. D. (2011). Reproducible research in computational science. *Science, 334*(6060), 1226–1227. https://doi.org/10.1126/science.1213847
+- Ruan, Y., Dong, H., Wang, A., Pitis, S., Zhou, Y., Ba, J., Dubois, Y., Maddison, C. J., & Hashimoto, T. (2024). Identifying the risks of LM agents with an LM-emulated sandbox. In *Proceedings of the Twelfth International Conference on Learning Representations*. https://openreview.net/forum?id=GEcwtMk1uA
 - Sandve, G. K., Nekrutenko, A., Taylor, J., & Hovig, E. (2013). Ten simple rules for reproducible computational research. *PLOS Computational Biology, 9*(10), e1003285. https://doi.org/10.1371/journal.pcbi.1003285
+- Soiland-Reyes, S., Sefton, P., Crosas, M., Castro, L. J., Coppens, F., Fernández, J. M., Garijo, D., et al. (2022). Packaging research artefacts with RO-Crate. *Data Science, 5*(2), 97–138. https://doi.org/10.3233/DS-210053
+- Tabassi, E. (2023). *Artificial intelligence risk management framework (AI RMF 1.0)* (NIST AI 100-1). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.AI.100-1
+- Taitingfong, R., Martinez, A., Hudson, M., Lovett, R., Maher, B., Prehn, J., Rowe, R. K., Boileau, K., Franks, A., Khan, S., Walker, J. D., & Carroll, S. R. (2024). Aligning policy and practice to implement CARE with FAIR through Indigenous Peoples’ protocols. *Acta Borealia, 41*(2), 80–90. https://doi.org/10.1080/08003831.2024.2410112
+- Tulloch, A. I. T., Auerbach, N., Avery-Gomm, S., Bayraktarov, E., Butt, N., Dickman, C. R., Ehmke, G., et al. (2018). A decision tree for assessing the risks and benefits of publishing biodiversity data. *Nature Ecology & Evolution, 2*(8), 1209–1217. https://doi.org/10.1038/s41559-018-0608-1
+- Wallis, J. C., Rolando, E., & Borgman, C. L. (2013). If we share data, will anyone use them? Data sharing and reuse in the long tail of science and technology. *PLOS ONE, 8*(7), e67332. https://doi.org/10.1371/journal.pone.0067332
 - Wilkinson, M. D., Dumontier, M., Aalbersberg, I. J., et al. (2016). The FAIR Guiding Principles for scientific data management and stewardship. *Scientific Data, 3*, 160018. https://doi.org/10.1038/sdata.2016.18
-- World Wide Web Consortium. (2013). *PROV-O: The PROV Ontology. W3C Recommendation 30 April 2013.* https://www.w3.org/TR/prov-o/

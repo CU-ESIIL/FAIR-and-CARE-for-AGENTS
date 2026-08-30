@@ -32,7 +32,7 @@ from reportlab.platypus import (
     TableStyle,
 )
 
-from render_manuscript_pdf import normalize_dashes, plain_markdown, register_fonts
+from render_manuscript_pdf import figure_drawing, normalize_dashes, plain_markdown, register_fonts
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -222,11 +222,15 @@ def extract_table(lines: list[str]) -> tuple[list[str], str, list[str]]:
     index = 0
     while index < len(lines):
         heading = re.match(r"^###\s+Table\s+1\.\s*(.+)$", lines[index])
-        if not heading:
+        bold_caption = re.match(r"^\*\*Table\s+1\.\*\*\s*(.+)$", lines[index])
+        if not heading and not bold_caption:
             clean.append(lines[index])
             index += 1
             continue
-        caption = f"Table 1. {plain_markdown(heading.group(1))}."
+        caption_text = (heading or bold_caption).group(1)
+        caption = f"Table 1. {plain_markdown(caption_text)}"
+        if not caption.endswith("."):
+            caption += "."
         index += 1
         while index < len(lines) and not lines[index].strip():
             index += 1
@@ -236,27 +240,28 @@ def extract_table(lines: list[str]) -> tuple[list[str], str, list[str]]:
     return clean, caption, rows
 
 
-def remove_figure_concept(lines: list[str]) -> tuple[list[str], str]:
+def extract_figure(lines: list[str]) -> tuple[list[str], str, str]:
     clean: list[str] = []
     caption = (
         "Figure 1. An agent-ready repository makes scientific purpose, workflows, "
         "evaluation, provenance, and authority inspectable."
     )
+    asset = ""
     index = 0
     while index < len(lines):
-        if lines[index].startswith("### Figure 1 concept"):
+        image_match = re.fullmatch(r"!\[([^\]]*)\]\(([^)]+\.svg)\)", lines[index].strip())
+        if image_match:
+            asset = image_match.group(2)
             index += 1
-            while index < len(lines) and not lines[index].startswith("**Figure 1 caption."):
-                index += 1
-            if index < len(lines):
-                raw = lines[index]
-                raw = re.sub(r"^\*\*Figure 1 caption\.\*\*\s*", "", raw)
-                caption = f"Figure 1. {plain_markdown(raw)}"
-                index += 1
+            continue
+        if lines[index].startswith("**Figure 1.**"):
+            raw = re.sub(r"^\*\*Figure 1\.\*\*\s*", "", lines[index])
+            caption = f"Figure 1. {plain_markdown(raw)}"
+            index += 1
             continue
         clean.append(lines[index])
         index += 1
-    return clean, caption
+    return clean, caption, asset
 
 
 def parse_table(rows: list[str], style_map: dict[str, ParagraphStyle]) -> Table:
@@ -370,32 +375,46 @@ def draw_review_page(canvas, doc) -> None:
 
 
 def title_page(metadata: dict, style_map: dict[str, ParagraphStyle]) -> list:
-    author = metadata["authors"][0]
-    author_name = author["name"] + "<super>1</super>"
-    affiliation = metadata["affiliations"][str(author["affiliations"][0])]
+    authors = metadata["authors"]
+    author_names = []
+    for author in authors:
+        markers = ",".join(str(value) for value in author["affiliations"])
+        corresponding = ",*" if author.get("corresponding") else ""
+        author_names.append(f"{inline(author['name'])}<super>{markers}{corresponding}</super>")
+    affiliation_lines = [
+        Paragraph(f"<super>{number}</super>&#160;{inline(text)}", style_map["center"])
+        for number, text in metadata["affiliations"].items()
+    ]
+    corresponding_authors = [author for author in authors if author.get("corresponding")]
+    corresponding_text = "; ".join(
+        f"{author['name']}, {author['email']}" for author in corresponding_authors
+    )
+    orcid_text = "; ".join(
+        f"{author['name']}, {author['orcid']}" for author in authors if author.get("orcid")
+    )
     keywords = "; ".join(metadata["keywords"])
-    return [
+    story = [
         Paragraph(inline(metadata["journal"]), style_map["center"]),
         Paragraph(inline(metadata["manuscript_type"]), style_map["center"]),
         Spacer(1, LINE_LEADING),
         Paragraph(inline(metadata["title"]), style_map["title"]),
         Spacer(1, LINE_LEADING),
-        Paragraph(author_name, style_map["center"]),
-        Paragraph(f"<super>1</super>&#160;{inline(affiliation)}", style_map["center"]),
+        Paragraph(" and ".join(author_names), style_map["center"]),
+        *affiliation_lines,
         Spacer(1, LINE_LEADING),
         Paragraph(
-            f"<b>Corresponding author:</b> {inline(author['name'])}; {inline(author['email'])}",
+            f"<b>Corresponding author:</b> {inline(corresponding_text)}",
             style_map["body"],
         ),
-        Paragraph("<b>Open Research Statement.</b> " + inline(metadata["open_research_statement"]), style_map["body"]),
-        Paragraph("<b>Key words:</b> " + inline(keywords), style_map["body"]),
-        Spacer(1, LINE_LEADING),
-        Paragraph(
-            "<i>Formatting proof. Editorial invitation, author declarations, finished figure, and an allowed Main Document format remain required.</i>",
-            style_map["body"],
-        ),
-        PageBreak(),
     ]
+    if orcid_text:
+        story.append(Paragraph("<b>ORCID:</b> " + inline(orcid_text), style_map["body"]))
+    story.extend([
+        Paragraph("<b>Open Research statement.</b> " + inline(metadata["open_research_statement"]), style_map["body"]),
+        Paragraph("<b>Key words:</b> " + inline(keywords), style_map["body"]),
+        PageBreak(),
+    ])
+    return story
 
 
 def render(source: Path, metadata_path: Path, output: Path) -> None:
@@ -422,20 +441,29 @@ def render(source: Path, metadata_path: Path, output: Path) -> None:
     table_caption = ""
     table_rows: list[str] = []
     figure_caption = ""
+    figure_asset = ""
     for name, section_lines in sections.items():
-        if not re.match(r"^[1-6]\. ", name):
+        if not re.match(r"^[1-8]\. ", name):
             continue
         cleaned, found_caption, found_rows = extract_table(section_lines)
         if found_rows:
             table_caption, table_rows = found_caption, found_rows
-        cleaned, found_figure_caption = remove_figure_concept(cleaned)
-        if found_figure_caption and name.startswith("5."):
+        cleaned, found_figure_caption, found_figure_asset = extract_figure(cleaned)
+        if found_figure_asset:
             figure_caption = found_figure_caption
+            figure_asset = found_figure_asset
         body_sections.extend([f"## {name}", *cleaned])
+
+    if "Table 1" in sections:
+        _, table_caption, table_rows = extract_table(sections["Table 1"])
+    if "Figure captions" in sections:
+        _, figure_caption, figure_asset = extract_figure(sections["Figure captions"])
 
     reference_lines = sections["References"]
     if not table_rows:
         raise ValueError("Table 1 was not found in the manuscript")
+    if not figure_asset:
+        raise ValueError("Figure 1 was not found in the manuscript")
 
     output.parent.mkdir(parents=True, exist_ok=True)
     doc = BaseDocTemplate(
@@ -463,12 +491,18 @@ def render(source: Path, metadata_path: Path, output: Path) -> None:
     story.append(NumberedParagraph("Abstract", style_map["h2"]))
     story.extend(content_story(abstract_lines, style_map))
     story.extend(content_story(body_sections, style_map))
-    story.append(NumberedParagraph("Acknowledgments", style_map["h2"]))
-    story.append(NumberedParagraph(inline(metadata["acknowledgments"]), style_map["body"]))
-    story.append(NumberedParagraph("Author Contributions", style_map["h2"]))
-    story.append(NumberedParagraph(inline(metadata["author_contributions"]), style_map["body"]))
-    story.append(NumberedParagraph("Conflict of Interest Statement", style_map["h2"]))
-    story.append(NumberedParagraph(inline(metadata["conflict_of_interest"]), style_map["body"]))
+    if metadata.get("ai_transparency_statement"):
+        story.append(NumberedParagraph("Artificial intelligence transparency statement", style_map["h2"]))
+        story.append(NumberedParagraph(inline(metadata["ai_transparency_statement"]), style_map["body"]))
+    if metadata.get("acknowledgments"):
+        story.append(NumberedParagraph("Acknowledgments", style_map["h2"]))
+        story.append(NumberedParagraph(inline(metadata["acknowledgments"]), style_map["body"]))
+    if metadata.get("author_contributions"):
+        story.append(NumberedParagraph("Author Contributions", style_map["h2"]))
+        story.append(NumberedParagraph(inline(metadata["author_contributions"]), style_map["body"]))
+    if metadata.get("conflict_of_interest"):
+        story.append(NumberedParagraph("Conflict of Interest Statement", style_map["h2"]))
+        story.append(NumberedParagraph(inline(metadata["conflict_of_interest"]), style_map["body"]))
     story.append(NumberedParagraph("References", style_map["h2"]))
     story.extend(content_story(reference_lines, style_map, section="References"))
     story.extend([NextPageTemplate("Backmatter"), PageBreak()])
@@ -476,6 +510,8 @@ def render(source: Path, metadata_path: Path, output: Path) -> None:
     story.append(parse_table(table_rows, style_map))
     story.append(PageBreak())
     story.append(Paragraph("Figure captions", style_map["h2"]))
+    story.append(figure_drawing((source.parent / figure_asset).resolve(), TEXT_WIDTH * 0.72))
+    story.append(Spacer(1, LINE_LEADING / 2))
     story.append(Paragraph(inline(figure_caption), style_map["body"]))
     doc.build(story)
 

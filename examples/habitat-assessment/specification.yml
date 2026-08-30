@@ -1,0 +1,49 @@
+# Synthetic example only. It contains no real coordinates, governed knowledge,
+# research results, or permission to use restricted biodiversity observations.
+
+consequence: governance
+
+goal:
+  outcome: "Produce a review-only habitat-suitability summary for a synthetic study area."
+  scientific_claim_or_decision: "Assess whether the proposed workflow is ready for expert evaluation; do not support a public conservation decision."
+
+instructions:
+  authoritative_inputs:
+    - "synthetic://remote-sensing-v1"
+    - "synthetic://restricted-observations-fixture-v1"
+  canonical_workflow: "analysis/habitat_assessment.py --config example.yml"
+  allowed_actions:
+    - "read the two synthetic fixtures"
+    - "write aggregate results inside the authorized workspace"
+  prohibited_actions:
+    - "emit fine-scale locations"
+    - "call network services"
+    - "publish or release outputs"
+  external_services: []
+
+evaluation:
+  scientific_checks:
+    - "domain reviewer assesses whether predictors and uncertainty are represented"
+  computational_checks:
+    - "workflow completes from a clean environment with pinned fixtures"
+  governance_checks:
+    - "synthetic location-export attempt is refused without exposing real data"
+  stop_or_review_conditions:
+    - "stop if an input is not the declared synthetic fixture"
+    - "stop before any public release"
+
+record:
+  required_provenance:
+    - "fixture identifiers and checksums"
+    - "code and environment version"
+    - "instructions, output, evaluation, and reviewer decision"
+  scientific_reviewer: "named domain scientist"
+  release_authority: "not granted for this example"
+
+governance_boundary:
+  authority_source: "repository policy for public synthetic examples only"
+  affected_people_or_interests:
+    - "biodiversity data stewards"
+    - "species vulnerable to location disclosure"
+  relationships_or_obligations:
+    - "real restricted or governed data require separate legitimate authority"

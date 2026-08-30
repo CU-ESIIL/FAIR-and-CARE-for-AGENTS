@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import html
+import importlib.util
 import os
 import re
 from datetime import date
@@ -399,7 +400,24 @@ def markdown_table(rows: list[str], styles: dict[str, ParagraphStyle], width: fl
     return table
 
 
-def markdown_story(lines: list[str], styles: dict[str, ParagraphStyle], width: float) -> list:
+def figure_drawing(asset: Path, width: float):
+    """Load the editable Python source corresponding to a derived SVG figure."""
+    source = asset.with_suffix(".py")
+    if not source.is_file():
+        raise FileNotFoundError(f"Editable figure source is missing: {source}")
+    if not asset.is_file():
+        raise FileNotFoundError(f"Derived figure asset is missing: {asset}")
+    spec = importlib.util.spec_from_file_location(f"manuscript_figure_{source.stem}", source)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Unable to load figure source: {source}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    drawing = module.build_figure(width)
+    drawing.hAlign = "CENTER"
+    return drawing
+
+
+def markdown_story(lines: list[str], styles: dict[str, ParagraphStyle], width: float, source: Path) -> list:
     story: list = []
     paragraph_lines: list[str] = []
     heading_sequence = 0
@@ -438,6 +456,15 @@ def markdown_story(lines: list[str], styles: dict[str, ParagraphStyle], width: f
         if line.strip() == "---":
             flush_paragraph()
             story.append(HRFlowable(width="100%", thickness=0.7, color=ACCENT_BLUE, spaceBefore=4, spaceAfter=10))
+            index += 1
+            continue
+
+        image_match = re.fullmatch(r"!\[([^\]]*)\]\(([^)]+\.svg)\)", line.strip())
+        if image_match:
+            flush_paragraph()
+            asset = (source.parent / image_match.group(2)).resolve()
+            story.append(figure_drawing(asset, min(width, 6.5 * inch)))
+            story.append(Spacer(1, 8))
             index += 1
             continue
 
@@ -546,8 +573,8 @@ def title_story(
     source: Path,
 ) -> list:
     thesis = (
-        "FAIR and CARE help people do better science. Agents do not automatically inherit "
-        "those practices or obligations, so agentic workflows must encode them explicitly."
+        "An agent does not inherit scientific context, judgment, or legitimate authority merely "
+        "by gaining repository access. Specify consequential work before delegation."
     )
     display_metadata = [
         (
@@ -589,8 +616,7 @@ def title_story(
         meta_table,
         Spacer(1, 0.35 * inch),
         Paragraph(
-            "Generated from the canonical, version-controlled Markdown manuscript. "
-            "Editorial citation notes identify unresolved work in this draft.",
+            "Generated from the canonical, version-controlled Markdown manuscript and editable vector figure source.",
             styles["meta"],
         ),
         PageBreak(),
@@ -666,7 +692,7 @@ def render(source: Path, output: Path) -> None:
             PageBreak(),
         ]
     )
-    story.extend(markdown_story(body_lines, styles, frame_width))
+    story.extend(markdown_story(body_lines, styles, frame_width, source))
     doc.multiBuild(story)
 
 

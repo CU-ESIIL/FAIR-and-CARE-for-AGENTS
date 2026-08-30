@@ -1,0 +1,32 @@
+# Copy this compact supporting template for a consequential agent-assisted task.
+# It is not a formal standard. Complete only fields relevant to the task, and
+# increase specification and review as scientific or governance consequence rises.
+
+consequence: low | scientific | governance
+
+goal:
+  outcome: ""
+  scientific_claim_or_decision: ""
+
+instructions:
+  authoritative_inputs: []
+  canonical_workflow: ""
+  allowed_actions: []
+  prohibited_actions: []
+  external_services: []
+
+evaluation:
+  scientific_checks: []
+  computational_checks: []
+  governance_checks: []
+  stop_or_review_conditions: []
+
+record:
+  required_provenance: []
+  scientific_reviewer: ""
+  release_authority: ""
+
+governance_boundary:
+  authority_source: ""
+  affected_people_or_interests: []
+  relationships_or_obligations: []

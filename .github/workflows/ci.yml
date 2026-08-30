@@ -76,8 +76,13 @@ jobs:
       - name: Install reproducible PDF environment
         run: python -m pip install -r requirements-pdf.txt
 
-      - name: Audit FAIR + CARE repository controls
+      - name: Audit pre-delegation repository controls
         run: python scripts/repository_audit.py
+
+      - name: Check editable figure and visible manuscript quality
+        run: |
+          python scripts/build_figures.py --check
+          python scripts/manuscript_quality_check.py
 
       - name: Run repository and manuscript tests
         run: python -m unittest discover -s tests -p "test_*.py"

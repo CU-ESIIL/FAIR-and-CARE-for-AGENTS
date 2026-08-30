@@ -1,5 +1,17 @@
 # Decision log
 
+## 2026-08-30 — Specify consequential work before action and keep CARE distinct
+
+**Decision.** Use **Goal → Instructions → Evaluation → Record** as the manuscript's pre-delegation specification. Keep FAIR-aligned research-object evidence distinct from a separate general governance and authorization gate. Preserve CARE as an Indigenous Data Governance framework; the general gate is not CARE and cannot assess CARE compliance or create Indigenous authority.
+
+**Reason.** Repository access does not supply tacit scientific context, judgment, or permission. The four-part specification makes the work inspectable before action, while the conceptual separation avoids turning FAIR into an authorization framework or appropriating CARE as a generic checklist.
+
+**Implementation.** The author-provided 30 August 2026 Ecology manuscript supersedes the interim compressed rewrite. Editable manuscript, metadata, citations, Table 1, Figure 1, templates, example, website, audits, and CI use the revised architecture. Controls scale with consequence and the minimum laboratory starting point remains one important result plus one important boundary.
+
+**Review boundary.** The Perspective is a design proposal, not a standard, compliance framework, or empirically validated assurance system. Publication and scientific acceptance remain subject to author, editorial, scholarly, and—where applicable—Indigenous authority and review.
+
+**Supersedes.** This decision supersedes the 12 August decision to describe the general questions as a universal CARE-informed entry screen. That earlier decision remains below as historical context.
+
 ## 2026-08-12 — Use CARE-informed questions universally without redefining CARE
 
 **Decision.** Preserve CARE as the Indigenous Data Governance framework created to advance Indigenous rights, interests, and self-determination. Propose four CARE-informed questions—benefit and burdens, legitimate authority, accountability, and harm—as a lightweight entry screen for every scientific workflow, with a fuller specification for consequential work.

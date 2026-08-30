@@ -1,8 +1,51 @@
 {
   "schema_version": 1,
-  "citation_style": "Provisional APA-like author-year style pending journal selection",
-  "maximum_citation_needed": 4,
+  "citation_style": "Ecology author-year style",
+  "maximum_citation_needed": 0,
   "sources": [
+    {
+      "key": "autio2024",
+      "citation": "Autio et al., 2024",
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "year": 2024,
+      "first_author": "Autio",
+      "doi": "10.6028/NIST.AI.600-1",
+      "reference": "- Autio, C., Schwartz, R., Dunietz, J., Jain, S., Stanley, M., Tabassi, E., Hall, P., & Roberts, K. (2024). *Artificial intelligence risk management framework: Generative artificial intelligence profile* (NIST AI 600-1). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.AI.600-1",
+      "claims": [
+        {
+          "paragraph_sha256": "53af472c61855b8d025afdb20716d2e8dd6333631960626a06f85bbc1db8d04f",
+          "alignment_status": "reviewed",
+          "support_summary": "The NIST profile describes governance, measurement, evaluation, and risk-management actions for generative AI. It supports the paragraph's need for structured evidence and authorized risk decisions; the manuscript's three-part evidence typology is the authors' synthesis.",
+          "reviewed_by": "Codex review of the official NIST publication",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "bahim2020",
+      "citation": "Bahim et al., 2020",
+      "title": "The FAIR Data Maturity Model: An Approach to Harmonise FAIR Assessments",
+      "year": 2020,
+      "first_author": "Bahim",
+      "doi": "10.5334/dsj-2020-041",
+      "reference": "- Bahim, C., Casorrán-Amilburu, C., Dekkers, M., Herczog, E., Loozen, N., Repanas, K., Russell, K., & Stall, S. (2020). The FAIR data maturity model: An approach to harmonise FAIR assessments. *Data Science Journal, 19*, 41. https://doi.org/10.5334/dsj-2020-041",
+      "claims": [
+        {
+          "paragraph_sha256": "53af472c61855b8d025afdb20716d2e8dd6333631960626a06f85bbc1db8d04f",
+          "alignment_status": "reviewed",
+          "support_summary": "The paper develops testable FAIR indicators, priorities, and assessment guidance, supporting the distinction between predictable machine checks and broader judgment.",
+          "reviewed_by": "Codex review of the official Data Science Journal article",
+          "reviewed_on": "2026-08-30"
+        },
+        {
+          "paragraph_sha256": "6e3eda62ad3d61823ca7ba5f49f91336bb8f7ce17f2d509306f5ce7a572843b7",
+          "alignment_status": "reviewed",
+          "support_summary": "The FAIR maturity model supports expressing FAIR-aligned properties as assessable indicators, while also noting that FAIR itself does not prescribe one implementation.",
+          "reviewed_by": "Codex review of the official Data Science Journal article",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
     {
       "key": "barker2022",
       "citation": "Barker et al., 2022",
@@ -13,29 +56,29 @@
       "reference": "- Barker, M., Chue Hong, N. P., Katz, D. S., Lamprecht, A.-L., Martinez-Ortiz, C., Psomopoulos, F., Harrow, J., Castro, L. J., Gruenpeter, M., Martinez, P. A., & Honeyman, T. (2022). Introducing the FAIR Principles for research software. *Scientific Data, 9*, 622. https://doi.org/10.1038/s41597-022-01710-x",
       "claims": [
         {
-          "paragraph_sha256": "38e5ef1cdd289f97e2e6d0645450830ca91b13a22b5a74f1f568452f63936168",
+          "paragraph_sha256": "ccbd7e0496cb4a2d0d1921e93d0687b0a2f0afca79ebbcc754d463ddf06ccb37",
           "alignment_status": "reviewed",
-          "support_summary": "The article adapts FAIR to research software and directly supports the paragraph's description of identification, access to software and metadata, qualified references, and documented reuse conditions.",
-          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
-          "reviewed_on": "2026-08-11"
+          "support_summary": "The FAIR4RS article defines identification, access, interoperability, and reuse principles for research software, directly supporting the paragraph's inclusion of software among FAIR research objects.",
+          "reviewed_by": "Codex review of the official Scientific Data article",
+          "reviewed_on": "2026-08-30"
         }
       ]
     },
     {
-      "key": "boettiger2015",
-      "citation": "Boettiger, 2015",
-      "title": "An introduction to Docker for reproducible research",
-      "year": 2015,
-      "first_author": "Boettiger",
-      "doi": "10.1145/2723872.2723882",
-      "reference": "- Boettiger, C. (2015). An introduction to Docker for reproducible research. *ACM SIGOPS Operating Systems Review, 49*(1), 71–79. https://doi.org/10.1145/2723872.2723882",
+      "key": "bridgeford2026",
+      "citation": "Bridgeford et al., 2026",
+      "title": "Twelve quick tips for AI-assisted coding in science",
+      "year": 2026,
+      "first_author": "Bridgeford",
+      "doi": "10.1371/journal.pcbi.1014428",
+      "reference": "- Bridgeford, E. W., Campbell, I. D., Chen, Z., Lin, Z., Ritz, H., Vandekerckhove, J., & Poldrack, R. A. (2026). Twelve quick tips for AI-assisted coding in science. *PLOS Computational Biology, 22*(7), e1014428. https://doi.org/10.1371/journal.pcbi.1014428",
       "claims": [
         {
-          "paragraph_sha256": "85905db96538add468dd5fe4cbde30cffe2a80129ebb50b018a83b92d997aaa4",
+          "paragraph_sha256": "cca3807b75f1c03f3af1298b33c038cf09e571bc1e60b3b0c1f21a2b063a8bd6",
           "alignment_status": "reviewed",
-          "support_summary": "The article explains how containers capture computational environments for portability and reproducibility, supporting the paragraph's established reproducible-computing foundation.",
-          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
-          "reviewed_on": "2026-08-11"
+          "support_summary": "The article recommends explicit context files, testing, validation, human review, and documentation for AI-assisted scientific coding, supporting the proposed orientation page as a useful precedent.",
+          "reviewed_by": "Codex review of the official PLOS article",
+          "reviewed_on": "2026-08-30"
         }
       ]
     },
@@ -49,65 +92,398 @@
       "reference": "- Carroll, S. R., Garba, I., Figueroa-Rodríguez, O. L., Holbrook, J., Lovett, R., Materechera, S., Parsons, M., Raseroka, K., Rodriguez-Lonebear, D., Rowe, R., Sara, R., Walker, J. D., Anderson, J., & Hudson, M. (2020). The CARE Principles for Indigenous Data Governance. *Data Science Journal, 19*, 43. https://doi.org/10.5334/dsj-2020-043",
       "claims": [
         {
-          "paragraph_sha256": "c2e21cf9440b85a7ad004419ac7ae1c6763a5303c2ec01959330bca7c0bb4a87",
+          "paragraph_sha256": "ccbd7e0496cb4a2d0d1921e93d0687b0a2f0afca79ebbcc754d463ddf06ccb37",
           "alignment_status": "reviewed",
-          "support_summary": "The paper documents that CARE was developed specifically through Indigenous Data Sovereignty networks, defines Collective Benefit, Authority to Control, Responsibility, and Ethics as people- and purpose-oriented complements to FAIR, and centers Indigenous rights and self-determination. It supports the original framework's description and purpose. The cited paragraph clearly labels the broader CARE-informed screen as the manuscript authors' normative and contestable proposal, not a claim supported or endorsed by this source.",
-          "reviewed_by": "Codex source review of the original Data Science Journal article and official GIDA materials",
-          "reviewed_on": "2026-08-12"
+          "support_summary": "The original article defines CARE as Collective Benefit, Authority to Control, Responsibility, and Ethics; centers Indigenous rights and self-determination; and presents CARE as complementary to FAIR.",
+          "reviewed_by": "Codex review of the original Data Science Journal article",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "carroll2021",
+      "citation": "Carroll et al., 2021",
+      "title": "Operationalizing the CARE and FAIR Principles for Indigenous data futures",
+      "year": 2021,
+      "first_author": "Carroll",
+      "doi": "10.1038/s41597-021-00892-0",
+      "reference": "- Carroll, S. R., Herczog, E., Hudson, M., Russell, K., & Stall, S. (2021). Operationalizing the CARE and FAIR Principles for Indigenous data futures. *Scientific Data, 8*, 108. https://doi.org/10.1038/s41597-021-00892-0",
+      "claims": [
+        {
+          "paragraph_sha256": "ccbd7e0496cb4a2d0d1921e93d0687b0a2f0afca79ebbcc754d463ddf06ccb37",
+          "alignment_status": "reviewed",
+          "support_summary": "The article treats Indigenous authority and community protocols as necessary to operationalizing CARE with FAIR, supporting the manuscript's statement that a general gate cannot replace Indigenous governance.",
+          "reviewed_by": "Codex review of the official Scientific Data article",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "carroll2022",
+      "citation": "Carroll et al., 2022",
+      "title": "Using Indigenous Standards to Implement the CARE Principles: Setting Expectations through Tribal Research Codes",
+      "year": 2022,
+      "first_author": "Carroll",
+      "doi": "10.3389/fgene.2022.823309",
+      "reference": "- Carroll, S. R., Garba, I., Plevel, R., Small-Rodriguez, D., Hiratsuka, V. Y., Hudson, M., & Garrison, N. A. (2022). Using Indigenous standards to implement the CARE Principles: Setting expectations through tribal research codes. *Frontiers in Genetics, 13*, 823309. https://doi.org/10.3389/fgene.2022.823309",
+      "claims": [
+        {
+          "paragraph_sha256": "ccbd7e0496cb4a2d0d1921e93d0687b0a2f0afca79ebbcc754d463ddf06ccb37",
+          "alignment_status": "reviewed",
+          "support_summary": "The article explains how Native nations' laws, policies, codes, and protocols establish research and data authority, supporting the manuscript's non-substitution statement.",
+          "reviewed_by": "Codex review of the official Frontiers article",
+          "reviewed_on": "2026-08-30"
+        },
+        {
+          "paragraph_sha256": "c6406d72134715717102721b266cac7630ab21f4fe41d714ed96027567ffeb5b",
+          "alignment_status": "reviewed",
+          "support_summary": "The article supports beginning with the relevant Indigenous authority and allowing tribal standards to determine whether and how work proceeds.",
+          "reviewed_by": "Codex review of the official Frontiers article",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "chapman2020",
+      "citation": "Chapman, 2020",
+      "title": "Current Best Practices for Generalizing Sensitive Species Occurrence Data",
+      "year": 2020,
+      "first_author": "Chapman",
+      "doi": "10.15468/doc-5jp4-5g10",
+      "reference": "- Chapman, A. D. (2020). *Current best practices for generalizing sensitive species occurrence data* (Version 4.7). Global Biodiversity Information Facility Secretariat. https://doi.org/10.15468/doc-5jp4-5g10",
+      "claims": [
+        {
+          "paragraph_sha256": "1160a1c1b8f261389bbda165e8858b6c4539fd94349341ee4b1310e864b55210",
+          "alignment_status": "reviewed",
+          "support_summary": "The GBIF guide documents risks from publishing exact sensitive-species localities and methods for restricting or generalizing them.",
+          "reviewed_by": "Codex review of the official GBIF guide",
+          "reviewed_on": "2026-08-30"
+        },
+        {
+          "paragraph_sha256": "1c3481a2515dd033c8a89572a6b874316aae376e6e158b7f473a22a602d573ed",
+          "alignment_status": "reviewed",
+          "support_summary": "The guide directly supports the habitat example's statement that location disclosure can create conservation risks; the extension to tool-using agents is explicitly identified as the authors' inference.",
+          "reviewed_by": "Codex review of the official GBIF guide",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "datacite2026",
+      "citation": "DataCite Metadata Working Group, 2026",
+      "title": "DataCite Metadata Schema Documentation for the Publication and Citation of Research Data and Other Research Outputs",
+      "year": 2026,
+      "first_author": "DataCite Metadata Working Group",
+      "url": "https://datacite-metadata-schema.readthedocs.io/en/4.7/",
+      "page_contains": "DataCite Metadata Schema Documentation for the Publication and Citation of Research Data and Other Research Outputs",
+      "reference": "- DataCite Metadata Working Group. (2026). *DataCite metadata schema documentation for the publication and citation of research data and other research outputs* (Version 4.7). DataCite e.V. https://doi.org/10.14454/qdd3-ps68",
+      "claims": [
+        {
+          "paragraph_sha256": "6e3eda62ad3d61823ca7ba5f49f91336bb8f7ce17f2d509306f5ce7a572843b7",
+          "alignment_status": "reviewed",
+          "support_summary": "The DataCite schema documents identifiers, creators, versions, rights, descriptions, related objects, and other metadata used for discovery, citation, and reuse.",
+          "reviewed_by": "Codex review of the official DataCite 4.7 documentation",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "davidchavez2018",
+      "citation": "David-Chavez & Gavin, 2018",
+      "title": "A global assessment of indigenous community engagement in climate research",
+      "year": 2018,
+      "first_author": "David-Chavez",
+      "doi": "10.1088/1748-9326/aaf300",
+      "reference": "- David-Chavez, D. M., & Gavin, M. C. (2018). A global assessment of Indigenous community engagement in climate research. *Environmental Research Letters, 13*(12), 123005. https://doi.org/10.1088/1748-9326/aaf300",
+      "claims": [
+        {
+          "paragraph_sha256": "1b1ecda68d3aaaf5f0bc9f5ab1741c6c6ad11059f7ca85c478d6153303fdf04c",
+          "alignment_status": "reviewed",
+          "support_summary": "The global assessment examines Indigenous community engagement and provides evidence and guidance for responsible research practice, supporting the need for authorized, resourced participation.",
+          "reviewed_by": "Codex review of the article abstract and Crossref record",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "debenedetti2024",
+      "citation": "Debenedetti et al., 2024",
+      "title": "AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents",
+      "year": 2024,
+      "first_author": "Debenedetti",
+      "doi": "10.52202/079017-2636",
+      "reference": "- Debenedetti, E., Zhang, J., Balunović, M., Beurer-Kellner, L., Fischer, M., & Tramèr, F. (2024). AgentDojo: A dynamic environment to evaluate prompt injection attacks and defenses for LLM agents. In *Advances in Neural Information Processing Systems* (Vol. 37). https://doi.org/10.52202/079017-2636",
+      "claims": [
+        {
+          "paragraph_sha256": "1160a1c1b8f261389bbda165e8858b6c4539fd94349341ee4b1310e864b55210",
+          "alignment_status": "reviewed",
+          "support_summary": "AgentDojo evaluates tool-using agents under prompt-injection attacks and documents unintended tool behavior, supporting the claim that adversarial instructions can produce consequential failures.",
+          "reviewed_by": "Codex review of the official NeurIPS paper record and abstract",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "gebru2021",
+      "citation": "Gebru et al., 2021",
+      "title": "Datasheets for Datasets",
+      "year": 2021,
+      "first_author": "Gebru",
+      "doi": "10.1145/3458723",
+      "reference": "- Gebru, T., Morgenstern, J., Vecchione, B., Vaughan, J. W., Wallach, H., Daumé III, H., & Crawford, K. (2021). Datasheets for datasets. *Communications of the ACM, 64*(12), 86–92. https://doi.org/10.1145/3458723",
+      "claims": [
+        {
+          "paragraph_sha256": "cca3807b75f1c03f3af1298b33c038cf09e571bc1e60b3b0c1f21a2b063a8bd6",
+          "alignment_status": "reviewed",
+          "support_summary": "Datasheets document dataset motivation, composition, collection, recommended uses, and other context for creators and consumers, directly supporting the documentation precedent.",
+          "reviewed_by": "Codex review of the official Microsoft Research/ACM record",
+          "reviewed_on": "2026-08-30"
         }
       ]
     },
     {
       "key": "gentleman2007",
       "citation": "Gentleman & Lang, 2007",
-      "title": "Statistical analyses and reproducible research",
+      "title": "Statistical Analyses and Reproducible Research",
       "year": 2007,
       "first_author": "Gentleman",
       "doi": "10.1198/106186007X178663",
       "reference": "- Gentleman, R., & Lang, D. T. (2007). Statistical analyses and reproducible research. *Journal of Computational and Graphical Statistics, 16*(1), 1–23. https://doi.org/10.1198/106186007X178663",
       "claims": [
         {
-          "paragraph_sha256": "85905db96538add468dd5fe4cbde30cffe2a80129ebb50b018a83b92d997aaa4",
+          "paragraph_sha256": "b3c3b581f77c62651c926571c7d527edd43d50455bc1d8cde68fce0cb741ce4e",
           "alignment_status": "reviewed",
-          "support_summary": "The article describes integrated dynamic documents that connect narrative, code, data, and auxiliary content to regenerate computational results.",
-          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
-          "reviewed_on": "2026-08-11"
+          "support_summary": "The article defines reproducible computational research through integrated code, data, and narrative sufficient to understand and regenerate an analysis.",
+          "reviewed_by": "Codex review carried forward from the verified Draft 1 source audit",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "jennings2023",
+      "citation": "Jennings et al., 2023",
+      "title": "Applying the ‘CARE Principles for Indigenous Data Governance’ to ecology and biodiversity research",
+      "year": 2023,
+      "first_author": "Jennings",
+      "doi": "10.1038/s41559-023-02161-2",
+      "reference": "- Jennings, L., Anderson, T., Martinez, A., Sterling, R., Chavez, D. D., Garba, I., Hudson, M., Garrison, N. A., & Carroll, S. R. (2023). Applying the CARE Principles for Indigenous Data Governance to ecology and biodiversity research. *Nature Ecology & Evolution, 7*, 1547–1551. https://doi.org/10.1038/s41559-023-02161-2",
+      "claims": [
+        {
+          "paragraph_sha256": "ccbd7e0496cb4a2d0d1921e93d0687b0a2f0afca79ebbcc754d463ddf06ccb37",
+          "alignment_status": "reviewed",
+          "support_summary": "The article applies CARE to ecology and biodiversity while centering Indigenous Data Governance, supporting the manuscript's domain-specific non-substitution warning.",
+          "reviewed_by": "Codex review of the official Nature Ecology & Evolution record",
+          "reviewed_on": "2026-08-30"
+        },
+        {
+          "paragraph_sha256": "c6406d72134715717102721b266cac7630ab21f4fe41d714ed96027567ffeb5b",
+          "alignment_status": "reviewed",
+          "support_summary": "The paper supports Indigenous authority and CARE-based decisions about ecological data stewardship and use.",
+          "reviewed_by": "Codex review of the official Nature Ecology & Evolution record",
+          "reviewed_on": "2026-08-30"
+        },
+        {
+          "paragraph_sha256": "1b1ecda68d3aaaf5f0bc9f5ab1741c6c6ad11059f7ca85c478d6153303fdf04c",
+          "alignment_status": "reviewed",
+          "support_summary": "The ecology-focused CARE article supports properly resourced and authorized Indigenous participation rather than imposing unpaid or extractive review burdens.",
+          "reviewed_by": "Codex review of the official Nature Ecology & Evolution record",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "jimenez2024",
+      "citation": "Jimenez et al., 2024",
+      "title": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
+      "year": 2024,
+      "first_author": "Jimenez",
+      "url": "https://openreview.net/forum?id=VTF8yNQM66",
+      "page_contains": "SWE-bench",
+      "reference": "- Jimenez, C. E., Yang, J., Wettig, A., Yao, S., Pei, K., Press, O., & Narasimhan, K. R. (2024). SWE-bench: Can language models resolve real-world GitHub issues? In *Proceedings of the Twelfth International Conference on Learning Representations*. https://openreview.net/forum?id=VTF8yNQM66",
+      "claims": [
+        {
+          "paragraph_sha256": "1160a1c1b8f261389bbda165e8858b6c4539fd94349341ee4b1310e864b55210",
+          "alignment_status": "reviewed",
+          "support_summary": "SWE-bench evaluates language models on 2,294 real repository issues and shows that real coding tasks are challenging, supporting the manuscript's bounded claim about failures on real tasks.",
+          "reviewed_by": "Codex review of the official ICLR/OpenReview paper",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "mitchell2019",
+      "citation": "Mitchell et al., 2019",
+      "title": "Model Cards for Model Reporting",
+      "year": 2019,
+      "first_author": "Mitchell",
+      "doi": "10.1145/3287560.3287596",
+      "reference": "- Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., Spitzer, E., Raji, I. D., & Gebru, T. (2019). Model cards for model reporting. In *Proceedings of the Conference on Fairness, Accountability, and Transparency* (pp. 220–229). Association for Computing Machinery. https://doi.org/10.1145/3287560.3287596",
+      "claims": [
+        {
+          "paragraph_sha256": "cca3807b75f1c03f3af1298b33c038cf09e571bc1e60b3b0c1f21a2b063a8bd6",
+          "alignment_status": "reviewed",
+          "support_summary": "Model cards document intended uses, evaluation, limitations, and context for trained models, supporting the orientation-document precedent.",
+          "reviewed_by": "Codex review of the official ACM record and paper abstract",
+          "reviewed_on": "2026-08-30"
         }
       ]
     },
     {
       "key": "peng2011",
       "citation": "Peng, 2011",
-      "title": "Reproducible research in computational science",
+      "title": "Reproducible Research in Computational Science",
       "year": 2011,
       "first_author": "Peng",
       "doi": "10.1126/science.1213847",
       "reference": "- Peng, R. D. (2011). Reproducible research in computational science. *Science, 334*(6060), 1226–1227. https://doi.org/10.1126/science.1213847",
       "claims": [
         {
-          "paragraph_sha256": "85905db96538add468dd5fe4cbde30cffe2a80129ebb50b018a83b92d997aaa4",
+          "paragraph_sha256": "b3c3b581f77c62651c926571c7d527edd43d50455bc1d8cde68fce0cb741ce4e",
           "alignment_status": "reviewed",
-          "support_summary": "The article presents reproducibility as a minimum standard for evaluating computational scientific claims, supporting the paragraph's reproducible-research foundation.",
-          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
-          "reviewed_on": "2026-08-11"
+          "support_summary": "The article describes reproducibility as a minimum standard for evaluating computational scientific claims, supporting the retrospective reproducibility statement.",
+          "reviewed_by": "Codex review carried forward from the verified Draft 1 source audit",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "ruan2024",
+      "citation": "Ruan et al., 2024",
+      "title": "Identifying the Risks of LM Agents with an LM-Emulated Sandbox",
+      "year": 2024,
+      "first_author": "Ruan",
+      "url": "https://openreview.net/forum?id=GEcwtMk1uA",
+      "page_contains": "Identifying the Risks of LM Agents",
+      "reference": "- Ruan, Y., Dong, H., Wang, A., Pitis, S., Zhou, Y., Ba, J., Dubois, Y., Maddison, C. J., & Hashimoto, T. (2024). Identifying the risks of LM agents with an LM-emulated sandbox. In *Proceedings of the Twelfth International Conference on Learning Representations*. https://openreview.net/forum?id=GEcwtMk1uA",
+      "claims": [
+        {
+          "paragraph_sha256": "1160a1c1b8f261389bbda165e8858b6c4539fd94349341ee4b1310e864b55210",
+          "alignment_status": "reviewed",
+          "support_summary": "The paper's 36 high-stakes toolkits and 144 test cases identify numerous LM-agent failures with potentially severe outcomes, supporting the unintended-action claim.",
+          "reviewed_by": "Codex review of the official ICLR/OpenReview paper",
+          "reviewed_on": "2026-08-30"
         }
       ]
     },
     {
       "key": "sandve2013",
       "citation": "Sandve et al., 2013",
-      "title": "Ten simple rules for reproducible computational research",
+      "title": "Ten Simple Rules for Reproducible Computational Research",
       "year": 2013,
       "first_author": "Sandve",
       "doi": "10.1371/journal.pcbi.1003285",
       "reference": "- Sandve, G. K., Nekrutenko, A., Taylor, J., & Hovig, E. (2013). Ten simple rules for reproducible computational research. *PLOS Computational Biology, 9*(10), e1003285. https://doi.org/10.1371/journal.pcbi.1003285",
       "claims": [
         {
-          "paragraph_sha256": "85905db96538add468dd5fe4cbde30cffe2a80129ebb50b018a83b92d997aaa4",
+          "paragraph_sha256": "b3c3b581f77c62651c926571c7d527edd43d50455bc1d8cde68fce0cb741ce4e",
           "alignment_status": "reviewed",
-          "support_summary": "The article provides practical rules for recording, versioning, testing, and sharing computational work so that analyses and results can be reproduced.",
-          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
-          "reviewed_on": "2026-08-11"
+          "support_summary": "The article provides practices for preserving commands, versions, data, and intermediate results so computational work can be understood and reproduced.",
+          "reviewed_by": "Codex review carried forward from the verified Draft 1 source audit",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "soilandreyes2022",
+      "citation": "Soiland-Reyes et al., 2022",
+      "title": "Packaging research artefacts with RO-Crate",
+      "year": 2022,
+      "first_author": "Soiland-Reyes",
+      "doi": "10.3233/DS-210053",
+      "reference": "- Soiland-Reyes, S., Sefton, P., Crosas, M., Castro, L. J., Coppens, F., Fernández, J. M., Garijo, D., et al. (2022). Packaging research artefacts with RO-Crate. *Data Science, 5*(2), 97–138. https://doi.org/10.3233/DS-210053",
+      "claims": [
+        {
+          "paragraph_sha256": "6e3eda62ad3d61823ca7ba5f49f91336bb8f7ce17f2d509306f5ce7a572843b7",
+          "alignment_status": "reviewed",
+          "support_summary": "RO-Crate is a lightweight method for packaging research artefacts with machine-readable metadata and relationships, supporting explicit object links and provenance.",
+          "reviewed_by": "Codex review of the official article and RO-Crate manuscript",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "tabassi2023",
+      "citation": "Tabassi, 2023",
+      "title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+      "year": 2023,
+      "first_author": "Tabassi",
+      "doi": "10.6028/NIST.AI.100-1",
+      "reference": "- Tabassi, E. (2023). *Artificial intelligence risk management framework (AI RMF 1.0)* (NIST AI 100-1). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.AI.100-1",
+      "claims": [
+        {
+          "paragraph_sha256": "53af472c61855b8d025afdb20716d2e8dd6333631960626a06f85bbc1db8d04f",
+          "alignment_status": "reviewed",
+          "support_summary": "The NIST framework distinguishes governance, mapping, measurement, and management and retains human organizational responsibility for AI risk, supporting the role of authorized review.",
+          "reviewed_by": "Codex review of the official NIST publication",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "taitingfong2024",
+      "citation": "Taitingfong et al., 2024",
+      "title": "Aligning policy and practice to implement CARE with FAIR through Indigenous Peoples’ protocols",
+      "year": 2024,
+      "first_author": "Taitingfong",
+      "doi": "10.1080/08003831.2024.2410112",
+      "reference": "- Taitingfong, R., Martinez, A., Hudson, M., Lovett, R., Maher, B., Prehn, J., Rowe, R. K., Boileau, K., Franks, A., Khan, S., Walker, J. D., & Carroll, S. R. (2024). Aligning policy and practice to implement CARE with FAIR through Indigenous Peoples’ protocols. *Acta Borealia, 41*(2), 80–90. https://doi.org/10.1080/08003831.2024.2410112",
+      "claims": [
+        {
+          "paragraph_sha256": "ccbd7e0496cb4a2d0d1921e93d0687b0a2f0afca79ebbcc754d463ddf06ccb37",
+          "alignment_status": "reviewed",
+          "support_summary": "The article centers Indigenous Peoples' protocols in aligning CARE with FAIR, supporting the manuscript's statement that general governance cannot replace those authorities and protocols.",
+          "reviewed_by": "Codex review of the official Acta Borealia article",
+          "reviewed_on": "2026-08-30"
+        },
+        {
+          "paragraph_sha256": "c6406d72134715717102721b266cac7630ab21f4fe41d714ed96027567ffeb5b",
+          "alignment_status": "reviewed",
+          "support_summary": "The article supports allowing Indigenous protocols to determine workflow design, stewardship, restrictions, or non-use.",
+          "reviewed_by": "Codex review of the official Acta Borealia article",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "tulloch2018",
+      "citation": "Tulloch et al., 2018",
+      "title": "A decision tree for assessing the risks and benefits of publishing biodiversity data",
+      "year": 2018,
+      "first_author": "Tulloch",
+      "doi": "10.1038/s41559-018-0608-1",
+      "reference": "- Tulloch, A. I. T., Auerbach, N., Avery-Gomm, S., Bayraktarov, E., Butt, N., Dickman, C. R., Ehmke, G., et al. (2018). A decision tree for assessing the risks and benefits of publishing biodiversity data. *Nature Ecology & Evolution, 2*(8), 1209–1217. https://doi.org/10.1038/s41559-018-0608-1",
+      "claims": [
+        {
+          "paragraph_sha256": "1160a1c1b8f261389bbda165e8858b6c4539fd94349341ee4b1310e864b55210",
+          "alignment_status": "reviewed",
+          "support_summary": "The article documents risks from publishing species locations, including exploitation and habitat disturbance, while balancing conservation benefits.",
+          "reviewed_by": "Codex review of the official Nature Ecology & Evolution article",
+          "reviewed_on": "2026-08-30"
+        },
+        {
+          "paragraph_sha256": "1c3481a2515dd033c8a89572a6b874316aae376e6e158b7f473a22a602d573ed",
+          "alignment_status": "reviewed",
+          "support_summary": "The article directly supports the claim that disclosure of sensitive-species locations can create conservation risks.",
+          "reviewed_by": "Codex review of the official Nature Ecology & Evolution article",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "wallis2013",
+      "citation": "Wallis et al., 2013",
+      "title": "If We Share Data, Will Anyone Use Them? Data Sharing and Reuse in the Long Tail of Science and Technology",
+      "year": 2013,
+      "first_author": "Wallis",
+      "doi": "10.1371/journal.pone.0067332",
+      "reference": "- Wallis, J. C., Rolando, E., & Borgman, C. L. (2013). If we share data, will anyone use them? Data sharing and reuse in the long tail of science and technology. *PLOS ONE, 8*(7), e67332. https://doi.org/10.1371/journal.pone.0067332",
+      "claims": [
+        {
+          "paragraph_sha256": "9b1837d094c608a2d566ad7c23034d0047e12be5f04f6e3431e8d4174fed93e5",
+          "alignment_status": "reviewed",
+          "support_summary": "The ten-year study finds that long-tail scientific data are often minimally documented, shared interpersonally, and require context and substantial documentation for useful reuse.",
+          "reviewed_by": "Codex review of the official PLOS article",
+          "reviewed_on": "2026-08-30"
         }
       ]
     },
@@ -121,30 +497,18 @@
       "reference": "- Wilkinson, M. D., Dumontier, M., Aalbersberg, I. J., et al. (2016). The FAIR Guiding Principles for scientific data management and stewardship. *Scientific Data, 3*, 160018. https://doi.org/10.1038/sdata.2016.18",
       "claims": [
         {
-          "paragraph_sha256": "c2e21cf9440b85a7ad004419ac7ae1c6763a5303c2ec01959330bca7c0bb4a87",
+          "paragraph_sha256": "ccbd7e0496cb4a2d0d1921e93d0687b0a2f0afca79ebbcc754d463ddf06ccb37",
           "alignment_status": "reviewed",
-          "support_summary": "The FAIR paper makes machine actionability central and defines Findable, Accessible, Interoperable, and Reusable stewardship principles. It supports the cited paragraph's description of FAIR properties and conditions of access and reuse, but it is not used as evidence for scientific correctness or the manuscript's proposed CARE-informed screen.",
-          "reviewed_by": "Codex source review of the verified authoritative record",
-          "reviewed_on": "2026-08-12"
-        }
-      ]
-    },
-    {
-      "key": "w3c2013",
-      "citation": "World Wide Web Consortium, 2013",
-      "title": "PROV-O: The PROV Ontology",
-      "year": 2013,
-      "first_author": "World Wide Web Consortium",
-      "url": "https://www.w3.org/TR/prov-o/",
-      "page_contains": "W3C Recommendation 30 April 2013",
-      "reference": "- World Wide Web Consortium. (2013). *PROV-O: The PROV Ontology. W3C Recommendation 30 April 2013.* https://www.w3.org/TR/prov-o/",
-      "claims": [
+          "support_summary": "The article defines FAIR for digital research objects and emphasizes both human and machine discovery, access, interpretation, and reuse.",
+          "reviewed_by": "Codex review of the official Scientific Data article",
+          "reviewed_on": "2026-08-30"
+        },
         {
-          "paragraph_sha256": "85905db96538add468dd5fe4cbde30cffe2a80129ebb50b018a83b92d997aaa4",
+          "paragraph_sha256": "6e3eda62ad3d61823ca7ba5f49f91336bb8f7ce17f2d509306f5ce7a572843b7",
           "alignment_status": "reviewed",
-          "support_summary": "The W3C Recommendation defines interoperable provenance concepts for entities, activities, agents, and their relationships, directly supporting the paragraph's provenance statement.",
-          "reviewed_by": "Codex v2 claim-alignment review using the verified Draft 1 source audit",
-          "reviewed_on": "2026-08-11"
+          "support_summary": "The FAIR principles specify persistent identification, access protocols, semantics, qualified references, licenses, provenance, and community standards; they explicitly precede implementation choices.",
+          "reviewed_by": "Codex review of the official Scientific Data article",
+          "reviewed_on": "2026-08-30"
         }
       ]
     }

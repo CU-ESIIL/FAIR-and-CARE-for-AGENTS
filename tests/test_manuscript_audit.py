@@ -25,11 +25,11 @@ class ManuscriptAuditTests(unittest.TestCase):
         result = audit(V2_MANUSCRIPT, V2_REGISTRY)
 
         self.assertTrue(result.passed, result.errors)
-        self.assertEqual(result.unique_citations, 8)
-        self.assertEqual(result.references, 8)
-        self.assertEqual(result.claim_reviews, 8)
-        self.assertEqual(result.citation_needed, 4)
-        self.assertEqual(dict(result.section_words)["Abstract"], 239)
+        self.assertEqual(result.unique_citations, 25)
+        self.assertEqual(result.references, 25)
+        self.assertEqual(result.claim_reviews, 33)
+        self.assertEqual(result.citation_needed, 0)
+        self.assertEqual(dict(result.section_words)["Abstract"], 222)
 
     def test_editing_a_cited_paragraph_expires_claim_review(self):
         manuscript = DEFAULT_MANUSCRIPT.read_text(encoding="utf-8")
@@ -58,8 +58,8 @@ class ManuscriptAuditTests(unittest.TestCase):
     def test_editing_a_second_draft_cited_paragraph_expires_claim_review(self):
         manuscript = V2_MANUSCRIPT.read_text(encoding="utf-8")
         manuscript = manuscript.replace(
-            "FAIR makes machine actionability central",
-            "FAIR makes automated reuse central",
+            "FAIR and CARE illuminate different parts of that question",
+            "FAIR and CARE illuminate complementary parts of that question",
             1,
         )
         registry = json.loads(V2_REGISTRY.read_text(encoding="utf-8"))

@@ -3,8 +3,8 @@
   "name": "FAIR + CARE for Agentic Science",
   "version": "0.2.0-draft",
   "status": "working manuscript; not peer reviewed",
-  "scientific_question": "How can FAIR and CARE be designed into environmental science workflows so that people do better science and agents operate within the practices and authorities that make it understandable, reproducible, accountable, and legitimate?",
-  "care_scope": "CARE retains its original and continuing Indigenous Data Governance purpose. The manuscript proposes four CARE-informed questions as a universal workflow entry screen, not as a restatement, certification, or replacement of the full CARE Principles.",
+  "scientific_question": "What context, instructions, evaluations, records, and authority must be made explicit before consequential computer-assisted environmental science begins?",
+  "care_scope": "CARE retains its original and continuing Indigenous Data Governance purpose. The manuscript's separate general governance gate is not CARE, does not assess CARE compliance, and cannot replace the authorities, laws, protocols, or decisions of the relevant Indigenous People.",
   "scope": "A scientific Perspective, its evidence base, its public website, and the executable checks used to evaluate both.",
   "repository": "https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS",
   "website": "https://cu-esiil.github.io/FAIR-and-CARE-for-AGENTS/",
@@ -23,6 +23,11 @@
     "manuscript_source": "manuscript/fair_care_agentic_science_v2.md",
     "manuscript_pdf": "manuscript/fair_care_agentic_science_v2.pdf",
     "citation_review": "manuscript/citation_audit_v2.json",
+    "figure_source": "manuscript/figures/figure1_workflow.py",
+    "figure_svg": "manuscript/figures/figure1_workflow.svg",
+    "workflow_template": "templates/agent-workflow-spec.yml",
+    "synthetic_example": "examples/habitat-assessment/specification.yml",
+    "submission_todo": "manuscript/TODO_BEFORE_SUBMISSION.md",
     "ecology_submission_metadata": "manuscript/ecology_submission.json",
     "ecology_author_guidelines": "docs/ecology-author-guidelines.md",
     "ecology_formatting_pdf": "output/pdf/fair_care_agentic_science_ecology.pdf",
@@ -51,6 +56,6 @@
     "Required scholarly and Indigenous data sovereignty review must be completed before journal submission.",
     "An Ecology Perspective requires an invitation or an accepted proposal to the Editor-in-Chief.",
     "The author must approve authorship, funding, contributions, open-research, and conflict-of-interest declarations.",
-    "A finished Figure 1 and an allowed Word or genuine LaTeX Main Document package are still required."
+    "An allowed Word or genuine LaTeX Main Document package is still required."
   ]
 }

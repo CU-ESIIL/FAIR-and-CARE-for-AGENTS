@@ -2,7 +2,9 @@
 
 Use this template before consequential work: a task that may alter a scientific claim, evaluation, public artifact, governed-data boundary, citation record, or release.
 
-## CARE-informed entry screen
+## Governance and authorization entry screen
+
+This is the repository's general gate, not a CARE assessment. If Indigenous Peoples, data, Knowledges, lands, waters, resources, or rights are implicated, stop and follow the authority and protocols of the relevant Indigenous People.
 
 - Who should benefit, who may bear burdens, and who defined those expectations?
 - Who holds legitimate authority, what is its scope, and is it absent, contested, expiring, or revocable?
@@ -27,7 +29,7 @@ Use this template before consequential work: a task that may alter a scientific 
 - Prohibited actions:
 - Conditions requiring stop or human review:
 
-## Test
+## Evaluation
 
 - Scientific acceptance evidence:
 - Computational acceptance evidence:

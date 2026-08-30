@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="540" height="560.0" preserveAspectRatio="xMinYMin meet" viewBox="0 0 540 560" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="540" height="560.0"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-560)" style="clip-path: url(#clip)">
+		<g transform="">
+			<g transform="">
+				<rect x="66" y="462" width="408" height="76" rx="5" ry="5" style="stroke: rgb(41%,29%,57%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(95%,92%,97%); fill-rule: evenodd;"/>
+				<text x="137.08149999999998" y="517" style="font-family: Helvetica-Bold; font-size: 13px;fill: rgb(8%,8%,8%); stroke:none;" transform="translate(0,1034) scale(1,-1)">PEOPLE SET PURPOSE AND PERMISSION</text>
+				<text x="186.7185" y="498" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,8%,8%); stroke:none;" transform="translate(0,996) scale(1,-1)">Who wants the work, who may approve it,</text>
+				<text x="216.216" y="486" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,8%,8%); stroke:none;" transform="translate(0,972) scale(1,-1)">and what is out of bounds?</text>
+				<rect x="52" y="24" width="436" height="420" style="stroke: rgb(90%,60%,28%); stroke-linecap: butt; stroke-width: 1.7; fill: none; fill-rule: evenodd; stroke-dasharray: 5, 4;"/>
+				<rect x="88" y="424" width="364" height="24" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+				<text x="141.75" y="432" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(90%,60%,28%); stroke:none;" transform="translate(0,864) scale(1,-1)">PERMISSION BOUNDARY: WHAT THE COMPUTER MAY DO</text>
+				<rect x="66" y="332" width="408" height="78" rx="5" ry="5" style="stroke: rgb(20%,47%,65%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(92%,96%,98%); fill-rule: evenodd;"/>
+				<text x="128.06599999999997" y="389" style="font-family: Helvetica-Bold; font-size: 13px;fill: rgb(8%,8%,8%); stroke:none;" transform="translate(0,778) scale(1,-1)">THE REPOSITORY MAKES EVIDENCE CLEAR</text>
+				<text x="201.2175" y="370" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,8%,8%); stroke:none;" transform="translate(0,740) scale(1,-1)">Current data and code - meaning -</text>
+				<text x="202.23000000000002" y="358" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,8%,8%); stroke:none;" transform="translate(0,716) scale(1,-1)">access conditions - rights - history</text>
+				<rect x="66" y="260" width="408" height="46" rx="5" ry="5" style="stroke: rgb(18%,56%,54%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,96%,95%); fill-rule: evenodd;"/>
+				<text x="132.405" y="278" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,8%,8%); stroke:none;" transform="translate(0,556) scale(1,-1)">GOAL  →  INSTRUCTIONS  →  EVALUATION  →  RECORD</text>
+				<rect x="66" y="142" width="408" height="92" rx="5" ry="5" style="stroke: rgb(50%,50%,50%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(95%,95%,95%); fill-rule: evenodd;"/>
+				<text x="145.94099999999997" y="213" style="font-family: Helvetica-Bold; font-size: 13px;fill: rgb(8%,8%,8%); stroke:none;" transform="translate(0,426) scale(1,-1)">PEOPLE + COMPUTERS DO THE WORK</text>
+				<text x="191.961" y="194" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,8%,8%); stroke:none;" transform="translate(0,388) scale(1,-1)">Use the stated evidence, tools, checks,</text>
+				<text x="206.7255" y="182" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,8%,8%); stroke:none;" transform="translate(0,364) scale(1,-1)">permissions, and stopping rules</text>
+				<rect x="66" y="54" width="408" height="62" rx="5" ry="5" style="stroke: rgb(17%,54%,34%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,96%,93%); fill-rule: evenodd;"/>
+				<text x="163.398" y="78" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(8%,8%,8%); stroke:none;" transform="translate(0,156) scale(1,-1)">REVIEW  →  RELEASE OR CORRECT</text>
+			</g>
+		</g>
+	</g>
+</svg>

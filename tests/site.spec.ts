@@ -34,13 +34,13 @@ test('homepage renders its core content and assets without browser errors', asyn
   const response = await page.goto('./');
 
   expect(response?.ok()).toBeTruthy();
-  await expect(page).toHaveTitle(/Designing FAIR and CARE into Agentic Science/);
+  await expect(page).toHaveTitle(/Before agents act/);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
     'FAIR + CARE for Agentic Science',
   );
   await expect(
     page.getByText(
-      'FAIR and CARE help people do better science. CARE-informed questions make governance harder to bypass, and agents need those practices designed into their workflows.',
+      'Giving an agent a repository does not give it the context, judgment, or authority of a collaborator. Specify the work before the computer acts.',
     ),
   ).toBeVisible();
 

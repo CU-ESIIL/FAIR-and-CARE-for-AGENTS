@@ -2,11 +2,11 @@
 
 This repository is the version-controlled working home for a scientific Perspective on designing environmental science projects for the age of agentic AI. It contains the manuscript, its citation-review record, the public project website, and automated checks for both.
 
-The project asks a practical question: **how can FAIR and CARE be designed into scientific workflows so that people do better science and agents strengthen, rather than bypass, the practices that make it understandable, reproducible, accountable, and legitimate?**
+The project asks a practical question: **what must be specified before a person delegates consequential environmental-science work to a computer?**
 
-> FAIR and CARE help people do better science. Agents do not automatically inherit those practices or obligations, so we must design them into the workflow.
+> Giving an agent a repository does not give it the context, judgment, or authority of a collaborator. Specify the work before the computer acts.
 
-CARE retains its original and continuing purpose in Indigenous Data Governance. The manuscript does not redefine it as generic or claim CARE compliance. It proposes four **CARE-informed questions**—about benefit and burdens, legitimate authority, accountability, and harm—as a lightweight entry screen for every workflow, with fuller and context-specific obligations for consequential work.
+FAIR-aligned infrastructure makes research objects and metadata understandable. A separate general governance gate determines what the workflow may do. CARE retains its original and continuing purpose in Indigenous Data Governance; the manuscript does not redefine CARE, use it as a generic gate, or claim CARE compliance.
 
 ## Project at a glance
 
@@ -16,20 +16,20 @@ CARE retains its original and continuing purpose in Indigenous Data Governance. 
 - **Responsible human:** Ty Tuff, repository and manuscript owner
 - **Questions and corrections:** [GitHub issues](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/issues) for non-sensitive reports
 - **Domain:** environmental science, scientific infrastructure, reproducibility, data governance, and agentic AI
-- **Core framework:** `Goal → Instructions → Test → Record`
+- **Core framework:** `Goal → Instructions → Evaluation → Record`
 - **Current manuscript:** [`manuscript/fair_care_agentic_science_v2.md`](manuscript/fair_care_agentic_science_v2.md)
 - **Project website:** <https://cu-esiil.github.io/FAIR-and-CARE-for-AGENTS/>
 - **Repository:** <https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS>
 
 ## What the project contributes
 
-The manuscript develops four connected ideas:
+The manuscript develops five connected ideas:
 
-1. FAIR and CARE improve science for human collaborators by making research objects usable and governance obligations explicit.
-2. Agents cannot be assumed to infer tacit scientific context, preserve provenance, respect authority, or recognize when human or community judgment is required.
-3. Every workflow should receive a CARE-informed screen without treating that screen as a replacement for the full CARE Principles or for legitimate Indigenous, community, or institutional governance.
-4. Agentic workflows must encode FAIR discovery and reuse practices alongside explicit benefit, authority, responsibility, and ethics controls.
-5. **Goal → Instructions → Test → Record** turns those principles into inspectable repository evidence, executable checks, and explicit decision gates.
+1. Repositories rarely contain all of the context, judgment, and authority an experienced collaborator brings.
+2. **Goal → Instructions → Evaluation → Record** should be specified before consequential work begins.
+3. FAIR-aligned infrastructure helps people and machines find and interpret evidence, but FAIR does not authorize an action.
+4. A separate, proportionate governance gate establishes benefit, authority, accountability, relationships, and stopping conditions.
+5. CARE remains an Indigenous Data Governance framework and cannot be replaced or certified by the manuscript's general gate.
 
 The repository also proposes a minimal “FAIR + CARE agent-ready repository” that an ordinary environmental science laboratory could realistically maintain.
 
@@ -46,9 +46,8 @@ project:
   repository: "https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS"
   website: "https://cu-esiil.github.io/FAIR-and-CARE-for-AGENTS/"
   description: >-
-    A scientific Perspective and supporting repository about designing FAIR and
-    CARE-informed governance questions into scientific workflows so people do
-    better environmental science and agents operate within explicit boundaries.
+    A scientific Perspective and supporting repository about specifying
+    consequential computer-assisted environmental-science work before action.
   project_type: "scientific-perspective"
   status: "second-draft"
   version: "0.2.0-draft"
@@ -63,10 +62,10 @@ project:
     - research-infrastructure
     - data-governance
   thesis: >-
-    FAIR and CARE help people do better science. CARE retains its Indigenous Data
-    Governance purpose; four CARE-informed questions provide a universal entry
-    screen without replacing the full principles. Agents do not automatically
-    inherit these practices or authorities, so workflows must encode them.
+    An agent does not inherit project context, scientific judgment, or legitimate
+    authority from repository access. Specify Goal, Instructions, Evaluation, and
+    Record before consequential action; keep FAIR-aligned evidence, a general
+    governance gate, and CARE Indigenous Data Governance conceptually distinct.
 artifacts:
   project_record: "project.json"
   citation_file: "CITATION.cff"
@@ -74,6 +73,11 @@ artifacts:
   current_manuscript: "manuscript/fair_care_agentic_science_v2.md"
   current_manuscript_pdf: "manuscript/fair_care_agentic_science_v2.pdf"
   current_citation_review_registry: "manuscript/citation_audit_v2.json"
+  figure_1_editable_source: "manuscript/figures/figure1_workflow.py"
+  figure_1_generated_svg: "manuscript/figures/figure1_workflow.svg"
+  workflow_specification_template: "templates/agent-workflow-spec.yml"
+  synthetic_example: "examples/habitat-assessment/specification.yml"
+  submission_todo: "manuscript/TODO_BEFORE_SUBMISSION.md"
   ecology_author_guidelines: "docs/ecology-author-guidelines.md"
   ecology_submission_metadata: "manuscript/ecology_submission.json"
   ecology_formatting_pdf: "output/pdf/fair_care_agentic_science_ecology.pdf"
@@ -104,6 +108,8 @@ quality_controls:
   website_tests: "npm run test:site"
   manuscript_tests: "python3 -m unittest discover -s tests -p 'test_*.py'"
   manuscript_audit: "python3 scripts/manuscript_audit.py --check --online"
+  manuscript_quality: "python3 scripts/manuscript_quality_check.py"
+  figure_reproducibility: "python3 scripts/build_figures.py --check"
   ci_triggers:
     - push-to-main
     - pull-request-to-main
@@ -150,14 +156,16 @@ identifiers:
 | `project.json` and `CITATION.cff` | Project identity, ownership, canonical objects, version, citation, and declared blockers | Machine-readable front door |
 | `governance/` | Benefit, permissions, compute/model boundaries, responsibility, harms, disclosure, and incident response | Human and machine-readable governance record |
 | `provenance/` | Run-record schema, template, and consequential-run records | Reconstructable agent and human activity |
-| `templates/agent-task.md` | Goal → Instructions → Test → Record specification | Required planning pattern for consequential work |
+| `templates/agent-task.md` and `templates/agent-workflow-spec.yml` | Goal → Instructions → Evaluation → Record specification | Required planning pattern and copyable machine-readable template |
+| `examples/habitat-assessment/specification.yml` | Synthetic, bounded habitat-map specification | Executable documentation example; contains no real observations |
+| `manuscript/figures/figure1_workflow.py` and `.svg` | Editable Figure 1 source and generated vector | Source plus reproducible derivative |
 | `analysis/`, `data/`, `environment/`, and `results/` | Reproduction command, data status, environment, and output authority | Portable project workflow |
 
 The repository is the source of truth. The website is a rendered view of repository state and should not contain authoritative material that is absent from the repository.
 
 ## Read or edit the manuscript
 
-Open [`manuscript/fair_care_agentic_science_v2.md`](manuscript/fair_care_agentic_science_v2.md) in any Markdown-capable editor. It is the concise current draft. The full first draft remains preserved at [`manuscript/fair_care_agentic_science.md`](manuscript/fair_care_agentic_science.md). Both drafts deliberately retain `[CITATION NEEDED]` markers so unresolved claims remain visible rather than appearing settled.
+Open [`manuscript/fair_care_agentic_science_v2.md`](manuscript/fair_care_agentic_science_v2.md) in any Markdown-capable editor. It is the current author-provided draft transcribed from the 30 August 2026 Ecology proof. The full first draft remains preserved at [`manuscript/fair_care_agentic_science.md`](manuscript/fair_care_agentic_science.md). Draft 2 contains no drafting placeholders; unresolved author decisions are isolated in [`manuscript/TODO_BEFORE_SUBMISSION.md`](manuscript/TODO_BEFORE_SUBMISSION.md).
 
 When a cited passage changes, its recorded review fingerprint becomes invalid. Update the citation registry only after rereading the source and confirming that:
 
@@ -218,6 +226,8 @@ Run the same core checks used by continuous integration:
 mkdocs build --strict
 npm run test:site
 python3 scripts/repository_audit.py
+python3 scripts/build_figures.py --check
+python3 scripts/manuscript_quality_check.py
 python3 -m unittest discover -s tests -p "test_*.py"
 python3 scripts/manuscript_audit.py --check --online
 python3 scripts/manuscript_audit.py \
@@ -236,7 +246,7 @@ The repository audit checks the evidence required by all eight design rules, the
 
 Before changing anything, read [`AGENTS.md`](AGENTS.md). It defines the operating contract for human-assisted and autonomous agents, including small traceable edits, synchronized documentation, citation review, testing, data sovereignty, and prompt logging.
 
-For consequential work, define **Goal → Instructions → Test → Record** using [`templates/agent-task.md`](templates/agent-task.md), consult [`governance/policy.json`](governance/policy.json), and complete a structured record in [`provenance/records/`](provenance/records/). The policy distinguishes actions agents may take, actions requiring human or rights-holder approval, and actions that are prohibited. Unknown actions are prohibited by default.
+For consequential work, define **Goal → Instructions → Evaluation → Record** using [`templates/agent-task.md`](templates/agent-task.md) or [`templates/agent-workflow-spec.yml`](templates/agent-workflow-spec.yml), consult [`governance/policy.json`](governance/policy.json), and complete a structured record in [`provenance/records/`](provenance/records/). The policy distinguishes actions agents may take, actions requiring human or rights-holder approval, and actions that are prohibited. Unknown actions are prohibited by default.
 
 For every user prompt handled in this repository:
 
@@ -256,4 +266,4 @@ Do not silently add external data or assume that accessible material is openly r
 - Repository and manuscript-content licenses have not yet been declared; `CITATION.cff` therefore uses `NOASSERTION`, and third-party logos remain outside any future project license.
 - A versioned archival release and publication DOI have not yet been assigned.
 - The release-readiness audit remains blocked until the responsible human chooses licenses, approves a release and archival identifier, and completes the required scholarly and Indigenous data sovereignty review. These are explicit human decisions, not gaps an agent may silently fill.
-- Ecology-specific blockers are also explicit: a Perspective invitation or accepted proposal, author-approved declarations and funding, a finished Figure 1, final reference copyediting, and an allowed Word or genuine LaTeX submission package.
+- Ecology-specific blockers are also explicit: a Perspective invitation or accepted proposal, author-approved declarations and funding, final reference copyediting, and an allowed Word or genuine LaTeX submission package.

@@ -56,6 +56,10 @@ def main() -> int:
     ecology_pdf_output = output_dir / "fair_care_agentic_science_ecology.pdf"
     manifest_output = output_dir / "reproduction-manifest.json"
 
+    run([sys.executable, "scripts/build_figures.py", "--check"])
+    run([sys.executable, "scripts/manuscript_quality_check.py", "--source", str(SOURCE.relative_to(ROOT))])
+    run([sys.executable, "scripts/build_figures.py"])
+
     audit_command = [
         sys.executable,
         "scripts/manuscript_audit.py",
@@ -97,6 +101,19 @@ def main() -> int:
         if rendered_pdf.stat().st_size < 10_000 or not rendered_pdf.read_bytes().startswith(b"%PDF"):
             raise RuntimeError(f"Rendered manuscript is not a non-empty PDF: {rendered_pdf}")
 
+    run(
+        [
+            sys.executable,
+            "scripts/manuscript_quality_check.py",
+            "--source",
+            str(SOURCE.relative_to(ROOT)),
+            "--pdf",
+            str(pdf_output),
+            "--pdf",
+            str(ecology_pdf_output),
+        ]
+    )
+
     manifest = {
         "schema_version": "1.0",
         "date": date.today().isoformat(),
@@ -116,6 +133,14 @@ def main() -> int:
             str(REGISTRY.relative_to(ROOT)): sha256(REGISTRY),
             "scripts/manuscript_audit.py": sha256(ROOT / "scripts" / "manuscript_audit.py"),
             "scripts/render_manuscript_pdf.py": sha256(ROOT / "scripts" / "render_manuscript_pdf.py"),
+            "scripts/build_figures.py": sha256(ROOT / "scripts" / "build_figures.py"),
+            "scripts/manuscript_quality_check.py": sha256(ROOT / "scripts" / "manuscript_quality_check.py"),
+            "manuscript/figures/figure1_workflow.py": sha256(
+                ROOT / "manuscript" / "figures" / "figure1_workflow.py"
+            ),
+            "manuscript/figures/figure1_workflow.svg": sha256(
+                ROOT / "manuscript" / "figures" / "figure1_workflow.svg"
+            ),
             "manuscript/ecology_submission.json": sha256(ROOT / "manuscript" / "ecology_submission.json"),
             "scripts/render_ecology_manuscript_pdf.py": sha256(
                 ROOT / "scripts" / "render_ecology_manuscript_pdf.py"

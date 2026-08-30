@@ -1,33 +1,32 @@
 ---
 title: Repository implementation
-description: How this repository applies Goal → Instructions → Test → Record and the eight FAIR + CARE design rules to itself.
+description: How this repository applies Goal → Instructions → Evaluation → Record, FAIR-aligned evidence, and a separate governance gate.
 ---
 
 # Repository implementation
 
 This manuscript project is its own first implementation case. The controls below apply to the current public manuscript, documentation, citation metadata, website, and tests. They do not certify FAIR or CARE for a future dataset or create authority over Indigenous, community-governed, personal, restricted, or sensitive ecological information.
 
-## Goal → Instructions → Test → Record
+## Goal → Instructions → Evaluation → Record
 
-Every workflow receives a lightweight screen for benefit and burdens, legitimate authority, accountability, and foreseeable harm. Consequential work begins with [`templates/agent-task.md`](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/templates/agent-task.md). [`AGENTS.md`](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/AGENTS.md) defines canonical sources and action boundaries. Automated and human tests cover scientific claims, computation, provenance, and governance. Structured run records in [`provenance/`](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/tree/main/provenance) preserve the resulting evidence and approval status.
+Consequential work begins with [`templates/agent-task.md`](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/templates/agent-task.md) or the copyable [`agent-workflow-spec.yml`](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/templates/agent-workflow-spec.yml). [`AGENTS.md`](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/AGENTS.md) defines canonical sources and action boundaries. Automated and human evaluation covers scientific claims, computation, provenance, and governance. Structured run records in [`provenance/`](https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/tree/main/provenance) preserve the resulting evidence and approval status.
 
-## Eight rules in practice
+## Three layers in practice
 
-| Rule | Current implementation | Test |
+| Layer | Current implementation | Quick check |
 | --- | --- | --- |
-| Give every project an authoritative front door. | Associated website relating the repository, `project.json`, `CITATION.cff`, version, owner, canonical artifacts, and limitations. | Website crawl plus repository-structure audit. |
-| Give every agent an orientation. | `AGENTS.md`, contribution workflow, task template, canonical commands, stop conditions, and approval gates. | Start without chat context and follow only versioned instructions. |
-| Make scientific products portable. | Markdown, JSON, YAML, Python, TypeScript, editable source, schemas, and model-independent commands. | Build and audit with conventional command-line tools. |
-| Make the project executable elsewhere. | Exact dependency pins and one command that recreates the Draft 2 PDF and audit report with hashes. | Clean CI reproduction using `scripts/reproduce.py`. |
-| State who benefits and who bears burdens. | Named audiences, repository-level outcomes, burdens, contestation route, remedy, and explicit option not to proceed. | Review `governance/BENEFIT.md` against actual outcomes. |
-| Make authority explicit. | Deny-by-default action policy; data classes; approved compute and services; model, logging, transfer, retention, publication, and stop rules. | Use safe negative-policy fixtures for publication, transfer, sensitive logging, citation shortcuts, and unknown actions. |
-| Assign accountable people and institutions. | Ty Tuff is the operational owner; the policy separately gates scientific review, rights-holder authority, and publication or release approval. | Reconstruct a consequential run and distinguish operation, governance, review, and authorization. |
-| Identify harms and test boundaries safely. | Versioned harm register, safe refusal cases, citation mutation tests, manual publication, and incident-response procedure. | Run governance and manuscript adversarial tests without performing a prohibited real-world action. |
+| FAIR-aligned evidence | `project.json`, `CITATION.cff`, canonical files, rich citation metadata, identifiers, versions, access conditions, provenance, and exact environments. | Locate one intended input and trace it to one output. |
+| Agent orientation and execution | `AGENTS.md`, task and workflow templates, the synthetic habitat example, build commands, evaluation scripts, editable Figure 1 source, and run records. | Start clean and reproduce the named output from versioned instructions. |
+| General governance and authorization | A deny-by-default policy, responsible human, benefit and harm records, service/data limits, safe refusal tests, and manual release gates. | Confirm who can authorize, stop, review, release, correct, or withdraw the work. |
+
+CARE is not the third layer. CARE remains an Indigenous Data Governance framework. If Indigenous Peoples, data, Knowledges, lands, waters, resources, or rights enter scope, the general gate does not establish permission; the relevant Indigenous authority and protocols govern whether and how work proceeds.
 
 ## Run the checks
 
 ```bash
 python3 scripts/repository_audit.py
+python3 scripts/build_figures.py --check
+python3 scripts/manuscript_quality_check.py
 python3 -m unittest discover -s tests -p "test_*.py"
 python3 scripts/reproduce.py --output-dir results/reproduction
 python3 -m unittest tests.test_ecology_submission

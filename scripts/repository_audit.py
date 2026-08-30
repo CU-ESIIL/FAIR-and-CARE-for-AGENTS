@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit the repository's executable FAIR + CARE implementation."""
+"""Audit the repository's pre-delegation evidence and operational controls."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 RULE_PATHS = {
-    "F — Give every project an authoritative front door": [
+    "FAIR-aligned evidence — authoritative objects and metadata": [
         "README.md",
         "project.json",
         "CITATION.cff",
@@ -20,17 +20,17 @@ RULE_PATHS = {
         "docs/ecology-author-guidelines.md",
         "mkdocs.yml",
     ],
-    "A — Give every agent an orientation": [
+    "Agent orientation — instructions and specifications": [
         "AGENTS.md",
         "CONTRIBUTING.md",
         "templates/agent-task.md",
     ],
-    "I — Make scientific products portable": [
+    "FAIR-aligned evidence — portable research objects": [
         "manuscript/fair_care_agentic_science_v2.md",
         "manuscript/citation_audit_v2.json",
         "provenance/run-record.schema.json",
     ],
-    "R — Make the project executable elsewhere": [
+    "Agent execution — reproducible outputs": [
         "VERSION",
         "requirements.txt",
         "requirements-pdf.txt",
@@ -40,24 +40,32 @@ RULE_PATHS = {
         "scripts/render_ecology_manuscript_pdf.py",
         "scripts/reproduce.py",
     ],
-    "C — State who benefits and who bears burdens": [
+    "General governance gate — benefit and burden": [
         "governance/BENEFIT.md",
         "project.json",
     ],
-    "A — Make authority explicit": [
+    "General governance gate — authority": [
         "governance/policy.json",
         "data/README.md",
         "SECURITY.md",
     ],
-    "R — Assign accountable people and institutions": [
+    "General governance gate — accountability": [
         "governance/RESPONSIBILITY.md",
         "provenance/README.md",
         "provenance/records/2026-08-11-repository-alignment.json",
     ],
-    "E — Identify harms and test boundaries safely": [
+    "General governance gate — relationships, harms, and safe boundaries": [
         "governance/harm-register.json",
         "governance/INCIDENT_RESPONSE.md",
         "tests/test_repository_policy.py",
+    ],
+    "Pre-delegation artifacts — editable and testable": [
+        "templates/agent-workflow-spec.yml",
+        "examples/habitat-assessment/specification.yml",
+        "manuscript/figures/figure1_workflow.py",
+        "manuscript/figures/figure1_workflow.svg",
+        "scripts/build_figures.py",
+        "scripts/manuscript_quality_check.py",
     ],
 }
 
@@ -173,7 +181,7 @@ def main() -> int:
     if args.release and release_blockers:
         errors.extend(f"release blocker: {blocker}" for blocker in release_blockers)
 
-    print("# FAIR + CARE repository audit")
+    print("# Pre-delegation repository audit")
     for note in notes:
         print(note)
     if release_blockers:

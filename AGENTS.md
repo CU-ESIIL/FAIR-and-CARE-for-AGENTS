@@ -12,16 +12,19 @@
 ## Canonical Project Workflow
 - The current editable manuscript is `manuscript/fair_care_agentic_science_v2.md`; its reading PDF is derived.
 - The Draft 2 citation review is `manuscript/citation_audit_v2.json`.
+- The editable Figure 1 source is `manuscript/figures/figure1_workflow.py`; `manuscript/figures/figure1_workflow.svg` is generated with `python3 scripts/build_figures.py` and must not be edited directly.
+- The reusable specification is `templates/agent-workflow-spec.yml`; its bounded synthetic demonstration is `examples/habitat-assessment/specification.yml`.
+- Keep unresolved author and submission decisions in `manuscript/TODO_BEFORE_SUBMISSION.md`, not in visible manuscript prose or PDFs.
 - The website source is `docs/`; generated site output is not authoritative.
 - The named reproducible output is the Draft 2 PDF plus its manuscript-audit report. Reproduce both with `python3 scripts/reproduce.py --output-dir results/reproduction`.
 - The Ecology formatting requirements are summarized in `docs/ecology-author-guidelines.md`; editable submission metadata are in `manuscript/ecology_submission.json`; the derived formatting proof is `output/pdf/fair_care_agentic_science_ecology.pdf`.
 - Do not describe the Ecology PDF as submission-ready: the journal accepts PDF Main Documents only for genuine LaTeX submissions, and the current proof is generated from Markdown with ReportLab.
 - The eight principle evidence maps live in `docs/principles/` and must reflect actual repository evidence and unresolved human decisions.
 
-## Goal → Instructions → Test → Record
+## Goal → Instructions → Evaluation → Record
 - Before consequential work, complete `templates/agent-task.md` or state the same four elements in an existing version-controlled issue or task record.
 - Consequential work includes scientific claims, citation interpretation, evaluation criteria, public artifacts, releases, governed-data boundaries, and governance controls.
-- Test scientific, computational, provenance, and governance acceptance as applicable. Appropriate refusal or escalation can be a passing governance result.
+- Evaluate scientific, computational, provenance, and governance acceptance as applicable. Appropriate refusal or escalation can be a successful governance result.
 - After consequential work, add or update a run record in `provenance/records/` using `provenance/run-record.schema.json`.
 - A run record marked `pending` documents work but does not authorize publication.
 
@@ -62,6 +65,9 @@
 - PDF renderers must work on clean Linux infrastructure without macOS fonts. Keep the `MANUSCRIPT_FORCE_PORTABLE_FONTS=1` test path working; use and visually inspect the required Times New Roman fonts for the canonical Ecology proof.
 - Add `--online` to the manuscript audit when network access is available so authoritative source records are rechecked.
 - Register every in-text citation and bibliography entry in the citation-audit registry associated with that manuscript draft.
+- Run `python3 scripts/build_figures.py --check` and `python3 scripts/manuscript_quality_check.py` before generating manuscript PDFs.
+- Generate PDFs only from editable source through the documented renderers; never edit a derived PDF directly.
+- Preserve the distinction among FAIR-aligned evidence, the separate general governance and authorization gate, and CARE as an Indigenous Data Governance framework. Never describe the general gate as CARE or as a CARE assessment.
 - Treat claim review as scholarly judgment: read the source, document how it supports the cited paragraph, and update the paragraph fingerprint only after review. Never refresh fingerprints mechanically to silence CI.
 - If tests are deferred, document the gap; do not imply coverage that does not exist.
 

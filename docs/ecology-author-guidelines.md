@@ -54,7 +54,7 @@ The page limit applies to the formatted manuscript, not only the main-text word 
 - Perspective abstract: required and no more than 350 words. It must contain no citations or URLs.
 - Keywords: six to 12, alphabetized and separated by semicolons.
 
-The Ecology-formatted title is 89 characters and the current abstract is 239 words. The eight keywords are alphabetized. FAIR and CARE remain in the title because they are the paper's subject; the journal generally discourages acronyms, so this choice should be confirmed in an editorial proposal.
+The Ecology-formatted title is within the 120-character limit and the current abstract is 222 words. The eight keywords are alphabetized.
 
 ## Open research, AI, and declarations
 
@@ -71,7 +71,7 @@ The author must personally verify the author list, affiliations, Author Contribu
 - Tables must be editable, fit portrait orientation, contain no colors, shading, or graphics, and begin on separate pages after References. Captions go above the table. Table body text may be 10-point Times New Roman and single-spaced.
 - Figure captions belong together after the tables and before figures. Figures use Arabic numbers, each begins on a separate page, and all panels of a figure must fit together.
 - Figures should generally be 300-600 dpi, use colorblind-friendly design, contain 6-10 point text at publication size, and fit within 18 cm by 22 cm. Single-column figures should be about 8.5 cm wide when practical.
-- The current manuscript contains a Figure 1 concept and caption but not the finished Figure 1 artwork. The Ecology PDF therefore remains a formatting proof rather than a complete submission package.
+- Figure 1 is generated from editable vector source in `manuscript/figures/figure1_workflow.py`; its SVG derivative is checked in continuous integration.
 
 ## File-format limitation
 
@@ -88,7 +88,7 @@ Ecology prefers a Word `.doc` or `.docx` main document. It permits a PDF main do
 | --- | --- |
 | Perspective invitation or accepted proposal | **Blocked: author/editor action required.** |
 | Title length and sentence case | Pass; acronym acceptability should be confirmed. |
-| Author, affiliation, and corresponding email | Drafted from public institutional records; author confirmation required. |
+| Author, affiliations, ORCIDs, and corresponding email | Present from the author-provided 30 August 2026 draft; both authors must confirm. |
 | Abstract and keywords | Pass. |
 | Letter, margins, font, spacing, alignment, page and line numbers | Pass in formatting proof. |
 | Required order | Pass in formatting proof. |
@@ -99,7 +99,7 @@ Ecology prefers a Word `.doc` or `.docx` main document. It permits a PDF main do
 | Conflict of Interest Statement | **Blocked: author declaration required.** |
 | Reference style and completeness | Citation audit passes; final Ecology/Chicago copyedit remains. |
 | Table placement and style | Pass. |
-| Finished Figure 1 | **Blocked: figure artwork is not yet present.** |
+| Finished Figure 1 | Present as editable vector source; author approval required. |
 | Allowed Main Document format | **Blocked: create Word or a genuine LaTeX package.** |
 | Licenses and archival release | Blocked in the repository release audit. |
 | External scholarly and Indigenous data sovereignty review | Required before submission by the project's governance policy. |
