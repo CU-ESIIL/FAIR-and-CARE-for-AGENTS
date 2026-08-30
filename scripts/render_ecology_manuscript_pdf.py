@@ -272,12 +272,14 @@ def parse_table(rows: list[str], style_map: dict[str, ParagraphStyle]) -> Table:
     for row_index, row in enumerate(parsed):
         style = style_map["table_header"] if row_index == 0 else style_map["table"]
         data.append([Paragraph(inline(cell), style) for cell in row])
-    widths = [TEXT_WIDTH * 0.13, TEXT_WIDTH * 0.25, TEXT_WIDTH * 0.34, TEXT_WIDTH * 0.28]
+    widths = [TEXT_WIDTH * 0.18, TEXT_WIDTH * 0.25, TEXT_WIDTH * 0.34, TEXT_WIDTH * 0.23]
     table = Table(data, colWidths=widths, repeatRows=1, splitByRow=True, hAlign="LEFT")
     table.setStyle(
         TableStyle(
             [
-                ("GRID", (0, 0), (-1, -1), 0.5, colors.black),
+                ("LINEABOVE", (0, 0), (-1, 0), 0.75, colors.black),
+                ("LINEBELOW", (0, 0), (-1, 0), 0.5, colors.black),
+                ("LINEBELOW", (0, -1), (-1, -1), 0.75, colors.black),
                 ("VALIGN", (0, 0), (-1, -1), "TOP"),
                 ("LEFTPADDING", (0, 0), (-1, -1), 4),
                 ("RIGHTPADDING", (0, 0), (-1, -1), 4),

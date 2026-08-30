@@ -100,6 +100,7 @@ Ecology prefers a Word `.doc` or `.docx` main document. It permits a PDF main do
 | Reference style and completeness | Citation audit passes; final Ecology/Chicago copyedit remains. |
 | Table placement and style | Pass. |
 | Finished Figure 1 | Present as editable vector source; author approval required. |
+| Supporting Information | Present as editable Markdown, a derived PDF, and a nine-source citation audit; author approval and final journal upload checks remain required. |
 | Allowed Main Document format | **Blocked: create Word or a genuine LaTeX package.** |
 | Licenses and archival release | Blocked in the repository release audit. |
 | External scholarly and Indigenous data sovereignty review | Required before submission by the project's governance policy. |

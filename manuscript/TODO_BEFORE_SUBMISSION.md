@@ -30,4 +30,5 @@ This file holds unresolved editorial and author decisions that must not appear a
 - Supply and approve the conflict-of-interest statement.
 - Approve the Open Research statement and AI-assistance disclosure.
 - Approve the title, abstract, keywords, Figure 1, Table 1, and all normative claims.
+- Approve the Supporting Information title, worksheets, example values, Tables S1-S6, and final submission file.
 - Confirm that no consultation, community approval, Indigenous endorsement, or empirical validation is implied where none occurred.

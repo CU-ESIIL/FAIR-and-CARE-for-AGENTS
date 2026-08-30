@@ -12,11 +12,12 @@
 ## Canonical Project Workflow
 - The current editable manuscript is `manuscript/fair_care_agentic_science_v2.md`; its reading PDF is derived.
 - The Draft 2 citation review is `manuscript/citation_audit_v2.json`.
+- The editable Supporting Information is `manuscript/supplementary_information.md`; its citation review is `manuscript/supplement_citation_audit.json`; its derived PDF is `output/pdf/fair_care_agentic_science_supplement.pdf`.
 - The editable Figure 1 source is `manuscript/figures/figure1_workflow.py`; `manuscript/figures/figure1_workflow.svg` is generated with `python3 scripts/build_figures.py` and must not be edited directly.
 - The reusable specification is `templates/agent-workflow-spec.yml`; its bounded synthetic demonstration is `examples/habitat-assessment/specification.yml`.
 - Keep unresolved author and submission decisions in `manuscript/TODO_BEFORE_SUBMISSION.md`, not in visible manuscript prose or PDFs.
 - The website source is `docs/`; generated site output is not authoritative.
-- The named reproducible output is the Draft 2 PDF plus its manuscript-audit report. Reproduce both with `python3 scripts/reproduce.py --output-dir results/reproduction`.
+- The named reproducible outputs are the Draft 2 reading PDF, Ecology formatting proof, Supporting Information PDF, and their audit reports. Reproduce them with `python3 scripts/reproduce.py --output-dir results/reproduction`.
 - The Ecology formatting requirements are summarized in `docs/ecology-author-guidelines.md`; editable submission metadata are in `manuscript/ecology_submission.json`; the derived formatting proof is `output/pdf/fair_care_agentic_science_ecology.pdf`.
 - Do not describe the Ecology PDF as submission-ready: the journal accepts PDF Main Documents only for genuine LaTeX submissions, and the current proof is generated from Markdown with ReportLab.
 - The eight principle evidence maps live in `docs/principles/` and must reflect actual repository evidence and unresolved human decisions.
@@ -61,6 +62,7 @@
 - Run `python3 scripts/repository_audit.py` and `python3 -m unittest discover -s tests -p "test_*.py"` after governance, structure, workflow, or provenance changes.
 - Run `python3 scripts/manuscript_audit.py --check` after manuscript or citation changes.
 - For Draft 2, pass `--manuscript manuscript/fair_care_agentic_science_v2.md --registry manuscript/citation_audit_v2.json` to the manuscript audit.
+- For Supporting Information, pass `--manuscript manuscript/supplementary_information.md --registry manuscript/supplement_citation_audit.json` to the manuscript audit.
 - After changing the Ecology guide, submission metadata, manuscript structure, or renderer, run `python3 scripts/render_ecology_manuscript_pdf.py` and `python3 -m unittest tests.test_ecology_submission` and visually inspect every rendered page.
 - PDF renderers must work on clean Linux infrastructure without macOS fonts. Keep the `MANUSCRIPT_FORCE_PORTABLE_FONTS=1` test path working; use and visually inspect the required Times New Roman fonts for the canonical Ecology proof.
 - Add `--online` to the manuscript audit when network access is available so authoritative source records are rechecked.

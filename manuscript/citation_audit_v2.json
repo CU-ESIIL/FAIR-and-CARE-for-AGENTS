@@ -9,7 +9,8 @@
       "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
       "year": 2024,
       "first_author": "Autio",
-      "doi": "10.6028/NIST.AI.600-1",
+      "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+      "page_contains": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
       "reference": "- Autio, C., Schwartz, R., Dunietz, J., Jain, S., Stanley, M., Tabassi, E., Hall, P., & Roberts, K. (2024). *Artificial intelligence risk management framework: Generative artificial intelligence profile* (NIST AI 600-1). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.AI.600-1",
       "claims": [
         {
@@ -149,7 +150,8 @@
       "title": "Current Best Practices for Generalizing Sensitive Species Occurrence Data",
       "year": 2020,
       "first_author": "Chapman",
-      "doi": "10.15468/doc-5jp4-5g10",
+      "url": "https://docs.gbif.org/sensitive-species-best-practices/master/en/",
+      "page_contains": "Current Best Practices for Generalizing Sensitive Species Occurrence Data",
       "reference": "- Chapman, A. D. (2020). *Current best practices for generalizing sensitive species occurrence data* (Version 4.7). Global Biodiversity Information Facility Secretariat. https://doi.org/10.15468/doc-5jp4-5g10",
       "claims": [
         {
@@ -297,8 +299,8 @@
       "title": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
       "year": 2024,
       "first_author": "Jimenez",
-      "url": "https://openreview.net/forum?id=VTF8yNQM66",
-      "page_contains": "SWE-bench",
+      "url": "https://arxiv.org/abs/2310.06770",
+      "page_contains": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
       "reference": "- Jimenez, C. E., Yang, J., Wettig, A., Yao, S., Pei, K., Press, O., & Narasimhan, K. R. (2024). SWE-bench: Can language models resolve real-world GitHub issues? In *Proceedings of the Twelfth International Conference on Learning Representations*. https://openreview.net/forum?id=VTF8yNQM66",
       "claims": [
         {
@@ -352,8 +354,8 @@
       "title": "Identifying the Risks of LM Agents with an LM-Emulated Sandbox",
       "year": 2024,
       "first_author": "Ruan",
-      "url": "https://openreview.net/forum?id=GEcwtMk1uA",
-      "page_contains": "Identifying the Risks of LM Agents",
+      "url": "https://arxiv.org/abs/2309.15817",
+      "page_contains": "Identifying the Risks of LM Agents with an LM-Emulated Sandbox",
       "reference": "- Ruan, Y., Dong, H., Wang, A., Pitis, S., Zhou, Y., Ba, J., Dubois, Y., Maddison, C. J., & Hashimoto, T. (2024). Identifying the risks of LM agents with an LM-emulated sandbox. In *Proceedings of the Twelfth International Conference on Learning Representations*. https://openreview.net/forum?id=GEcwtMk1uA",
       "claims": [
         {

@@ -20,6 +20,8 @@ from render_manuscript_pdf import PORTABLE_FONT_ENV, selected_font_mode
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "manuscript" / "fair_care_agentic_science_v2.md"
 REGISTRY = ROOT / "manuscript" / "citation_audit_v2.json"
+SUPPLEMENT_SOURCE = ROOT / "manuscript" / "supplementary_information.md"
+SUPPLEMENT_REGISTRY = ROOT / "manuscript" / "supplement_citation_audit.json"
 
 
 def sha256(path: Path) -> str:
@@ -52,8 +54,10 @@ def main() -> int:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     audit_report = output_dir / "manuscript-audit-v2.md"
+    supplement_audit_report = output_dir / "supplement-audit.md"
     pdf_output = output_dir / "fair_care_agentic_science_v2.pdf"
     ecology_pdf_output = output_dir / "fair_care_agentic_science_ecology.pdf"
+    supplement_pdf_output = output_dir / "fair_care_agentic_science_supplement.pdf"
     manifest_output = output_dir / "reproduction-manifest.json"
 
     run([sys.executable, "scripts/build_figures.py", "--check"])
@@ -74,6 +78,21 @@ def main() -> int:
     if args.online:
         audit_command.append("--online")
     run(audit_command)
+
+    supplement_audit_command = [
+        sys.executable,
+        "scripts/manuscript_audit.py",
+        "--manuscript",
+        str(SUPPLEMENT_SOURCE.relative_to(ROOT)),
+        "--registry",
+        str(SUPPLEMENT_REGISTRY.relative_to(ROOT)),
+        "--check",
+        "--markdown-report",
+        str(supplement_audit_report),
+    ]
+    if args.online:
+        supplement_audit_command.append("--online")
+    run(supplement_audit_command)
 
     render_command = [
         sys.executable,
@@ -97,7 +116,18 @@ def main() -> int:
     ]
     run(ecology_render_command)
 
-    for rendered_pdf in (pdf_output, ecology_pdf_output):
+    run(
+        [
+            sys.executable,
+            "scripts/render_manuscript_pdf.py",
+            "--source",
+            str(SUPPLEMENT_SOURCE.relative_to(ROOT)),
+            "--output",
+            str(supplement_pdf_output),
+        ]
+    )
+
+    for rendered_pdf in (pdf_output, ecology_pdf_output, supplement_pdf_output):
         if rendered_pdf.stat().st_size < 10_000 or not rendered_pdf.read_bytes().startswith(b"%PDF"):
             raise RuntimeError(f"Rendered manuscript is not a non-empty PDF: {rendered_pdf}")
 
@@ -117,7 +147,7 @@ def main() -> int:
     manifest = {
         "schema_version": "1.0",
         "date": date.today().isoformat(),
-        "goal": "Reproduce the current second-draft manuscript PDF and citation-audit report.",
+        "goal": "Reproduce the current manuscript, Ecology proof, Supporting Information, and citation-audit reports.",
         "command": " ".join(sys.argv),
         "online_source_verification": args.online,
         "environment": {
@@ -131,6 +161,8 @@ def main() -> int:
         "inputs": {
             str(SOURCE.relative_to(ROOT)): sha256(SOURCE),
             str(REGISTRY.relative_to(ROOT)): sha256(REGISTRY),
+            str(SUPPLEMENT_SOURCE.relative_to(ROOT)): sha256(SUPPLEMENT_SOURCE),
+            str(SUPPLEMENT_REGISTRY.relative_to(ROOT)): sha256(SUPPLEMENT_REGISTRY),
             "scripts/manuscript_audit.py": sha256(ROOT / "scripts" / "manuscript_audit.py"),
             "scripts/render_manuscript_pdf.py": sha256(ROOT / "scripts" / "render_manuscript_pdf.py"),
             "scripts/build_figures.py": sha256(ROOT / "scripts" / "build_figures.py"),
@@ -149,7 +181,9 @@ def main() -> int:
         "outputs": {
             pdf_output.name: sha256(pdf_output),
             ecology_pdf_output.name: sha256(ecology_pdf_output),
+            supplement_pdf_output.name: sha256(supplement_pdf_output),
             audit_report.name: sha256(audit_report),
+            supplement_audit_report.name: sha256(supplement_audit_report),
         },
         "governance": {
             "data_class": "public_repository_content",

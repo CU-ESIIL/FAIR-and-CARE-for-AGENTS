@@ -109,7 +109,12 @@ class RepositoryPolicyTests(unittest.TestCase):
                 (output / "fair_care_agentic_science_ecology.pdf").stat().st_size,
                 10_000,
             )
+            self.assertGreater(
+                (output / "fair_care_agentic_science_supplement.pdf").stat().st_size,
+                10_000,
+            )
             self.assertTrue((output / "manuscript-audit-v2.md").is_file())
+            self.assertTrue((output / "supplement-audit.md").is_file())
             self.assertTrue((output / "reproduction-manifest.json").is_file())
             manifest = json.loads(
                 (output / "reproduction-manifest.json").read_text(encoding="utf-8")

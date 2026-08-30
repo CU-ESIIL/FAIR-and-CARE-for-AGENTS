@@ -4,6 +4,7 @@ This file records material changes to the repository and its public outputs. Dra
 
 ## 0.2.0-draft — 2026-08-11
 
+- Added the author-provided Supporting Information as editable Markdown with six tables, a dedicated nine-source citation audit, a reproducible PDF, repository metadata, documentation, tests, and CI coverage.
 - Integrated the author-provided 30 August 2026 two-author Ecology manuscript as the canonical editable draft, expanded its citation registry to 25 reviewed sources, and synchronized the renderer, Table 1, Figure 1, repository guidance, example, template, and quality checks.
 - Replaced the earlier universal CARE-informed screen with a separate general governance and authorization gate; CARE remains specifically an Indigenous Data Governance framework.
 - Standardized the pre-delegation sequence as Goal → Instructions → Evaluation → Record and added a placeholder-leak check plus reproducible editable vector figure generation to CI.

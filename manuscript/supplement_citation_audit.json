@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "citation_style": "Ecology author-year style",
+  "maximum_citation_needed": 0,
+  "sources": [
+    {
+      "key": "bahim2020",
+      "citation": "Bahim et al., 2020",
+      "title": "The FAIR Data Maturity Model: An Approach to Harmonise FAIR Assessments",
+      "year": 2020,
+      "first_author": "Bahim",
+      "doi": "10.5334/dsj-2020-041",
+      "reference": "- Bahim, C., Casorrán-Amilburu, C., Dekkers, M., Herczog, E., Loozen, N., Repanas, K., Russell, K., & Stall, S. (2020). The FAIR data maturity model: An approach to harmonise FAIR assessments. *Data Science Journal, 19*, 41. https://doi.org/10.5334/dsj-2020-041",
+      "claims": [
+        {
+          "paragraph_sha256": "72d2d9f76e0383c38c3ce050af882491494c626a93d9091f0a0fcb63b6cf66f0",
+          "alignment_status": "reviewed",
+          "support_summary": "The FAIR Data Maturity Model makes FAIR properties assessable and supports the supplement's claim that access conditions, rights, and provenance can be represented as explicit evidence. The statement that FAIR does not grant permission is a boundary drawn by the authors and is consistent with the model's technical scope.",
+          "reviewed_by": "Codex review carried forward from the official Data Science Journal article review for Draft 2",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "carroll2020",
+      "citation": "Carroll et al., 2020",
+      "title": "The CARE Principles for Indigenous Data Governance",
+      "year": 2020,
+      "first_author": "Carroll",
+      "doi": "10.5334/dsj-2020-043",
+      "reference": "- Carroll, S. R., Garba, I., Figueroa-Rodríguez, O. L., Holbrook, J., Lovett, R., Materechera, S., Parsons, M., Raseroka, K., Rodriguez-Lonebear, D., Rowe, R., Sara, R., Walker, J. D., Anderson, J., & Hudson, M. (2020). The CARE Principles for Indigenous Data Governance. *Data Science Journal, 19*, 43. https://doi.org/10.5334/dsj-2020-043",
+      "claims": [
+        {
+          "paragraph_sha256": "221c04b24611415dc2d1fda9e4a33dde0e89a52a8f8d6dd3ef4af20c45a2c095",
+          "alignment_status": "reviewed",
+          "support_summary": "The original CARE article defines CARE as an Indigenous Data Governance framework centered on collective benefit, authority, responsibility, ethics, rights, and self-determination. It supports the supplement's explicit refusal to treat a general worksheet as CARE or as a CARE assessment.",
+          "reviewed_by": "Codex review carried forward from the original Data Science Journal article review for Draft 2",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "carroll2021",
+      "citation": "Carroll et al., 2021",
+      "title": "Operationalizing the CARE and FAIR Principles for Indigenous data futures",
+      "year": 2021,
+      "first_author": "Carroll",
+      "doi": "10.1038/s41597-021-00892-0",
+      "reference": "- Carroll, S. R., Herczog, E., Hudson, M., Russell, K., & Stall, S. (2021). Operationalizing the CARE and FAIR Principles for Indigenous data futures. *Scientific Data, 8*, 108. https://doi.org/10.1038/s41597-021-00892-0",
+      "claims": [
+        {
+          "paragraph_sha256": "221c04b24611415dc2d1fda9e4a33dde0e89a52a8f8d6dd3ef4af20c45a2c095",
+          "alignment_status": "reviewed",
+          "support_summary": "The article treats Indigenous authority and community protocols as necessary to operationalizing CARE with FAIR. It supports the supplement's statement that a general repository template cannot replace the decisions and authority of the relevant Indigenous People.",
+          "reviewed_by": "Codex review carried forward from the official Scientific Data article review for Draft 2",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "carroll2022",
+      "citation": "Carroll et al., 2022",
+      "title": "Using Indigenous Standards to Implement the CARE Principles: Setting Expectations through Tribal Research Codes",
+      "year": 2022,
+      "first_author": "Carroll",
+      "doi": "10.3389/fgene.2022.823309",
+      "reference": "- Carroll, S. R., Garba, I., Plevel, R., Small-Rodriguez, D., Hiratsuka, V. Y., Hudson, M., & Garrison, N. A. (2022). Using Indigenous standards to implement the CARE Principles: Setting expectations through tribal research codes. *Frontiers in Genetics, 13*, 823309. https://doi.org/10.3389/fgene.2022.823309",
+      "claims": [
+        {
+          "paragraph_sha256": "7116c5d268599df792863c197ac577094fceaf9b2f920bf460ebd16ca2e68f59",
+          "alignment_status": "reviewed",
+          "support_summary": "The article explains how Indigenous laws, policies, codes, and protocols establish research and data authority. It supports beginning with the relevant Indigenous People and allowing their standards to determine purpose, stewardship, restrictions, infrastructure, or whether work proceeds.",
+          "reviewed_by": "Codex review carried forward from the official Frontiers article review for Draft 2",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "chapman2020",
+      "citation": "Chapman, 2020",
+      "title": "Current Best Practices for Generalizing Sensitive Species Occurrence Data",
+      "year": 2020,
+      "first_author": "Chapman",
+      "url": "https://docs.gbif.org/sensitive-species-best-practices/master/en/",
+      "page_contains": "Current Best Practices for Generalizing Sensitive Species Occurrence Data",
+      "reference": "- Chapman, A. D. (2020). *Current best practices for generalizing sensitive species occurrence data* (Version 4.7). Global Biodiversity Information Facility Secretariat. https://doi.org/10.15468/doc-5jp4-5g10",
+      "claims": [
+        {
+          "paragraph_sha256": "05e5555fc563cfbb402c54bb0f5c07560c936a8c637dde6856b688d56aff1692",
+          "alignment_status": "reviewed",
+          "support_summary": "The GBIF guide documents risks from publishing precise sensitive-species localities and provides practices for restricting or generalizing them. It directly supports the habitat example's decision to keep occurrence locations within approved infrastructure.",
+          "reviewed_by": "Codex review carried forward from the official GBIF guide review for Draft 2",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "jennings2023",
+      "citation": "Jennings et al., 2023",
+      "title": "Applying the ‘CARE Principles for Indigenous Data Governance’ to ecology and biodiversity research",
+      "year": 2023,
+      "first_author": "Jennings",
+      "doi": "10.1038/s41559-023-02161-2",
+      "reference": "- Jennings, L., Anderson, T., Martinez, A., Sterling, R., Chavez, D. D., Garba, I., Hudson, M., Garrison, N. A., & Carroll, S. R. (2023). Applying the CARE Principles for Indigenous Data Governance to ecology and biodiversity research. *Nature Ecology & Evolution, 7*, 1547-1551. https://doi.org/10.1038/s41559-023-02161-2",
+      "claims": [
+        {
+          "paragraph_sha256": "7116c5d268599df792863c197ac577094fceaf9b2f920bf460ebd16ca2e68f59",
+          "alignment_status": "reviewed",
+          "support_summary": "The ecology-focused CARE article describes Indigenous rights and relationships in biodiversity research and emphasizes Indigenous governance across the data lifecycle. It supports the supplement's direction to begin with the relevant People's authority rather than adding Indigenous data through a generic worksheet.",
+          "reviewed_by": "Codex review carried forward from the official Nature Ecology & Evolution article review for Draft 2",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "taitingfong2024",
+      "citation": "Taitingfong et al., 2024",
+      "title": "Aligning policy and practice to implement CARE with FAIR through Indigenous Peoples’ protocols",
+      "year": 2024,
+      "first_author": "Taitingfong",
+      "doi": "10.1080/08003831.2024.2410112",
+      "reference": "- Taitingfong, R., Martinez, A., Hudson, M., Lovett, R., Maher, B., Prehn, J., Rowe, R. K., Boileau, K., Franks, A., Khan, S., Walker, J. D., & Carroll, S. R. (2024). Aligning policy and practice to implement CARE with FAIR through Indigenous Peoples' protocols. *Acta Borealia, 41*(2), 80-90. https://doi.org/10.1080/08003831.2024.2410112",
+      "claims": [
+        {
+          "paragraph_sha256": "7116c5d268599df792863c197ac577094fceaf9b2f920bf460ebd16ca2e68f59",
+          "alignment_status": "reviewed",
+          "support_summary": "The article centers Indigenous Peoples' protocols in aligning FAIR with CARE and documents that implementation must follow Indigenous governance. It supports the supplement's range of possible outcomes, including community-controlled infrastructure, restrictions, or no use.",
+          "reviewed_by": "Codex review carried forward from the official Acta Borealia article review for Draft 2",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "tulloch2018",
+      "citation": "Tulloch et al., 2018",
+      "title": "A decision tree for assessing the risks and benefits of publishing biodiversity data",
+      "year": 2018,
+      "first_author": "Tulloch",
+      "doi": "10.1038/s41559-018-0608-1",
+      "reference": "- Tulloch, A. I. T., Auerbach, N., Avery-Gomm, S., Bayraktarov, E., Butt, N., Dickman, C. R., Ehmke, G., et al. (2018). A decision tree for assessing the risks and benefits of publishing biodiversity data. *Nature Ecology & Evolution, 2*(8), 1209-1217. https://doi.org/10.1038/s41559-018-0608-1",
+      "claims": [
+        {
+          "paragraph_sha256": "05e5555fc563cfbb402c54bb0f5c07560c936a8c637dde6856b688d56aff1692",
+          "alignment_status": "reviewed",
+          "support_summary": "The article presents a decision process for balancing the benefits of biodiversity-data publication against risks to species and places. It supports the supplement's statement that exact occurrence locations can increase disturbance or exploitation risk.",
+          "reviewed_by": "Codex review carried forward from the official Nature Ecology & Evolution article review for Draft 2",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "key": "wilkinson2016",
+      "citation": "Wilkinson et al., 2016",
+      "title": "The FAIR Guiding Principles for scientific data management and stewardship",
+      "year": 2016,
+      "first_author": "Wilkinson",
+      "doi": "10.1038/sdata.2016.18",
+      "reference": "- Wilkinson, M. D., Dumontier, M., Aalbersberg, I. J. J., et al. (2016). The FAIR Guiding Principles for scientific data management and stewardship. *Scientific Data, 3*, 160018. https://doi.org/10.1038/sdata.2016.18",
+      "claims": [
+        {
+          "paragraph_sha256": "72d2d9f76e0383c38c3ce050af882491494c626a93d9091f0a0fcb63b6cf66f0",
+          "alignment_status": "reviewed",
+          "support_summary": "The FAIR Guiding Principles support persistent identification, metadata, qualified access, interoperability, and provenance for research objects. They support the supplement's description of FAIR-aligned evidence while not supplying authorization for a particular transmission or release.",
+          "reviewed_by": "Codex review carried forward from the official Scientific Data article review for Draft 2",
+          "reviewed_on": "2026-08-30"
+        }
+      ]
+    }
+  ]
+}

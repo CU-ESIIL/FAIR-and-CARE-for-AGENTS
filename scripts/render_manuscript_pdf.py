@@ -357,7 +357,8 @@ class ManuscriptDocTemplate(BaseDocTemplate):
         bookmark = flowable.toc_bookmark
         self.canv.bookmarkPage(bookmark)
         self.canv.addOutlineEntry(text, bookmark, level=level, closed=False)
-        self.notify("TOCEntry", (level, text, self.page, bookmark))
+        if level < getattr(self, "toc_depth", 2):
+            self.notify("TOCEntry", (level, text, self.page, bookmark))
 
 
 def heading_paragraph(text: str, level: int, styles: dict[str, ParagraphStyle], sequence: int) -> Paragraph:
@@ -456,6 +457,12 @@ def markdown_story(lines: list[str], styles: dict[str, ParagraphStyle], width: f
         if line.strip() == "---":
             flush_paragraph()
             story.append(HRFlowable(width="100%", thickness=0.7, color=ACCENT_BLUE, spaceBefore=4, spaceAfter=10))
+            index += 1
+            continue
+
+        if line.strip() == "<!-- PAGEBREAK -->":
+            flush_paragraph()
+            story.append(PageBreak())
             index += 1
             continue
 
@@ -572,16 +579,20 @@ def title_story(
     styles: dict[str, ParagraphStyle],
     source: Path,
 ) -> list:
-    thesis = (
+    default_statement = (
         "An agent does not inherit scientific context, judgment, or legitimate authority merely "
         "by gaining repository access. Specify consequential work before delegation."
     )
+    metadata_values = {label: value for label, value in metadata}
+    artifact = metadata_values.get("Artifact", "Scientific Perspective")
+    cover_statement = metadata_values.get("Cover statement", default_statement)
     display_metadata = [
         (
             label,
             str(source.relative_to(ROOT)) if label == "Canonical source" and value == "This Markdown file" else value,
         )
         for label, value in metadata
+        if label != "Cover statement"
     ]
     status = next((value for label, value in display_metadata if label == "Status"), "Working manuscript")
     meta_rows = [
@@ -609,14 +620,14 @@ def title_story(
     )
     return [
         Spacer(1, 0.9 * inch),
-        Paragraph(f"{inline_markup(status.upper())} | SCIENTIFIC PERSPECTIVE", styles["eyebrow"]),
+        Paragraph(f"{inline_markup(status.upper())} | {inline_markup(artifact.upper())}", styles["eyebrow"]),
         Paragraph(inline_markup(title), styles["title"]),
         HRFlowable(width="34%", thickness=4, color=ACCENT_BLUE, hAlign="LEFT", spaceAfter=18),
-        Paragraph(inline_markup(thesis), styles["thesis"]),
+        Paragraph(inline_markup(cover_statement), styles["thesis"]),
         meta_table,
         Spacer(1, 0.35 * inch),
         Paragraph(
-            "Generated from the canonical, version-controlled Markdown manuscript and editable vector figure source.",
+            "Generated from canonical, version-controlled Markdown source and any referenced editable assets.",
             styles["meta"],
         ),
         PageBreak(),
@@ -628,6 +639,7 @@ def render(source: Path, output: Path) -> None:
     lines = source.read_text(encoding="utf-8").splitlines()
     title, metadata, body_lines = parse_title_and_metadata(lines)
     draft_label = next((value for label, value in metadata if label == "Status"), "Working manuscript")
+    artifact = next((value for label, value in metadata if label == "Artifact"), "Scientific Perspective")
     styles = build_styles()
 
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -648,10 +660,11 @@ def render(source: Path, output: Path) -> None:
         bottomMargin=bottom_margin,
         title=title,
         author="FAIR + CARE for Agentic Science project",
-        subject=f"{draft_label} scientific Perspective on FAIR, CARE, and agentic science",
+        subject=f"{draft_label} {artifact} on FAIR, CARE, and agentic science",
         creator="scripts/render_manuscript_pdf.py",
     )
     doc.draft_label = draft_label
+    doc.toc_depth = 1 if artifact == "Supporting Information" else 2
     first_frame = Frame(left_margin, bottom_margin, frame_width, frame_height, id="first-frame")
     later_frame = Frame(left_margin, bottom_margin, frame_width, frame_height, id="later-frame")
     doc.addPageTemplates(

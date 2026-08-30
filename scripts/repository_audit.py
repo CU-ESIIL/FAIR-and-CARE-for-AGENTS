@@ -28,6 +28,8 @@ RULE_PATHS = {
     "FAIR-aligned evidence — portable research objects": [
         "manuscript/fair_care_agentic_science_v2.md",
         "manuscript/citation_audit_v2.json",
+        "manuscript/supplementary_information.md",
+        "manuscript/supplement_citation_audit.json",
         "provenance/run-record.schema.json",
     ],
     "Agent execution — reproducible outputs": [
@@ -38,6 +40,7 @@ RULE_PATHS = {
         "analysis/README.md",
         "manuscript/ecology_submission.json",
         "scripts/render_ecology_manuscript_pdf.py",
+        "output/pdf/fair_care_agentic_science_supplement.pdf",
         "scripts/reproduce.py",
     ],
     "General governance gate — benefit and burden": [

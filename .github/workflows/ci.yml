@@ -100,14 +100,23 @@ jobs:
           --registry manuscript/citation_audit_v2.json
           --check --online --markdown-report manuscript-audit-v2.md
 
+      - name: Audit Supporting Information and verify sources
+        run: >-
+          python scripts/manuscript_audit.py
+          --manuscript manuscript/supplementary_information.md
+          --registry manuscript/supplement_citation_audit.json
+          --check --online --markdown-report supplement-audit.md
+
       - name: Add manuscript metrics to the job summary
         if: ${{ always() }}
         run: |
-          if [ -f manuscript-audit.md ] && [ -f manuscript-audit-v2.md ]; then
+          if [ -f manuscript-audit.md ] && [ -f manuscript-audit-v2.md ] && [ -f supplement-audit.md ]; then
             echo "# Draft 1" >> "$GITHUB_STEP_SUMMARY"
             cat manuscript-audit.md >> "$GITHUB_STEP_SUMMARY"
             echo "# Draft 2" >> "$GITHUB_STEP_SUMMARY"
             cat manuscript-audit-v2.md >> "$GITHUB_STEP_SUMMARY"
+            echo "# Supporting Information" >> "$GITHUB_STEP_SUMMARY"
+            cat supplement-audit.md >> "$GITHUB_STEP_SUMMARY"
           else
             echo "# Manuscript audit did not run" >> "$GITHUB_STEP_SUMMARY"
           fi
@@ -120,7 +129,9 @@ jobs:
           path: |
             manuscript-audit.md
             manuscript-audit-v2.md
+            supplement-audit.md
             results/reproduction/reproduction-manifest.json
             results/reproduction/fair_care_agentic_science_v2.pdf
             results/reproduction/fair_care_agentic_science_ecology.pdf
+            results/reproduction/fair_care_agentic_science_supplement.pdf
           retention-days: 30

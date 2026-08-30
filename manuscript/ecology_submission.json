@@ -42,5 +42,12 @@
   "author_contributions": "",
   "conflict_of_interest": "",
   "figure_status": "Figure 1 is generated reproducibly from editable vector source",
+  "supporting_information": {
+    "title": "Implementation guide for Before agents act: Design criteria for reliable and governable environmental science",
+    "source": "manuscript/supplementary_information.md",
+    "pdf": "output/pdf/fair_care_agentic_science_supplement.pdf",
+    "citation_review": "manuscript/supplement_citation_audit.json",
+    "status": "author-provided working supplement; not submission-ready"
+  },
   "main_document_format_status": "PDF generated from Markdown with ReportLab; Ecology permits a PDF main document only for LaTeX submissions, so Word or a genuine LaTeX package is still required"
 }

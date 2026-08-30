@@ -73,6 +73,9 @@ artifacts:
   current_manuscript: "manuscript/fair_care_agentic_science_v2.md"
   current_manuscript_pdf: "manuscript/fair_care_agentic_science_v2.pdf"
   current_citation_review_registry: "manuscript/citation_audit_v2.json"
+  supporting_information_source: "manuscript/supplementary_information.md"
+  supporting_information_pdf: "output/pdf/fair_care_agentic_science_supplement.pdf"
+  supporting_information_citation_review: "manuscript/supplement_citation_audit.json"
   figure_1_editable_source: "manuscript/figures/figure1_workflow.py"
   figure_1_generated_svg: "manuscript/figures/figure1_workflow.svg"
   workflow_specification_template: "templates/agent-workflow-spec.yml"
@@ -140,6 +143,9 @@ identifiers:
 | --- | --- | --- |
 | `manuscript/fair_care_agentic_science_v2.md` | Concise, editable second draft | Current manuscript source |
 | `manuscript/fair_care_agentic_science_v2.pdf` | Typeset second draft for reading and review | Derived from the v2 Markdown source |
+| `manuscript/supplementary_information.md` | Editable implementation guide and worksheets | Current Supporting Information source |
+| `output/pdf/fair_care_agentic_science_supplement.pdf` | Typeset Supporting Information | Derived from the supplementary Markdown source |
+| `manuscript/supplement_citation_audit.json` | Nine-source, claim-level review for the Supporting Information | Supplement citation audit record |
 | `manuscript/fair_care_agentic_science.md` | Full first draft | Preserved Draft 1 source |
 | `output/pdf/fair_care_agentic_science.pdf` | Typeset first draft | Derived from the Draft 1 Markdown source |
 | `manuscript/citation_audit_v2.json` and `manuscript/citation_audit.json` | Source metadata and claim-level citation reviews | Audit record for each manuscript draft |
@@ -167,6 +173,8 @@ The repository is the source of truth. The website is a rendered view of reposit
 
 Open [`manuscript/fair_care_agentic_science_v2.md`](manuscript/fair_care_agentic_science_v2.md) in any Markdown-capable editor. It is the current author-provided draft transcribed from the 30 August 2026 Ecology proof. The full first draft remains preserved at [`manuscript/fair_care_agentic_science.md`](manuscript/fair_care_agentic_science.md). Draft 2 contains no drafting placeholders; unresolved author decisions are isolated in [`manuscript/TODO_BEFORE_SUBMISSION.md`](manuscript/TODO_BEFORE_SUBMISSION.md).
 
+The author-provided Supporting Information is maintained separately in editable form at [`manuscript/supplementary_information.md`](manuscript/supplementary_information.md). It contains the minimum-start checklist, reusable worksheet, repository examples, consequence guide, habitat-mapping example, evaluation protocol, governance questions, and clean-start audit. Its PDF and citation registry are derived project artifacts rather than independent sources of truth.
+
 When a cited passage changes, its recorded review fingerprint becomes invalid. Update the citation registry only after rereading the source and confirming that:
 
 - the source exists and its bibliographic metadata are correct;
@@ -183,6 +191,10 @@ pip install -r requirements-pdf.txt
 python3 scripts/render_manuscript_pdf.py \
   --source manuscript/fair_care_agentic_science_v2.md \
   --output manuscript/fair_care_agentic_science_v2.pdf
+
+python3 scripts/render_manuscript_pdf.py \
+  --source manuscript/supplementary_information.md \
+  --output output/pdf/fair_care_agentic_science_supplement.pdf
 ```
 
 Edit the Markdown source, not the PDF, and regenerate after manuscript changes. Omitting the arguments still renders Draft 1 to `output/pdf/fair_care_agentic_science.pdf`.
@@ -233,6 +245,10 @@ python3 scripts/manuscript_audit.py --check --online
 python3 scripts/manuscript_audit.py \
   --manuscript manuscript/fair_care_agentic_science_v2.md \
   --registry manuscript/citation_audit_v2.json \
+  --check --online
+python3 scripts/manuscript_audit.py \
+  --manuscript manuscript/supplementary_information.md \
+  --registry manuscript/supplement_citation_audit.json \
   --check --online
 ```
 

@@ -23,6 +23,7 @@ An agent's ability to read a repository, write code, or generate plausible resul
 
 <div class="project-actions">
   <a class="md-button md-button--primary" href="https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/manuscript/fair_care_agentic_science_v2.md">Read the working manuscript</a>
+  <a class="md-button" href="https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS/blob/main/manuscript/supplementary_information.md">Use the implementation guide</a>
   <a class="md-button" href="https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS">Explore the repository</a>
 </div>
 
@@ -97,7 +98,7 @@ The current manuscript also has a version-controlled [Ecology author-guidelines 
 
 ## What this repository contains
 
-This repository is the editable working home for the Perspective. It includes the manuscript and citation record, project website, operating instructions for agents, machine-readable project and governance records, a reproducible primary-output workflow, provenance templates, negative tests, and a public prompt log.
+This repository is the editable working home for the Perspective and its Supporting Information implementation guide. It includes both editable sources and citation records, the project website, operating instructions for agents, machine-readable project and governance records, a reproducible primary-output workflow, provenance templates, negative tests, and a public prompt log.
 
 !!! note "Current status"
-    The current manuscript is the two-author draft supplied on 30 August 2026. It presents a Perspective and practical design guide, not a standard, FAIR certification, CARE assessment, or validated assurance system. A license, archival release/DOI, and required external scholarly and Indigenous Data Governance reviews remain explicit human release blockers.
+    The current manuscript and Supporting Information are the two-author drafts supplied on 30 August 2026. They present a Perspective and practical design guide, not a standard, FAIR certification, CARE assessment, or validated assurance system. A license, archival release/DOI, and required external scholarly and Indigenous Data Governance reviews remain explicit human release blockers.
